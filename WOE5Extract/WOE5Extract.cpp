@@ -89,6 +89,10 @@ BOOL CWOE5ExtractApp::InitInstance()
 	// such as the name of your company or organization.
 	SetRegistryKey(_T(PROGRAM_REGKEY));
 
+    //
+    //  Necessary To open files directly
+    HRESULT  hRes = CoInitialize(NULL);
+
 #if	0
 	WORD wLanguageID = MAKELANGID(
 		LANG_ENGLISH,		//	USHORT usPrimaryLanguage,  // primary language identifier
