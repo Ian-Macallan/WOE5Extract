@@ -1,0 +1,27 @@
+#pragma once
+
+#ifndef AUTOMATICPRODUCTNAME_H
+#define AUTOMATICPRODUCTNAME_H    1
+
+#ifdef _WIN64
+#ifdef UNICODE
+#define ORIGINAL_FILENAME   L"OutlookExtract (x64 Unicode) (MSVC)\0"
+#define PRODUCT_NAME        L"OutlookExtract - Version 1.3.01.003\r\n(Build 43) - (x64 Unicode) (MSVC)\0"
+#else
+#define ORIGINAL_FILENAME   "OutlookExtract (x64 MBCS) (MSVC)\0"
+#define PRODUCT_NAME        "OutlookExtract - Version 1.3.01.003\r\n(Build 43) - (x64 MBCS) (MSVC)\0"
+#endif
+#elif _WIN32
+#ifdef UNICODE
+#define ORIGINAL_FILENAME   L"OutlookExtract (x86 Unicode) (MSVC)\0"
+#define PRODUCT_NAME        L"OutlookExtract - Version 1.3.01.003\r\n(Build 43) - (x86 Unicode) (MSVC)\0"
+#else
+#define ORIGINAL_FILENAME   "OutlookExtract (x86 MBCS) (MSVC)\0"
+#define PRODUCT_NAME        "OutlookExtract - Version 1.3.01.003\r\n(Build 43) - (x86 MBCS) (MSVC)\0"
+#endif
+#else
+#define ORIGINAL_FILENAME   "OutlookExtract (MSVC)\0"
+#define PRODUCT_NAME        "OutlookExtract - Version 1.3.01.003\r\n(Build 43) - (MSVC)\0"
+#endif
+
+#endif

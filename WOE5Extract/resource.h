@@ -1,0 +1,123 @@
+//{{NO_DEPENDENCIES}}
+// Fichier Include généré de Microsoft Visual C++.
+// Utilisé par WOE5Extract.rc
+//
+#define _USING_V110_SDK71_              1
+#define IDD_ABOUTBOX                    100
+#define IDR_MAINFRAME                   128
+#define IDR_WOE5EXTYPE                  129
+#define IDR_MAINFRAME1                  129
+#define IDD_LOADING                     135
+#define IDD_PROGRESS                    136
+#define IDD_EXTRACTING                  138
+#define IDB_ATTACHEMENT_ICONS16         139
+#define IDB_ATTACHEMENT_ICONS32         140
+#define IDB_SORTORDER_ICONS16           141
+#define IDD_PREFERENCES                 142
+#define IDB_TIMBRE                      143
+#define IDI_ICON1                       144
+#define IDC_PROGRESS1                   1002
+#define IDC_STEP                        1003
+#define IDC_TEXT                        1004
+#define IDC_MAILTO                      1005
+#define IDC_HTTP                        1006
+#define IDC_CANCEL                      1007
+#define IDC_DISKDRIVE                   1008
+#define IDC_DIRECTORY                   1009
+#define IDC_ASSOCIATE                   1010
+#define IDC_DIR_BUTTON                  1011
+#define IDC_DISK_BUTTON                 1012
+#define IDC_MSGFMT_VALUE_1              1013
+#define IDC_MSGFMT_SPIN_1               1014
+#define IDC_MSGFMT_SIZE_1               1015
+#define IDC_MSGFMT_VALUE_2              1016
+#define IDC_MSGFMT_SPIN_2               1017
+#define IDC_MSGFMT_SIZE_2               1018
+#define IDC_MSGFMT_VALUE_3              1019
+#define IDC_MSGFMT_SPIN_3               1020
+#define IDC_MSGFMT_SIZE_3               1021
+#define IDC_MSGFMT_VALUE_4              1022
+#define IDC_MSGFMT_SPIN_4               1023
+#define IDC_MSGFMT_SIZE_4               1024
+#define IDC_MSGFMT_VALUE_5              1025
+#define IDC_MSGFMT_SPIN_5               1026
+#define IDC_MSGFMT_SIZE_5               1027
+#define IDC_MSGFMT_VALUE_6              1028
+#define IDC_MSGFMT_SPIN_6               1029
+#define IDC_MSGFMT_SIZE_6               1030
+#define IDC_MSGFMT_VALUE_7              1031
+#define IDC_MSGFMT_SPIN_7               1032
+#define IDC_MSGFMT_SIZE_7               1033
+#define IDC_MSGFMT_VALUE_8              1034
+#define IDC_MSGFMT_SPIN_8               1035
+#define IDC_MSGFMT_SIZE_8               1036
+#define IDC_MSGFMT_VALUE_9              1037
+#define IDC_MSGFMT_SPIN_9               1038
+#define IDC_MSGFMT_SIZE_9               1039
+#define IDC_EXTENSION                   1040
+#define IDC_ATT_EXTENSION               1041
+#define IDC_ATT_OVER                    1042
+#define IDC_OVER                        1043
+#define IDC_MRU_COUNT                   1044
+#define IDC_MRU_COUNT_SPIN              1045
+#define IDC_INDEX_FILES                 1046
+#define IDC_VERSION_NAME                1049
+#define IDC_VERSION_DATE                1050
+#define ID_EXTRACT_MESSAGE              32771
+#define ID_EXTRACT_ATTACHEMENT          32772
+#define ID_EXTRACT_ALL                  32773
+#define IDM_PREFERENCES                 32774
+#define ID_PREFERENCES                  32775
+#define ID_SELECT_ALL                   32776
+#define ID_UNSELECT_ALL                 32777
+#define ID_EXTRACT_SEL_MSG              32778
+#define ID_EXTRACT_SEL_ATT              32779
+#define ID_EXTRACT_SEL_ALL              32780
+#define ID_EXTRACT_EMAIL                32782
+#define ID_LANGUAGE_FRENCH              32783
+#define ID_LANGUAGE_ENGLISH             32784
+#define IDS_TOOLTIP_TEXT_0001           61447
+#define IDS_TOOLTIP_TEXT_0002           61448
+#define IDS_TOOLTIP_TEXT_0003           61449
+#define IDS_TOOLTIP_TEXT_0004           61450
+#define IDS_TOOLTIP_TEXT_0005           61451
+#define IDS_TOOLTIP_TEXT_0006           61452
+#define IDS_TOOLTIP_TEXT_0007           61453
+#define IDS_TOOLTIP_TEXT_0008           61454
+#define IDS_TOOLTIP_TEXT_0009           61455
+#define IDS_TOOLTIP_TEXT_0010           61456
+#define IDS_TOOLTIP_TEXT_0011           61458
+#define IDS_TOOLTIP_TEXT_0012           61459
+#define IDS_TOOLTIP_TEXT_0013           61460
+#define IDS_TOOLTIP_TEXT_0014           61461
+#define IDS_TOOLTIP_TEXT_0015           61462
+#define IDS_TOOLTIP_TEXT_0016           61463
+#define IDS_TOOLTIP_TEXT_0017           61464
+#define IDS_TOOLTIP_TEXT_0018           61465
+#define IDS_TOOLTIP_TEXT_0019           61466
+#define IDS_TOOLTIP_TEXT_0020           61467
+#define IDS_TOOLTIP_TEXT_0021           61468
+#define IDS_TOOLTIP_TEXT_0022           61469
+#define IDS_TOOLTIP_TEXT_0023           61470
+#define IDS_TOOLTIP_TEXT_0024           61471
+#define IDS_TOOLTIP_TEXT_0025           61482
+#define IDS_TOOLTIP_TEXT_0026           61483
+#define IDS_TOOLTIP_TEXT_0027           61484
+#define IDS_TOOLTIP_TEXT_0028           61485
+#define IDS_TOOLTIP_TEXT_0029           61486
+#define IDS_TOOLTIP_TEXT_0030           61487
+#define IDS_TOOLTIP_TEXT_0031           61488
+#define IDS_TOOLTIP_TEXT_0032           61489
+#define IDS_SETTINGS_0001               61490
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_3D_CONTROLS                     1
+#define _APS_NEXT_RESOURCE_VALUE        145
+#define _APS_NEXT_COMMAND_VALUE         32785
+#define _APS_NEXT_CONTROL_VALUE         1051
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif

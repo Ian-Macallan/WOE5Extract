@@ -1,0 +1,4 @@
+1.3.0.18
+Outlook Express Extraction - Console
+OutlookExpressExtraction-Console (x86) : Tue Apr 23 10:59 1.3.0.18
+OutlookExpressExtraction-Console (x64) : Tue Apr 23 10:59 1.3.0.18

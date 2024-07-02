@@ -1,0 +1,873 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "AutomaticProductName.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Anglais (États-Unis) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_ATTACHEMENT_ICONS16 BITMAP                  "res\\attachem.bmp"
+IDB_ATTACHEMENT_ICONS32 BITMAP                  "res\\bmp00001.bmp"
+IDB_SORTORDER_ICONS16   BITMAP                  "res\\ascendin.bmp"
+IDB_TIMBRE              BITMAP                  "res\\Timbre.bmp"
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "A",            ID_SELECT_ALL,          VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "U",            ID_UNSELECT_ALL,        VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\WOE5Extract.ico"
+IDR_WOE5EXTYPE          ICON                    "res\\WOE5ExtractDoc.ico"
+IDI_ICON1               ICON                    "res\\Icon_5.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE, INACTIVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT, INACTIVE
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW, INACTIVE
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "Pre&ferences",                ID_PREFERENCES
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, INACTIVE
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY, INACTIVE
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_SELECT_ALL
+        MENUITEM "&Unselect All\tCtrl+U",       ID_UNSELECT_ALL
+    END
+    POPUP "E&xtractions"
+    BEGIN
+        MENUITEM "Extract All &Messages",       ID_EXTRACT_MESSAGE
+        MENUITEM "Extract All &Attachments",    ID_EXTRACT_ATTACHEMENT
+        MENUITEM "&Extract All Messages and Attachments", ID_EXTRACT_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "Extract Selected Messages",   ID_EXTRACT_SEL_MSG
+        MENUITEM "Extract Selected Attachments", ID_EXTRACT_SEL_ATT
+        MENUITEM "Extract Selected Messages and Attachments", ID_EXTRACT_SEL_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "Extract E-Mail Address",      ID_EXTRACT_EMAIL
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Language"
+    BEGIN
+        MENUITEM "&French",                     ID_LANGUAGE_FRENCH
+        MENUITEM "&English",                    ID_LANGUAGE_ENGLISH
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Outlook Express Extraction", ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 118
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Outlook Express 5 Extraction"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Windows Outlook Express 5 Extraction Version 1.0.5.4",IDC_VERSION_NAME,39,10,189,15,SS_NOPREFIX
+    LTEXT           "Copyright (C) June 2001",IDC_VERSION_DATE,39,76,189,15
+    DEFPUSHBUTTON   "OK",IDOK,178,97,50,14,WS_GROUP
+    PUSHBUTTON      "mailto:ian.macallan@gmail.com",IDC_MAILTO,39,32,189,15,BS_LEFT | BS_FLAT
+    PUSHBUTTON      "https://www.macallan.org",IDC_HTTP,39,54,189,15,BS_LEFT | BS_FLAT
+END
+
+IDR_MAINFRAME DIALOG 0, 0, 330, 16
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Outlook Express Extraction",IDC_STATIC,12,4,300,8
+END
+
+IDD_LOADING DIALOG 0, 0, 182, 23
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION
+CAPTION "Loading Messages"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Loading messages",IDC_STATIC,7,7,168,8
+END
+
+IDD_PROGRESS DIALOG 0, 0, 318, 58
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION
+CAPTION "Progress"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,44,304,7
+    EDITTEXT        IDC_STEP,7,7,244,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TEXT,7,25,244,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Cancel",IDC_CANCEL,260,25,51,14
+END
+
+IDD_EXTRACTING DIALOG 0, 0, 186, 23
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION
+CAPTION "Extracting"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Extracting messages",IDC_STATIC,7,7,168,9
+END
+
+IDD_PREFERENCES DIALOG 0, 0, 412, 303
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Preferences"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Working Disk Drive",IDC_STATIC,7,7,112,14
+    EDITTEXT        IDC_DISKDRIVE,125,7,132,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_DISK_BUTTON,260,7,23,14
+    DEFPUSHBUTTON   "OK",IDOK,355,7,50,14
+    LTEXT           "Working Directory",IDC_STATIC,7,26,112,14
+    EDITTEXT        IDC_DIRECTORY,125,25,132,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_DIR_BUTTON,260,25,23,14
+    PUSHBUTTON      "Cancel",IDCANCEL,355,25,50,14
+    LTEXT           "Most Recently Used Files Count",IDC_STATIC,7,45,112,14
+    EDITTEXT        IDC_MRU_COUNT,125,45,122,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Associate .dbx files to this program",IDC_ASSOCIATE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,274,49,131,10
+    GROUPBOX        "Message File Name Format",IDC_STATIC,7,62,309,97
+    RTEXT           "Value",IDC_STATIC,18,76,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_1,51,76,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Size",IDC_STATIC,224,76,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_1,253,76,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_1,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,293,76,11,14
+    CTEXT           "Message File Type",IDC_STATIC,319,76,72,14
+    RTEXT           "Value",IDC_STATIC,18,96,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_2,51,96,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Size",IDC_STATIC,224,96,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_2,253,96,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_2,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,293,96,11,14
+    EDITTEXT        IDC_EXTENSION,325,96,63,14,ES_AUTOHSCROLL
+    RTEXT           "Value",IDC_STATIC,18,116,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_3,51,116,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Size",IDC_STATIC,224,116,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_3,253,116,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_3,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,293,116,11,14
+    CONTROL         "Over Write",IDC_OVER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,326,119,63,14
+    RTEXT           "Value",IDC_STATIC,18,136,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_4,51,136,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Size",IDC_STATIC,224,136,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_4,253,136,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_4,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,293,136,11,14
+    GROUPBOX        "Attachement File Name Format",IDC_STATIC,7,162,310,114
+    RTEXT           "Value",IDC_STATIC,19,175,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_5,53,175,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Size",IDC_STATIC,225,175,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_5,255,175,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_5,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,295,175,11,14
+    LTEXT           "Attachment File Type",IDC_STATIC,332,175,73,14
+    RTEXT           "Value",IDC_STATIC,19,194,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_6,53,194,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Size",IDC_STATIC,225,194,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_6,255,194,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_6,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,295,194,11,14
+    EDITTEXT        IDC_ATT_EXTENSION,326,194,65,14,ES_AUTOHSCROLL
+    RTEXT           "Value",IDC_STATIC,19,215,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_7,53,215,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Size",IDC_STATIC,225,215,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_7,255,215,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_7,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,295,215,11,14
+    CONTROL         "Over Write",IDC_ATT_OVER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,334,215,71,14
+    RTEXT           "Value",IDC_STATIC,19,234,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_8,53,234,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Size",IDC_STATIC,225,234,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_8,255,234,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_8,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,295,234,11,14
+    RTEXT           "Value",IDC_STATIC,20,254,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_9,54,254,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Size",IDC_STATIC,226,254,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_9,256,254,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_9,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,296,254,11,14
+    CONTROL         "Spin1",IDC_MRU_COUNT_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,248,45,11,14
+    CONTROL         "Create Index Files",IDC_INDEX_FILES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,285,152,11
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,3,01,003
+ PRODUCTVERSION 1,3,01,003
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x29L
+#else
+ FILEFLAGS 0x28L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "mailto:ian.macallan@gmail.com\0"
+            VALUE "CompanyName", "Macallan (c)\0"
+            VALUE "FileDescription", "WOE5Extract - (MSVC)\0"
+            VALUE "FileVersion", "1.3.01.003\0"
+            VALUE "InternalName", "https://www.macallan.org/\0"
+            VALUE "LegalCopyright", "Copyright (C) Tue Jul 02 11:01, 2024\0"
+            VALUE "LegalTrademarks", "Author: Ian Macallan\0"
+            VALUE "OriginalFilename", ORIGINAL_FILENAME
+            VALUE "PrivateBuild", "164\0"
+            VALUE "ProductName", PRODUCT_NAME
+            VALUE "ProductVersion", "1.3.01.003\0"
+            VALUE "SpecialBuild", "164\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_LOADING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 175
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 15
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+
+    IDD_EXTRACTING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_PREFERENCES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 405
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 296
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "Windows Outlook Express 5 Extraction\n\nWOE5Ex\nWOE5Ex Files (*.dbx)\n.dbx\nWOE5Extract.Document\nWOE5Ex Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "Windows Outlook Express 5 Extraction"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_UNTITLED        "Untitle"
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+    IDS_TOOLTIP_TEXT_0001   "Default extension (type) for Attachment when no type is present"
+    IDS_TOOLTIP_TEXT_0002   "Associate .dbx files with this program or do not"
+    IDS_TOOLTIP_TEXT_0003   "Overwrite Attachement File or create a new file"
+    IDS_TOOLTIP_TEXT_0004   "Browse Directory to select one working directory"
+    IDS_TOOLTIP_TEXT_0005   "Directory for extraction (default is outlook express directory)"
+    IDS_TOOLTIP_TEXT_0006   "Browse Disks to select one working disk"
+    IDS_TOOLTIP_TEXT_0007   "Disk drive for extraction of messages and attachements"
+    IDS_TOOLTIP_TEXT_0008   "Default extension (type) for Message (e.g. .txt, .eml, .nws)"
+    IDS_TOOLTIP_TEXT_0009   "Number of most recently used files to keep (0 to 9)"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EXTRACT_MESSAGE      "Extract Messages"
+    ID_EXTRACT_ATTACHEMENT  "Extract Attachements"
+    ID_EXTRACT_ALL          "Extract Messages and Attachements"
+    IDM_PREFERENCES         "Preferences and Options settings"
+    ID_LANGUAGE_FRENCH      "French Language"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_TEXT_0010   "Size in bytes for the filename of this format"
+    IDS_TOOLTIP_TEXT_0011   "First String that compose the message filename"
+    IDS_TOOLTIP_TEXT_0012   "Second String that compose the message filename"
+    IDS_TOOLTIP_TEXT_0013   "Third String that compose the message filename"
+    IDS_TOOLTIP_TEXT_0014   "Fourth String that compose the message filename"
+    IDS_TOOLTIP_TEXT_0015   "Size in bytes for the attachment of this format"
+    IDS_TOOLTIP_TEXT_0016   "First String that compose the attachment filename"
+    IDS_TOOLTIP_TEXT_0017   "Second String that compose the attachment filename"
+    IDS_TOOLTIP_TEXT_0018   "Third String that compose the attachment filename"
+    IDS_TOOLTIP_TEXT_0019   "Fourth String that compose the attachment filename"
+    IDS_TOOLTIP_TEXT_0020   "Fifth String that compose the attachment filename"
+    IDS_TOOLTIP_TEXT_0021   "Overwrite Message File or create a new file"
+    IDS_TOOLTIP_TEXT_0022   "Create or not an index file associated to the .dbx file"
+    IDS_TOOLTIP_TEXT_0023   "Reserved"
+    IDS_TOOLTIP_TEXT_0024   "Reserved"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_TEXT_0025   "Res 25"
+    IDS_TOOLTIP_TEXT_0026   "Res 26"
+    IDS_TOOLTIP_TEXT_0027   "Res 27"
+    IDS_TOOLTIP_TEXT_0028   "Res 28"
+    IDS_TOOLTIP_TEXT_0029   "Res 29"
+    IDS_TOOLTIP_TEXT_0030   "Res 30"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TOOLTIP_TEXT_0031   "Res 31"
+    IDS_TOOLTIP_TEXT_0032   "Res 32"
+    IDS_SETTINGS_0001       "Settings"
+END
+
+STRINGTABLE
+BEGIN
+    ID_LANGUAGE_ENGLISH     "English Language"
+END
+
+#endif    // Anglais (États-Unis) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Français (France) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&Fichier"
+    BEGIN
+        MENUITEM "&Nouveau\tCtrl+N",            ID_FILE_NEW
+        MENUITEM "&Ouvrir...\tCtrl+O",          ID_FILE_OPEN
+        MENUITEM "Enre&gistrer\tCtrl+S",        ID_FILE_SAVE, INACTIVE
+        MENUITEM "En&registrer &Sous...",       ID_FILE_SAVE_AS, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Imprimer...\tCtrl+P",        ID_FILE_PRINT, INACTIVE
+        MENUITEM "Prévisualisation",            ID_FILE_PRINT_PREVIEW, INACTIVE
+        MENUITEM "Mise en Page...",             ID_FILE_PRINT_SETUP, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "Pré&ferences",                ID_PREFERENCES
+        MENUITEM SEPARATOR
+        MENUITEM "Fichiers Récents",            ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Quitter",                    ID_APP_EXIT
+    END
+    POPUP "&Edition"
+    BEGIN
+        MENUITEM "&Annuler\tCtrl+Z",            ID_EDIT_UNDO, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "Couper\tCtrl+X",              ID_EDIT_CUT, INACTIVE
+        MENUITEM "Copier\tCtrl+C",              ID_EDIT_COPY, INACTIVE
+        MENUITEM "Coller\tCtrl+V",              ID_EDIT_PASTE, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "Selectionner &Tout\tCtrl+A",  ID_SELECT_ALL
+        MENUITEM "&Déselectionner Tout\tCtrl+U", ID_UNSELECT_ALL
+    END
+    POPUP "E&xtractions"
+    BEGIN
+        MENUITEM "Extraire Tous les &Messages", ID_EXTRACT_MESSAGE
+        MENUITEM "Extraire Toutes les Pièces Jointes", ID_EXTRACT_ATTACHEMENT
+        MENUITEM "Extraire Tous les Messages et les Pièces Jointes", ID_EXTRACT_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "Extraire Les Messages Selectionnés", ID_EXTRACT_SEL_MSG
+        MENUITEM "Extraire Les Pièces Jointes des Messages Selectionnés", ID_EXTRACT_SEL_ATT
+        MENUITEM "Extraire Les Messages et Pièces Jointes des Messages Selectionnés", ID_EXTRACT_SEL_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "Extraire les Adresses de Messagerie", ID_EXTRACT_EMAIL
+    END
+    POPUP "&Langue"
+    BEGIN
+        MENUITEM "&Française",                  ID_LANGUAGE_FRENCH
+        MENUITEM "&Anglaise",                   ID_LANGUAGE_ENGLISH
+    END
+    POPUP "&Affichage"
+    BEGIN
+        MENUITEM "Barre d'&Outil",              ID_VIEW_TOOLBAR
+        MENUITEM "Barre d'&Etat",               ID_VIEW_STATUS_BAR
+    END
+    POPUP "&?"
+    BEGIN
+        MENUITEM "&A Propos de Outlook Express Extraction", ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EXTRACTING DIALOGEX 0, 0, 186, 23
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION
+CAPTION "Extracting"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Extraction des Messages",IDC_STATIC,7,7,168,9
+END
+
+IDD_LOADING DIALOGEX 0, 0, 182, 23
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION
+CAPTION "Loading Messages"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Chargement des Messages",IDC_STATIC,7,7,168,8
+END
+
+IDD_PREFERENCES DIALOGEX 0, 0, 412, 303
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Préférences"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Disque de Travail",IDC_STATIC,7,7,112,14
+    EDITTEXT        IDC_DISKDRIVE,125,7,132,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_DISK_BUTTON,260,7,23,14
+    DEFPUSHBUTTON   "OK",IDOK,355,7,50,14
+    LTEXT           "Répertoire de Travail",IDC_STATIC,7,26,112,14
+    EDITTEXT        IDC_DIRECTORY,125,25,132,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_DIR_BUTTON,260,25,23,14
+    PUSHBUTTON      "Annuler",IDCANCEL,355,25,50,14
+    LTEXT           "Nombre de Fichiers Récents",IDC_STATIC,7,45,112,14
+    EDITTEXT        IDC_MRU_COUNT,125,45,122,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Associer les fichiers .dbx au programme",IDC_ASSOCIATE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,266,49,139,10
+    GROUPBOX        "Format des noms de fichiers messages extraits",IDC_STATIC,7,62,309,97
+    RTEXT           "Valeur",IDC_STATIC,18,76,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_1,51,76,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Taille",IDC_STATIC,224,76,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_1,253,76,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_1,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,293,76,11,14
+    CTEXT           "Type des fichiers messages extraits",IDC_STATIC,324,70,72,20
+    RTEXT           "Valeur",IDC_STATIC,18,96,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_2,51,96,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Taille",IDC_STATIC,224,96,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_2,253,96,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_2,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,293,96,11,14
+    EDITTEXT        IDC_EXTENSION,325,96,63,14,ES_AUTOHSCROLL
+    RTEXT           "Valeur",IDC_STATIC,18,116,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_3,51,116,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Taille",IDC_STATIC,224,116,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_3,253,116,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_3,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,293,116,11,14
+    CONTROL         "Remplacer si Existant",IDC_OVER,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,326,119,63,22
+    RTEXT           "Valeur",IDC_STATIC,18,136,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_4,51,136,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Taille",IDC_STATIC,224,136,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_4,253,136,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_4,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,293,136,11,14
+    GROUPBOX        "Format des noms de fichiers joints extraits",IDC_STATIC,7,162,310,114
+    RTEXT           "Valeur",IDC_STATIC,19,175,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_5,53,175,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Taille",IDC_STATIC,225,175,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_5,255,175,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_5,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,295,175,11,14
+    LTEXT           "Type des fichiers joints extraits par défaut",IDC_STATIC,325,166,73,19
+    RTEXT           "Valeur",IDC_STATIC,19,194,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_6,53,194,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Taille",IDC_STATIC,225,194,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_6,255,194,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_6,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,295,194,11,14
+    EDITTEXT        IDC_ATT_EXTENSION,326,194,65,14,ES_AUTOHSCROLL
+    RTEXT           "Valeur",IDC_STATIC,19,215,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_7,53,215,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Taille",IDC_STATIC,225,215,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_7,255,215,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_7,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,295,215,11,14
+    CONTROL         "Remplacer si Existant",IDC_ATT_OVER,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,334,215,71,17
+    RTEXT           "Valeur",IDC_STATIC,19,234,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_8,53,234,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Taille",IDC_STATIC,225,234,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_8,255,234,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_8,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,295,234,11,14
+    RTEXT           "Valeur",IDC_STATIC,20,254,28,14
+    COMBOBOX        IDC_MSGFMT_VALUE_9,54,254,166,58,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Taille",IDC_STATIC,226,254,28,14
+    EDITTEXT        IDC_MSGFMT_SIZE_9,256,254,38,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Spin1",IDC_MSGFMT_SPIN_9,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,296,254,11,14
+    CONTROL         "Spin1",IDC_MRU_COUNT_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,248,45,11,14
+    CONTROL         "Créer des Fichiers d'Index pour les fichiers messages",IDC_INDEX_FILES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,285,201,11
+END
+
+IDD_PROGRESS DIALOG 0, 0, 318, 58
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION
+CAPTION "Progress"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,7,44,304,7
+    EDITTEXT        IDC_STEP,7,7,244,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TEXT,7,25,244,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Cancel",IDC_CANCEL,260,25,51,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_EXTRACTING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_LOADING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 175
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 15
+    END
+
+    IDD_PREFERENCES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 405
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 296
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\WOE5Extract.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    ID_LANGUAGE_FRENCH      "Langue Française"
+END
+
+STRINGTABLE
+BEGIN
+    ID_LANGUAGE_ENGLISH     "Langue Anglaise"
+END
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "Windows Outlook Express 5 Extraction\n\nWOE5Ex\nWOE5Ex Files (*.dbx)\n.dbx\nWOE5Extract.Document\nWOE5Ex Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_UNTITLED        "Sans Titre"
+END
+
+#endif    // Français (France) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\WOE5Extract.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
