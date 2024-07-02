@@ -343,7 +343,7 @@ int CompareStringU ( unsigned char *pOne, unsigned char *pTwo )
 ///////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////
-int CompareString ( char *pOne, char *pTwo )
+int CompareStringB ( char *pOne, char *pTwo )
 {
 
 	return CompareStringU ( ( unsigned char * ) pOne, ( unsigned char * ) pTwo );

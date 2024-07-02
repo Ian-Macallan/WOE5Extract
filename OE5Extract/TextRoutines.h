@@ -23,7 +23,7 @@ extern bool CapitalizeFullName ( char *pString );
 extern bool LowerName ( char *pString );
 extern bool UpperName ( char *pString );
 extern int	CompareStringU ( unsigned char *pOne, unsigned char *pTwo );
-extern int CompareString ( char *pOne, char *pTwo );
+extern int CompareStringB ( char *pOne, char *pTwo );
 extern int CompareNStringU ( unsigned char *pOne, unsigned char *pTwo, size_t iLen );
 extern int CompareNString ( char *pOne, char *pTwo, size_t iLen );
 extern char *SearchString ( char *pString, char *pSearched );

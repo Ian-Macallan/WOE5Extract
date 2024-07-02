@@ -160,68 +160,68 @@ void GetArguments ( int nArgs, char *pArgs [] )
 	for ( iX = 1; iX < nArgs; iX++ )
 	{
 
-		if ( CompareString ( pArgs [ iX ], "-t" ) == 0 || CompareString ( pArgs [ iX ], "-trace" ) == 0 )
+		if ( CompareStringB ( pArgs [ iX ], "-t" ) == 0 || CompareStringB ( pArgs [ iX ], "-trace" ) == 0 )
 		{
 				SetBoolTrace ( true );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-v" ) == 0 || CompareString ( pArgs [ iX ], "-verbose" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-v" ) == 0 || CompareStringB ( pArgs [ iX ], "-verbose" ) == 0 )
 		{
 			SetBoolVerbose ( true );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-rn" ) == 0 || CompareString ( pArgs [ iX ], "-removenumbers" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-rn" ) == 0 || CompareStringB ( pArgs [ iX ], "-removenumbers" ) == 0 )
 		{
 			SetBoolRemoveNumbers ( true );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-ro" ) == 0 || CompareString ( pArgs [ iX ], "-removeother" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-ro" ) == 0 || CompareStringB ( pArgs [ iX ], "-removeother" ) == 0 )
 		{
 			SetBoolRemoveOther ( true ); 
 		}
-		else if ( CompareString ( pArgs [ iX ], "-c" ) == 0 || CompareString ( pArgs [ iX ], "-collapse" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-c" ) == 0 || CompareStringB ( pArgs [ iX ], "-collapse" ) == 0 )
 		{
 			SetBoolCollapse ( true );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-k" ) == 0 || CompareString ( pArgs [ iX ], "-keep" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-k" ) == 0 || CompareStringB ( pArgs [ iX ], "-keep" ) == 0 )
 		{
 			SetBoolKeep ( true );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-o" ) == 0 || CompareString ( pArgs [ iX ], "-onlymessages" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-o" ) == 0 || CompareStringB ( pArgs [ iX ], "-onlymessages" ) == 0 )
 		{
 			SetBoolOnlyMessages ( true );
 			SetBoolKeep ( true );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-a" ) == 0 || CompareString ( pArgs [ iX ], "-alternameonly" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-a" ) == 0 || CompareStringB ( pArgs [ iX ], "-alternameonly" ) == 0 )
 		{
 			bAlterNameOnly	= true;
 		}
-		else if ( CompareString ( pArgs [ iX ], "-l" ) == 0 || CompareString ( pArgs [ iX ], "-leave" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-l" ) == 0 || CompareStringB ( pArgs [ iX ], "-leave" ) == 0 )
 		{
 			SetBoolLeave ( true );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-n" ) == 0  || CompareString ( pArgs [ iX ], "-name" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-n" ) == 0  || CompareStringB ( pArgs [ iX ], "-name" ) == 0 )
 		{
 			SetBoolName	( true );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-s" ) == 0  || CompareString ( pArgs [ iX ], "-subject" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-s" ) == 0  || CompareStringB ( pArgs [ iX ], "-subject" ) == 0 )
 		{
 			SetBoolSubject ( true );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-h" ) == 0  || CompareString ( pArgs [ iX ], "-help" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-h" ) == 0  || CompareStringB ( pArgs [ iX ], "-help" ) == 0 )
 		{
 			DisplayUsageAndExit ( pArgs [ 0 ] );
 		}
-		else if ( CompareString ( pArgs [ iX ], "-rtd" ) == 0  || CompareString ( pArgs [ iX ], "-removetrailingdirectory" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-rtd" ) == 0  || CompareStringB ( pArgs [ iX ], "-removetrailingdirectory" ) == 0 )
 		{
 			bRemoveTrailingDirectory = true;
 		}
-		else if ( CompareString ( pArgs [ iX ], "-rld" ) == 0  || CompareString ( pArgs [ iX ], "-removeleadingdirectory" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-rld" ) == 0  || CompareStringB ( pArgs [ iX ], "-removeleadingdirectory" ) == 0 )
 		{
 			bRemoveLeadingDirectory = true;
 		}
-		else if ( CompareString ( pArgs [ iX ], "-rtn" ) == 0  || CompareString ( pArgs [ iX ], "-removetrailingnumbers" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-rtn" ) == 0  || CompareStringB ( pArgs [ iX ], "-removetrailingnumbers" ) == 0 )
 		{
 			bRemoveTrailingNumbers = true;
 		}
-		else if ( CompareString ( pArgs [ iX ], "-rs" ) == 0 || CompareString ( pArgs [ iX ], "-removestring" ) == 0  )
+		else if ( CompareStringB ( pArgs [ iX ], "-rs" ) == 0 || CompareStringB ( pArgs [ iX ], "-removestring" ) == 0  )
 		{
 			iX++;
 			if ( iX < nArgs )
@@ -233,7 +233,7 @@ void GetArguments ( int nArgs, char *pArgs [] )
 				DisplayUsageAndExit ( pArgs [ 0 ] );
 			}
 		}
-		else if ( CompareString ( pArgs [ iX ], "-d" ) == 0 || CompareString ( pArgs [ iX ], "-disk" ) == 0  )
+		else if ( CompareStringB ( pArgs [ iX ], "-d" ) == 0 || CompareStringB ( pArgs [ iX ], "-disk" ) == 0  )
 		{
 			iX++;
 			if ( iX < nArgs )
@@ -246,7 +246,7 @@ void GetArguments ( int nArgs, char *pArgs [] )
 				DisplayUsageAndExit ( pArgs [ 0 ] );
 			}
 		}
-		else if ( CompareString ( pArgs [ iX ], "-m" ) == 0 || CompareString ( pArgs [ iX ], "-modifytype" ) == 0  )
+		else if ( CompareStringB ( pArgs [ iX ], "-m" ) == 0 || CompareStringB ( pArgs [ iX ], "-modifytype" ) == 0  )
 		{
 			iX++;
 			if ( iX < nArgs )
@@ -259,7 +259,7 @@ void GetArguments ( int nArgs, char *pArgs [] )
 				DisplayUsageAndExit ( pArgs [ 0 ] );
 			}
 		}
-		else if ( CompareString ( pArgs [ iX ], "-p" ) == 0 || CompareString ( pArgs [ iX ], "-path" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-p" ) == 0 || CompareStringB ( pArgs [ iX ], "-path" ) == 0 )
 		{
 			iX++;
 			if ( iX < nArgs )
@@ -272,7 +272,7 @@ void GetArguments ( int nArgs, char *pArgs [] )
 				DisplayUsageAndExit ( pArgs [ 0 ] );
 			}
 		}
-		else if ( CompareString ( pArgs [ iX ], "-f" ) == 0 || CompareString ( pArgs [ iX ], "-file" ) == 0 )
+		else if ( CompareStringB ( pArgs [ iX ], "-f" ) == 0 || CompareStringB ( pArgs [ iX ], "-file" ) == 0 )
 		{
 			if ( ! bFilename )
 			{
@@ -559,7 +559,7 @@ void RenameTreatFile ( struct _finddatai64_t *pFile, const char *pWildName, char
         }
 
         bToRename = ( strcmp ( szNewFilename, pFile->name ) != 0 );
-		bCapitalizeOnly = ( CompareString ( szNewFilename, pFile->name ) == 0 );
+		bCapitalizeOnly = ( CompareStringB ( szNewFilename, pFile->name ) == 0 );
 
 		//
 		//		Rename file.
