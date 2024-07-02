@@ -48,7 +48,7 @@ static void DisplayLastError ( )
 		);
 
 #ifdef	_CONSOLE
-		fprintf ( stderr, "Last Error: %s\n", lpMsgBuf );
+		fprintf ( stderr, "Last Error: %s\n", (char *) lpMsgBuf );
 #endif
 
 	if ( hLogFile )

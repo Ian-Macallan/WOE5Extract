@@ -25,7 +25,7 @@ env:
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
-  BUILD_VERSION: 2.0.0.4 # Version
+  BUILD_VERSION: 2.0.0.5 # Version
 #
 permissions: 
   actions: write
@@ -77,7 +77,7 @@ jobs:
         # include a `upload_url`. See this blog post for more info:
         # https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ${{ github.workspace }}/Release/WOE5Extract.exe
+        asset_path: ${{ github.workspace }}/Release/WOE5Extract.v143.exe
         asset_name: WOE5Extract.exe
         asset_content_type: application/zip
  
@@ -92,7 +92,7 @@ jobs:
         # include a `upload_url`. See this blog post for more info:
         # https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ${{ github.workspace }}/Release/OE5Extract.exe
+        asset_path: ${{ github.workspace }}/Release/OE5Extract.v143.exe
         asset_name: OE5Extract.exe
         asset_content_type: application/zip
  
