@@ -1,5 +1,5 @@
-#ifndef	OEMESSAGESROUTINES_H
-#define	OEMESSAGESROUTINES_H
+#ifndef OEMESSAGESROUTINES_H
+#define OEMESSAGESROUTINES_H
 
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -8,7 +8,7 @@
 #include "OE5ExtractDefinitions.h"
 
 /*
- *		Prototypes.
+ *      Prototypes.
  */
 static void ExitProgram ( int iError );
 
@@ -29,7 +29,7 @@ extern void AllocateBufferMemory ( );
 extern void InitMsgBuffer ( );
 extern void FreeBufferMemory ( );
 extern char *GetMsgFilename ( );
-extern void SetNameFormat (	int iName1,int iName2,int iName3,int iName4, int iSize1,int iSize2,int iSize3,int iSize4 );
+extern void SetNameFormat ( int iName1,int iName2,int iName3,int iName4, int iSize1,int iSize2,int iSize3,int iSize4 );
 extern char *GetMsgExtension ( );
 extern void SetMsgExtension ( const char *pText );
 extern void SetBoolMsgLeave ( bool bValue );

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#ifdef	_CONSOLE
+#ifdef  _CONSOLE
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -21,219 +21,219 @@
 
 //
 ///////////////////////////////////////////////////////////////////////////////
-//		Find the type of a file.
+//      Find the type of a file.
 //
 ///////////////////////////////////////////////////////////////////////////////
 char *FindType ( char *pFilename )
 {
-	int		iX;
+    int     iX;
 
-	iX = strlen ( pFilename ) - 1;
+    iX = strlen ( pFilename ) - 1;
 
-	while ( iX > 0 )
-	{
-		if ( pFilename [ iX ] == '.' )
-		{
-			return pFilename + iX;
-		}
+    while ( iX > 0 )
+    {
+        if ( pFilename [ iX ] == '.' )
+        {
+            return pFilename + iX;
+        }
 
-		iX--;
-	}
+        iX--;
+    }
 
-	return ".";
+    return ".";
 }
 
 //
 ///////////////////////////////////////////////////////////////////////////////
-//		Find the type of a file.
+//      Find the type of a file.
 //
 ///////////////////////////////////////////////////////////////////////////////
 char *FindTypeOrNull ( char *pFilename )
 {
-	int		iX;
+    int     iX;
 
-	iX = strlen ( pFilename ) - 1;
+    iX = strlen ( pFilename ) - 1;
 
-	while ( iX > 0 )
-	{
-		if ( pFilename [ iX ] == '.' )
-		{
-			return pFilename + iX;
-		}
+    while ( iX > 0 )
+    {
+        if ( pFilename [ iX ] == '.' )
+        {
+            return pFilename + iX;
+        }
 
-		iX--;
-	}
+        iX--;
+    }
 
-	return NULL;
+    return NULL;
 }
 
 //
 ///////////////////////////////////////////////////////////////////////////////
-//		Find the name of a file.
+//      Find the name of a file.
 //
 ///////////////////////////////////////////////////////////////////////////////
 char *FindFilename ( char *pFilename )
 {
-	int		iX;
+    int     iX;
 
-	iX = strlen ( pFilename ) - 1;
+    iX = strlen ( pFilename ) - 1;
 
-	while ( iX > 0 )
-	{
-		if ( pFilename [ iX ] == '\\' )
-		{
-			return pFilename + iX + 1;
-		}
+    while ( iX > 0 )
+    {
+        if ( pFilename [ iX ] == '\\' )
+        {
+            return pFilename + iX + 1;
+        }
 
-		if ( pFilename [ iX ] == ':' )
-		{
-			return pFilename + iX + 1;
-		}
+        if ( pFilename [ iX ] == ':' )
+        {
+            return pFilename + iX + 1;
+        }
 
-		iX--;
-	}
+        iX--;
+    }
 
-	return pFilename;
+    return pFilename;
 }
 
 //
 ///////////////////////////////////////////////////////////////////////////////
-//		Find the name of a file.
+//      Find the name of a file.
 //
 ///////////////////////////////////////////////////////////////////////////////
 char *FindDirectory ( const char *pFilename )
 {
-		int		iX;
+        int     iX;
 
-static	char	szDirectory [ LEN_FILENAME ];
+static  char    szDirectory [ LEN_FILENAME ];
 
-		strcpy_s ( szDirectory, sizeof ( szDirectory ), pFilename );
+        strcpy_s ( szDirectory, sizeof ( szDirectory ), pFilename );
 
-		iX = strlen ( szDirectory ) - 1;
+        iX = strlen ( szDirectory ) - 1;
 
-		while ( iX > 0 )
-		{
-			if ( szDirectory [ iX ] == '\\' )
-			{
-				szDirectory [ iX ] = 0;
-				return szDirectory;
-			}
+        while ( iX > 0 )
+        {
+            if ( szDirectory [ iX ] == '\\' )
+            {
+                szDirectory [ iX ] = 0;
+                return szDirectory;
+            }
 
-			if ( szDirectory [ iX ] == ':' )
-			{
-				szDirectory [ iX + 1 ] = '\\';
-				szDirectory [ iX + 2 ] = 0;
-				return szDirectory;
-			}
+            if ( szDirectory [ iX ] == ':' )
+            {
+                szDirectory [ iX + 1 ] = '\\';
+                szDirectory [ iX + 2 ] = 0;
+                return szDirectory;
+            }
 
-			iX--;
-		}
+            iX--;
+        }
 
-		return szDirectory;
+        return szDirectory;
 }
 
 //
 ///////////////////////////////////////////////////////////////////////////////
-//		Correct directory name.
+//      Correct directory name.
 //
 ///////////////////////////////////////////////////////////////////////////////
 void CorrectDirectory ( char *pFilename )
 {
-	while ( *pFilename )
-	{
-		if ( *pFilename < ' ' )
-		{
-			*pFilename = ' ';
-		}
+    while ( *pFilename )
+    {
+        if ( *pFilename < ' ' )
+        {
+            *pFilename = ' ';
+        }
 
-		if ( *pFilename >= 0x7f )
-		{
-			*pFilename = ' ';
-		}
+        if ( *pFilename >= 0x7f )
+        {
+            *pFilename = ' ';
+        }
 
-		if ( *pFilename == '*' )
-		{
-			*pFilename = '-';
-		}
+        if ( *pFilename == '*' )
+        {
+            *pFilename = '-';
+        }
 
-		if ( *pFilename == '?' )
-		{
-			*pFilename = '-';
-		}
+        if ( *pFilename == '?' )
+        {
+            *pFilename = '-';
+        }
 
-		if ( *pFilename == '<' )
-		{
-			*pFilename = '-';
-		}
+        if ( *pFilename == '<' )
+        {
+            *pFilename = '-';
+        }
 
-		if ( *pFilename == '>' )
-		{
-			*pFilename = '-';
-		}
+        if ( *pFilename == '>' )
+        {
+            *pFilename = '-';
+        }
 
-		if ( *pFilename == '|' )
-		{
-			*pFilename = '-';
-		}
+        if ( *pFilename == '|' )
+        {
+            *pFilename = '-';
+        }
 
-		if ( *pFilename == '\"' )
-		{
-			*pFilename = '-';
-		}
+        if ( *pFilename == '\"' )
+        {
+            *pFilename = '-';
+        }
 
-		pFilename++;
-	}
+        pFilename++;
+    }
 }
 
 //
 ///////////////////////////////////////////////////////////////////////////////
-//		Correct filename.
+//      Correct filename.
 //
 ///////////////////////////////////////////////////////////////////////////////
 void CorrectFilename ( char *pFilename )
 {
-	CorrectDirectory ( pFilename );
+    CorrectDirectory ( pFilename );
 
-	while ( *pFilename )
-	{
+    while ( *pFilename )
+    {
 
-		if ( *pFilename == '\\' )
-		{
-			*pFilename = '_';
-		}
+        if ( *pFilename == '\\' )
+        {
+            *pFilename = '_';
+        }
 
-		if ( *pFilename == '/' )
-		{
-			*pFilename = '_';
-		}
+        if ( *pFilename == '/' )
+        {
+            *pFilename = '_';
+        }
 
-		if ( *pFilename == ':' )
-		{
-			*pFilename = '_';
-		}
+        if ( *pFilename == ':' )
+        {
+            *pFilename = '_';
+        }
 
-		pFilename++;
-	}
+        pFilename++;
+    }
 }
 
 //
 ///////////////////////////////////////////////////////////////////////////////
-//		Filter Name.
+//      Filter Name.
 //
 ///////////////////////////////////////////////////////////////////////////////
 void FilterName ( char *pString,  bool bDir )
 {
 
-		FilterWithCharSet ( pString );
+        FilterWithCharSet ( pString );
 
-		if ( bDir )
-		{
-			CorrectDirectory ( pString );
-		}
-		else
-		{
-			CorrectFilename  ( pString );
-		}
+        if ( bDir )
+        {
+            CorrectDirectory ( pString );
+        }
+        else
+        {
+            CorrectFilename  ( pString );
+        }
 
         return;
 }
@@ -251,7 +251,7 @@ void RemoveLeadingDirectory ( char *pString, size_t iString, char *pUpDir )
         strcpy_s ( szTempName, sizeof ( szTempName ), pString );
         strcpy_s ( szTempDir, sizeof ( szTempDir ), pUpDir );
 
-		ReplaceCharacter ( szTempDir, '.', '_' );
+        ReplaceCharacter ( szTempDir, '.', '_' );
 
         if ( strlen ( szTempDir ) == 1 )
         {
@@ -296,7 +296,7 @@ void RemoveTrailingDirectory ( char *pString, size_t iString, char *pUpDir )
                 return;
         }
 
-		ReplaceCharacter ( szTempDir, '.', '_' );
+        ReplaceCharacter ( szTempDir, '.', '_' );
 
         strcpy_s ( szTempDir2, sizeof ( szTempDir2 ), "_The" );
         strcat_s ( szTempDir2, sizeof ( szTempDir2 ), szTempDir );
@@ -386,18 +386,18 @@ void RemoveTrailingNumbers ( char *pString, size_t iString )
 ///////////////////////////////////////////////////////////////////////////////
 long GetFileLength ( FILE *hFile )
 {
-	if ( hFile == NULL )
-	{
-		return NULL;
-	}
+    if ( hFile == NULL )
+    {
+        return NULL;
+    }
 
-	long lPos = ftell ( hFile );
+    long lPos = ftell ( hFile );
 
-	fseek ( hFile, 0, SEEK_END );
-	long lEnd = ftell ( hFile );
+    fseek ( hFile, 0, SEEK_END );
+    long lEnd = ftell ( hFile );
 
-	fseek ( hFile, lPos, SEEK_SET );
+    fseek ( hFile, lPos, SEEK_SET );
 
-	return lEnd;
+    return lEnd;
 
 }

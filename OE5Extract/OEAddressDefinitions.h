@@ -1,5 +1,5 @@
-#ifndef	OEADDRESSDEFINITION_H
-#define	OEADDRESSDEFINITION_H
+#ifndef OEADDRESSDEFINITION_H
+#define OEADDRESSDEFINITION_H
 
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -8,40 +8,40 @@
 #include "OE5ExtractDefinitions.h"
 
 /*
- *		Structures
+ *      Structures
  */
-struct	structHeader1
+struct  structHeader1
 {
-	unsigned long			lAddress;
+    unsigned long           lAddress;
 };
 
-struct	structHeader2
+struct  structHeader2
 {
-	unsigned long			lLengthAllocated;
+    unsigned long           lLengthAllocated;
 };
 
-struct	structHeader3
+struct  structHeader3
 {
-	unsigned long			lLengthUsed;
-	unsigned long			lNextAddress;
+    unsigned long           lLengthUsed;
+    unsigned long           lNextAddress;
 };
 
-struct	structHeader4
+struct  structHeader4
 {
-	unsigned long			lPrevAddress;
+    unsigned long           lPrevAddress;
 };
 
-struct	structInformation
+struct  structInformation
 {
-	int						iAttachementType;
-	int						iAttachementCount;
-	unsigned long			lPosition;
-	char					szSortDate [ LEN_FILENAME ];
-	char					szDate [ LEN_FILENAME ];
-	char					szSubject [ LEN_PATHNAME ];
-	char					szAuthor [ LEN_FILENAME ];
-	char					szEmail [ LEN_FILENAME ];
-	unsigned long			lSize;
+    int                     iAttachementType;
+    int                     iAttachementCount;
+    unsigned long           lPosition;
+    char                    szSortDate [ LEN_FILENAME ];
+    char                    szDate [ LEN_FILENAME ];
+    char                    szSubject [ LEN_PATHNAME ];
+    char                    szAuthor [ LEN_FILENAME ];
+    char                    szEmail [ LEN_FILENAME ];
+    unsigned long           lSize;
 };
 
 #endif

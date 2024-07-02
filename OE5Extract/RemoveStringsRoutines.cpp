@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#ifdef	_CONSOLE
+#ifdef  _CONSOLE
 #include <stdlib.h>
 #include <stdio.h>
 #include <direct.h>
@@ -15,9 +15,9 @@
 #include "RemoveStringsRoutines.h"
 #include "TextRoutines.h"
 
-//		The table of strings to remove
-static	char					*RemoveStrings [ MAX_REMOVE ];
-static	int						iNbRemoveStrings					= 0;
+//      The table of strings to remove
+static  char                    *RemoveStrings [ MAX_REMOVE ];
+static  int                     iNbRemoveStrings                    = 0;
 
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -25,14 +25,14 @@ static	int						iNbRemoveStrings					= 0;
 ///////////////////////////////////////////////////////////////////////////////
 void RemoveAllStrings ( char *pFilename )
 {
-	int			iX;
+    int         iX;
 
-	iX = 0;
-	while ( iX < iNbRemoveStrings )
-	{
-		RemoveString ( pFilename, RemoveStrings [ iX ] );
-		iX++;
-	}
+    iX = 0;
+    while ( iX < iNbRemoveStrings )
+    {
+        RemoveString ( pFilename, RemoveStrings [ iX ] );
+        iX++;
+    }
 
 }
 
@@ -42,7 +42,7 @@ void RemoveAllStrings ( char *pFilename )
 ///////////////////////////////////////////////////////////////////////////////
 void AllocRemoveStrings ( char *pText )
 {
-	RemoveStrings [ iNbRemoveStrings ] = ( char * ) malloc ( strlen ( pText ) + 1 );
-	strcpy_s ( RemoveStrings [ iNbRemoveStrings ], strlen ( pText ) + 1, pText );
-	iNbRemoveStrings++;
+    RemoveStrings [ iNbRemoveStrings ] = ( char * ) malloc ( strlen ( pText ) + 1 );
+    strcpy_s ( RemoveStrings [ iNbRemoveStrings ], strlen ( pText ) + 1, pText );
+    iNbRemoveStrings++;
 }

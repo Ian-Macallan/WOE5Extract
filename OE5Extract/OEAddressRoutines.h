@@ -1,5 +1,5 @@
-#ifndef	OEADDRESSROUTINES_H
-#define	OEADDRESSROUTINES_H
+#ifndef OEADDRESSROUTINES_H
+#define OEADDRESSROUTINES_H
 
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -8,9 +8,9 @@
 #include "OE5ExtractDefinitions.h"
 
 /*
- *		Prototypes.
+ *      Prototypes.
  */
-static void	ExitProgram ( int iError );
+static void ExitProgram ( int iError );
 static int SortCompare ( const void *pElem1, const void *pElem2  );
 
 extern void CloseDbxFile ( );
@@ -18,9 +18,9 @@ extern void OpenDbxFile ( char *pFilename );
 extern void SetAddressNextFlag ( int iPos );
 extern int StoreAddress ( unsigned long lAddress );
 extern int StoreNextAddress ( unsigned long lAddress );
-extern void	SortAddress ( );
-extern int	SearchAddress ( unsigned long lAddress );
-extern int	SearchAddressNext ( unsigned long lAddress );
+extern void SortAddress ( );
+extern int  SearchAddress ( unsigned long lAddress );
+extern int  SearchAddressNext ( unsigned long lAddress );
 extern bool AlreadyTreated ( unsigned long lAddress );
 extern void CleanAddressesTable ( );
 extern void BuildAddressesTable ( );

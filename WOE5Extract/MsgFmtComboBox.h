@@ -14,7 +14,7 @@ class CMsgFmtComboBox : public CComboBox
 {
 // Construction
 public:
-	CMsgFmtComboBox();
+    CMsgFmtComboBox();
 
 // Attributes
 public:
@@ -23,22 +23,22 @@ public:
 public:
 
 // Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CMsgFmtComboBox)
-	//}}AFX_VIRTUAL
+    // ClassWizard generated virtual function overrides
+    //{{AFX_VIRTUAL(CMsgFmtComboBox)
+    //}}AFX_VIRTUAL
 
 // Implementation
 public:
-	void Init();
-	virtual ~CMsgFmtComboBox();
+    void Init();
+    virtual ~CMsgFmtComboBox();
 
-	// Generated message map functions
+    // Generated message map functions
 protected:
-	//{{AFX_MSG(CMsgFmtComboBox)
-		// NOTE - the ClassWizard will add and remove member functions here.
-	//}}AFX_MSG
+    //{{AFX_MSG(CMsgFmtComboBox)
+        // NOTE - the ClassWizard will add and remove member functions here.
+    //}}AFX_MSG
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////

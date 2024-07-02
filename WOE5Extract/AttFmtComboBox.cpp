@@ -37,9 +37,9 @@ CAttFmtComboBox::~CAttFmtComboBox()
 //
 ///////////////////////////////////////////////////////////////////////////////
 BEGIN_MESSAGE_MAP(CAttFmtComboBox, CComboBox)
-	//{{AFX_MSG_MAP(CAttFmtComboBox)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-	//}}AFX_MSG_MAP
+    //{{AFX_MSG_MAP(CAttFmtComboBox)
+        // NOTE - the ClassWizard will add and remove mapping macros here.
+    //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 //
@@ -49,13 +49,13 @@ END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////////////////////////////
 void CAttFmtComboBox::Init()
 {
-	AddString ( "00 - None" );
-	AddString ( "01 - Object" );
-	AddString ( "02 - Date" );
-	AddString ( "03 - Author" );
-	AddString ( "04 - Message ID" );
-	AddString ( "05 - E-Mail Address" );
-	AddString ( "06 - Attachement Name" );
-	AddString ( "07 - Attachement Number" );
+    AddString ( "00 - None" );
+    AddString ( "01 - Object" );
+    AddString ( "02 - Date" );
+    AddString ( "03 - Author" );
+    AddString ( "04 - Message ID" );
+    AddString ( "05 - E-Mail Address" );
+    AddString ( "06 - Attachement Name" );
+    AddString ( "07 - Attachement Number" );
 
 }

@@ -16,10 +16,10 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-char	*pDay [ 7 ] = {	"Mon", "Twe", "Wed", "Thu", "Fri", "Sat", "Sun" };
+char    *pDay [ 7 ] = { "Mon", "Twe", "Wed", "Thu", "Fri", "Sat", "Sun" };
 
-char	*pMonth [ 12 ] = {	"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-							"Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+char    *pMonth [ 12 ] = {  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -27,7 +27,7 @@ char	*pMonth [ 12 ] = {	"Jan", "Feb", "Mar", "Apr", "May", "Jun",
 ///////////////////////////////////////////////////////////////////////////////
 CDateTime::CDateTime()
 {
-	memset ( szAscTime, 0, sizeof ( szAscTime ) );
+    memset ( szAscTime, 0, sizeof ( szAscTime ) );
 }
 
 //
@@ -45,7 +45,7 @@ CDateTime::~CDateTime()
 ///////////////////////////////////////////////////////////////////////////////
 CDateTime::CDateTime(char *pDate)
 {
-	SetDateTime ( pDate );
+    SetDateTime ( pDate );
 }
 
 //
@@ -54,17 +54,17 @@ CDateTime::CDateTime(char *pDate)
 ///////////////////////////////////////////////////////////////////////////////
 bool CDateTime::TestDayOfWeek( char *pDate )
 {
-	for ( int iX = 0; iX < 7; iX++ )
-	{
-		if ( strncmp ( pDate, pDay [ iX ], strlen ( pDay [ iX ] ) ) == 0 )
-		{
-			iDayOfWeek = iX;
-			return true;
-		}
-	}
+    for ( int iX = 0; iX < 7; iX++ )
+    {
+        if ( strncmp ( pDate, pDay [ iX ], strlen ( pDay [ iX ] ) ) == 0 )
+        {
+            iDayOfWeek = iX;
+            return true;
+        }
+    }
 
-	iDayOfWeek = -1;
-	return false;
+    iDayOfWeek = -1;
+    return false;
 }
 
 //
@@ -73,16 +73,16 @@ bool CDateTime::TestDayOfWeek( char *pDate )
 ///////////////////////////////////////////////////////////////////////////////
 char *CDateTime::SkipSpace(char *pDate)
 {
-	while ( *pDate )
-	{
-		if ( *pDate != ' ' )
-		{
-			return pDate;
-		}
-		pDate++;
-	}
+    while ( *pDate )
+    {
+        if ( *pDate != ' ' )
+        {
+            return pDate;
+        }
+        pDate++;
+    }
 
-	return pDate;
+    return pDate;
 }
 
 //
@@ -91,16 +91,16 @@ char *CDateTime::SkipSpace(char *pDate)
 ///////////////////////////////////////////////////////////////////////////////
 char *CDateTime::SkipNonSpace(char *pDate)
 {
-	while ( *pDate )
-	{
-		if ( *pDate == ' ' )
-		{
-			return pDate;
-		}
-		pDate++;
-	}
+    while ( *pDate )
+    {
+        if ( *pDate == ' ' )
+        {
+            return pDate;
+        }
+        pDate++;
+    }
 
-	return pDate;
+    return pDate;
 }
 
 //
@@ -109,17 +109,17 @@ char *CDateTime::SkipNonSpace(char *pDate)
 ///////////////////////////////////////////////////////////////////////////////
 bool CDateTime::TestMonth ( char *pDate )
 {
-	for ( int iX = 0; iX < 12; iX++ )
-	{
-		if ( strncmp ( pDate, pMonth [ iX ], strlen ( pMonth [ iX ] ) ) == 0 )
-		{
-			iMonth = iX;
-			return true;
-		}
-	}
+    for ( int iX = 0; iX < 12; iX++ )
+    {
+        if ( strncmp ( pDate, pMonth [ iX ], strlen ( pMonth [ iX ] ) ) == 0 )
+        {
+            iMonth = iX;
+            return true;
+        }
+    }
 
-	iMonth = -1;
-	return false;
+    iMonth = -1;
+    return false;
 }
 
 //
@@ -128,7 +128,7 @@ bool CDateTime::TestMonth ( char *pDate )
 ///////////////////////////////////////////////////////////////////////////////
 char * CDateTime::GetDateTime()
 {
-	return szAscTime;
+    return szAscTime;
 }
 
 //
@@ -137,28 +137,28 @@ char * CDateTime::GetDateTime()
 ///////////////////////////////////////////////////////////////////////////////
 void CDateTime::SetDateTime(char *pDate)
 {
-	memset ( szAscTime, 0, sizeof ( szAscTime ) );
+    memset ( szAscTime, 0, sizeof ( szAscTime ) );
 
-	if ( TestDayOfWeek ( pDate ) )
-	{
-		pDate = SkipNonSpace ( pDate );
-		pDate = SkipSpace ( pDate );
-	}
+    if ( TestDayOfWeek ( pDate ) )
+    {
+        pDate = SkipNonSpace ( pDate );
+        pDate = SkipSpace ( pDate );
+    }
 
-	iDay = atoi ( pDate );
-	pDate = SkipNonSpace ( pDate );
-	pDate = SkipSpace ( pDate );
+    iDay = atoi ( pDate );
+    pDate = SkipNonSpace ( pDate );
+    pDate = SkipSpace ( pDate );
 
-	if ( TestMonth ( pDate ) )
-	{
-		pDate = SkipNonSpace ( pDate );
-		pDate = SkipSpace ( pDate );
-	}
+    if ( TestMonth ( pDate ) )
+    {
+        pDate = SkipNonSpace ( pDate );
+        pDate = SkipSpace ( pDate );
+    }
 
-	iYear = atoi ( pDate );
-	pDate = SkipNonSpace ( pDate );
-	pDate = SkipSpace ( pDate );
+    iYear = atoi ( pDate );
+    pDate = SkipNonSpace ( pDate );
+    pDate = SkipSpace ( pDate );
 
-	sprintf_s ( szAscTime, sizeof ( szAscTime ),
-				"%04d/%02d/%02d %s", iYear, iMonth + 1, iDay, pDate );
+    sprintf_s ( szAscTime, sizeof ( szAscTime ),
+                "%04d/%02d/%02d %s", iYear, iMonth + 1, iDay, pDate );
 }

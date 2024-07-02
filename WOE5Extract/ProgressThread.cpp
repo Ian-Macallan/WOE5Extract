@@ -27,24 +27,24 @@ CProgressThread::~CProgressThread()
 
 BOOL CProgressThread::InitInstance()
 {
-	// TODO:  perform and per-thread initialization here
-	m_pMainWnd = &theApp.m_ProgressDialog;
-	
-	theApp.m_ProgressDialog.DoModal ( );
+    // TODO:  perform and per-thread initialization here
+    m_pMainWnd = &theApp.m_ProgressDialog;
+    
+    theApp.m_ProgressDialog.DoModal ( );
 
-	return TRUE;
+    return TRUE;
 }
 
 int CProgressThread::ExitInstance()
 {
-	// TODO:  perform any per-thread cleanup here
-	return CWinThread::ExitInstance();
+    // TODO:  perform any per-thread cleanup here
+    return CWinThread::ExitInstance();
 }
 
 BEGIN_MESSAGE_MAP(CProgressThread, CWinThread)
-	//{{AFX_MSG_MAP(CProgressThread)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-	//}}AFX_MSG_MAP
+    //{{AFX_MSG_MAP(CProgressThread)
+        // NOTE - the ClassWizard will add and remove mapping macros here.
+    //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////

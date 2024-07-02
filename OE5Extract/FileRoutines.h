@@ -1,5 +1,5 @@
-#ifndef	FILEROUTINES_H
-#define	FILEROUTINES_H
+#ifndef FILEROUTINES_H
+#define FILEROUTINES_H
 
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -8,7 +8,7 @@
 #include "OE5ExtractDefinitions.h"
 
 /*
- *		Prototypes.
+ *      Prototypes.
  */
 extern char *FindType ( char *pFilename );
 extern char *FindTypeOrNull ( char *pFilename );

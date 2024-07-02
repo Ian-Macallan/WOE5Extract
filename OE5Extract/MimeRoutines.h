@@ -1,5 +1,5 @@
-#ifndef	MIMEROUTINES_H
-#define	MIMEROUTINES_H
+#ifndef MIMEROUTINES_H
+#define MIMEROUTINES_H
 
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -9,7 +9,7 @@
 #include "OE5ExtractDefinitions.h"
 
 /*
- *		Prototypes.
+ *      Prototypes.
  */
 static void BuildDecodeTable ( );
 

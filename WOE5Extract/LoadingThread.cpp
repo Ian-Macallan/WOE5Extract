@@ -29,25 +29,25 @@ CLoadingThread::~CLoadingThread()
 
 BOOL CLoadingThread::InitInstance()
 {
-	// TODO:  perform and per-thread initialization here
-	m_pMainWnd = &theApp.m_LoadingDialog;
-	
-	theApp.m_LoadingDialog.DoModal ( );
+    // TODO:  perform and per-thread initialization here
+    m_pMainWnd = &theApp.m_LoadingDialog;
+    
+    theApp.m_LoadingDialog.DoModal ( );
 
-	return TRUE;
+    return TRUE;
 }
 
 int CLoadingThread::ExitInstance()
 {
-	// TODO:  perform any per-thread cleanup here
+    // TODO:  perform any per-thread cleanup here
 
-	return CWinThread::ExitInstance();
+    return CWinThread::ExitInstance();
 }
 
 BEGIN_MESSAGE_MAP(CLoadingThread, CWinThread)
-	//{{AFX_MSG_MAP(CLoadingThread)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-	//}}AFX_MSG_MAP
+    //{{AFX_MSG_MAP(CLoadingThread)
+        // NOTE - the ClassWizard will add and remove mapping macros here.
+    //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////

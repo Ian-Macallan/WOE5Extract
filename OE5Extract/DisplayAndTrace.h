@@ -1,5 +1,5 @@
-#ifndef	DISPLAYANDTRACE_H
-#define	DISPLAYANDTRACE_H
+#ifndef DISPLAYANDTRACE_H
+#define DISPLAYANDTRACE_H
 
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -8,7 +8,7 @@
 #include "OE5ExtractDefinitions.h"
 
 /*
- *		Prototypes.
+ *      Prototypes.
  */
 extern void TraceOut ( char *pFormat, ... );
 extern void DisplayErrorAndExit ( int iError, void ( *pExit )( int ), char *pText, char *pFormat, ... );

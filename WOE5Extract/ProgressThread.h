@@ -14,9 +14,9 @@
 
 class CProgressThread : public CWinThread
 {
-	DECLARE_DYNCREATE(CProgressThread)
+    DECLARE_DYNCREATE(CProgressThread)
 protected:
-	CProgressThread();           // protected constructor used by dynamic creation
+    CProgressThread();           // protected constructor used by dynamic creation
 
 // Attributes
 public:
@@ -25,23 +25,23 @@ public:
 public:
 
 // Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CProgressThread)
-	public:
-	virtual BOOL InitInstance();
-	virtual int ExitInstance();
-	//}}AFX_VIRTUAL
+    // ClassWizard generated virtual function overrides
+    //{{AFX_VIRTUAL(CProgressThread)
+    public:
+    virtual BOOL InitInstance();
+    virtual int ExitInstance();
+    //}}AFX_VIRTUAL
 
 // Implementation
 protected:
-	virtual ~CProgressThread();
+    virtual ~CProgressThread();
 
-	// Generated message map functions
-	//{{AFX_MSG(CProgressThread)
-		// NOTE - the ClassWizard will add and remove member functions here.
-	//}}AFX_MSG
+    // Generated message map functions
+    //{{AFX_MSG(CProgressThread)
+        // NOTE - the ClassWizard will add and remove member functions here.
+    //}}AFX_MSG
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////

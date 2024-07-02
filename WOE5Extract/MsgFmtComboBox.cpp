@@ -24,9 +24,9 @@ CMsgFmtComboBox::~CMsgFmtComboBox()
 
 
 BEGIN_MESSAGE_MAP(CMsgFmtComboBox, CComboBox)
-	//{{AFX_MSG_MAP(CMsgFmtComboBox)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-	//}}AFX_MSG_MAP
+    //{{AFX_MSG_MAP(CMsgFmtComboBox)
+        // NOTE - the ClassWizard will add and remove mapping macros here.
+    //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -34,10 +34,10 @@ END_MESSAGE_MAP()
 
 void CMsgFmtComboBox::Init()
 {
-	AddString ( "00 - None" );
-	AddString ( "01 - Object" );
-	AddString ( "02 - Date" );
-	AddString ( "03 - Author" );
-	AddString ( "04 - Message ID" );
-	AddString ( "05 - E-Mail Address" );
+    AddString ( "00 - None" );
+    AddString ( "01 - Object" );
+    AddString ( "02 - Date" );
+    AddString ( "03 - Author" );
+    AddString ( "04 - Message ID" );
+    AddString ( "05 - E-Mail Address" );
 }

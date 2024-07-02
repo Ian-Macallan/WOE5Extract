@@ -1,5 +1,5 @@
-#ifndef	DECODEROUTINES_H
-#define	DECODEROUTINES_H
+#ifndef DECODEROUTINES_H
+#define DECODEROUTINES_H
 
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -8,7 +8,7 @@
 #include "OE5ExtractDefinitions.h"
 
 /*
- *		Prototypes.
+ *      Prototypes.
  */
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -50,8 +50,8 @@ extern char *GetMessageID ( );
 extern int GetAttachementCount ( );
 extern int GetAttachementType ( );
 extern char *ProcessOneStep ( char *pPathname, unsigned long lPosition, void ( *pCallBack )( void *, void * ), void *pParm );
-extern void SetAttFormat (	int iName1,int iName2,int iName3,int iName4,int iName5,
-						int iSize1,int iSize2,int iSize3,int iSize4,int iSize5 );
+extern void SetAttFormat (  int iName1,int iName2,int iName3,int iName4,int iName5,
+                        int iSize1,int iSize2,int iSize3,int iSize4,int iSize5 );
 extern void SetAttExtension ( const char *pText );
 
 #endif

@@ -15,36 +15,36 @@ class CProgressDialog : public CDialog
 {
 // Construction
 public:
-	CProgressDialog(CWnd* pParent = NULL);   // standard constructor
+    CProgressDialog(CWnd* pParent = NULL);   // standard constructor
 
 // Dialog Data
-	//{{AFX_DATA(CProgressDialog)
-	enum { IDD = IDD_PROGRESS };
-	CButton	m_Cancel;
-	CEdit	m_Step;
-	CProgressCtrl	m_Progress;
-	//}}AFX_DATA
+    //{{AFX_DATA(CProgressDialog)
+    enum { IDD = IDD_PROGRESS };
+    CButton m_Cancel;
+    CEdit   m_Step;
+    CProgressCtrl   m_Progress;
+    //}}AFX_DATA
 
 
 // Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CProgressDialog)
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	//}}AFX_VIRTUAL
+    // ClassWizard generated virtual function overrides
+    //{{AFX_VIRTUAL(CProgressDialog)
+    protected:
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    //}}AFX_VIRTUAL
 
 // Implementation
 protected:
-	bool bFirstTime;
+    bool bFirstTime;
 
-	// Generated message map functions
-	//{{AFX_MSG(CProgressDialog)
-	afx_msg void OnDestroy();
-	virtual BOOL OnInitDialog();
-	afx_msg void OnTimer(UINT nIDEvent);
-	afx_msg void OnCancel();
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
+    // Generated message map functions
+    //{{AFX_MSG(CProgressDialog)
+    afx_msg void OnDestroy();
+    virtual BOOL OnInitDialog();
+    afx_msg void OnTimer(UINT nIDEvent);
+    afx_msg void OnCancel();
+    //}}AFX_MSG
+    DECLARE_MESSAGE_MAP()
 };
 
 //{{AFX_INSERT_LOCATION}}

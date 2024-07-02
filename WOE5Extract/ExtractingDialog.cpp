@@ -29,11 +29,11 @@ static char THIS_FILE[] = __FILE__;
 //
 ///////////////////////////////////////////////////////////////////////////////
 CExtractingDialog::CExtractingDialog(CWnd* pParent /*=NULL*/)
-	: CDialog(CExtractingDialog::IDD, pParent)
+    : CDialog(CExtractingDialog::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CExtractingDialog)
-		// NOTE: the ClassWizard will add member initialization here
-	//}}AFX_DATA_INIT
+    //{{AFX_DATA_INIT(CExtractingDialog)
+        // NOTE: the ClassWizard will add member initialization here
+    //}}AFX_DATA_INIT
 }
 
 //
@@ -42,10 +42,10 @@ CExtractingDialog::CExtractingDialog(CWnd* pParent /*=NULL*/)
 ///////////////////////////////////////////////////////////////////////////////
 void CExtractingDialog::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CExtractingDialog)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
-	//}}AFX_DATA_MAP
+    CDialog::DoDataExchange(pDX);
+    //{{AFX_DATA_MAP(CExtractingDialog)
+        // NOTE: the ClassWizard will add DDX and DDV calls here
+    //}}AFX_DATA_MAP
 }
 
 //
@@ -53,10 +53,10 @@ void CExtractingDialog::DoDataExchange(CDataExchange* pDX)
 //
 ///////////////////////////////////////////////////////////////////////////////
 BEGIN_MESSAGE_MAP(CExtractingDialog, CDialog)
-	//{{AFX_MSG_MAP(CExtractingDialog)
-	ON_WM_TIMER()
-	ON_WM_DESTROY()
-	//}}AFX_MSG_MAP
+    //{{AFX_MSG_MAP(CExtractingDialog)
+    ON_WM_TIMER()
+    ON_WM_DESTROY()
+    //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 //
@@ -64,77 +64,77 @@ END_MESSAGE_MAP()
 // CExtractingDialog message handlers
 //
 ///////////////////////////////////////////////////////////////////////////////
-BOOL CExtractingDialog::OnInitDialog() 
+BOOL CExtractingDialog::OnInitDialog()
 {
-	CDialog::OnInitDialog();
-	
-	// TODO: Add extra initialization here
-	
-	SetTimer ( EXTRACTING_THREAD_TIMER, 100, NULL );
+    CDialog::OnInitDialog();
+    
+    // TODO: Add extra initialization here
+    
+    SetTimer ( EXTRACTING_THREAD_TIMER, 100, NULL );
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX Property Pages should return FALSE
+    return TRUE;  // return TRUE unless you set the focus to a control
+                  // EXCEPTION: OCX Property Pages should return FALSE
 }
 
 //
 ///////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////
-void CExtractingDialog::OnTimer(UINT nIDEvent) 
+void CExtractingDialog::OnTimer(UINT nIDEvent)
 {
-	// TODO: Add your message handler code here and/or call default
-	ShowWindow ( SW_HIDE );
+    // TODO: Add your message handler code here and/or call default
+    ShowWindow ( SW_HIDE );
 
-	KillTimer ( EXTRACTING_THREAD_TIMER );
+    KillTimer ( EXTRACTING_THREAD_TIMER );
 
-	//		get document
-	CWOE5ExtractView *pView = ( CWOE5ExtractView * ) ( theApp.m_View );
-	if ( pView == NULL )
-	{
-		theApp.m_ProgressDialog.EndDialog ( 0 );
-		EndDialog ( 0 );
-		return;
-	}
+    //      get document
+    CWOE5ExtractView *pView = ( CWOE5ExtractView * ) ( theApp.m_View );
+    if ( pView == NULL )
+    {
+        theApp.m_ProgressDialog.EndDialog ( 0 );
+        EndDialog ( 0 );
+        return;
+    }
 
-	CWOE5ExtractDoc *pDoc = pView->GetDocument ();
-	if ( pDoc == NULL )
-	{
-		theApp.m_ProgressDialog.EndDialog ( 0 );
-		EndDialog ( 0 );
-		return;
-	}
+    CWOE5ExtractDoc *pDoc = pView->GetDocument ();
+    if ( pDoc == NULL )
+    {
+        theApp.m_ProgressDialog.EndDialog ( 0 );
+        EndDialog ( 0 );
+        return;
+    }
 
-	CListCtrl& theCtrl = pView->GetListCtrl();
+    CListCtrl& theCtrl = pView->GetListCtrl();
 
-	CString strPathname = pDoc->GetPathName ( );
-	char		szPathname [ LEN_PATHNAME ];
-	strcpy_s ( szPathname, sizeof ( szPathname ), strPathname );
+    CString strPathname = pDoc->GetPathName ( );
+    char        szPathname [ LEN_PATHNAME ];
+    strcpy_s ( szPathname, sizeof ( szPathname ), strPathname );
 
-	if ( strPathname != "" )
-	{
-		SetAddressRoutinesCancel ( false );
+    if ( strPathname != "" )
+    {
+        SetAddressRoutinesCancel ( false );
 
-		ProcessFileStep2 ( szPathname, NULL, NULL );
-	}
+        ProcessFileStep2 ( szPathname, NULL, NULL );
+    }
 
-	CDialog::OnTimer(nIDEvent);
+    CDialog::OnTimer(nIDEvent);
 
-	theApp.m_ProgressDialog.EndDialog ( 0 );
+    theApp.m_ProgressDialog.EndDialog ( 0 );
 
-	EndDialog ( 0 );
+    EndDialog ( 0 );
 }
 
 //
 ///////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////
-void CExtractingDialog::OnDestroy() 
+void CExtractingDialog::OnDestroy()
 {
-	theApp.m_pMainWnd->BringWindowToTop( );
-//	theApp.m_pMainWnd->SetFocus ( );
+    theApp.m_pMainWnd->BringWindowToTop( );
+//  theApp.m_pMainWnd->SetFocus ( );
 
-	CDialog::OnDestroy();
-	
-	// TODO: Add your message handler code here
-	theApp.m_ExtractingThread = NULL;	
+    CDialog::OnDestroy();
+    
+    // TODO: Add your message handler code here
+    theApp.m_ExtractingThread = NULL;   
 }

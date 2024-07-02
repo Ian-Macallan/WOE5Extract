@@ -14,9 +14,9 @@
 
 class CLoadingThread : public CWinThread
 {
-	DECLARE_DYNCREATE(CLoadingThread)
+    DECLARE_DYNCREATE(CLoadingThread)
 protected:
-	CLoadingThread();           // protected constructor used by dynamic creation
+    CLoadingThread();           // protected constructor used by dynamic creation
 
 // Attributes
 public:
@@ -25,23 +25,23 @@ public:
 public:
 
 // Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CLoadingThread)
-	public:
-	virtual BOOL InitInstance();
-	virtual int ExitInstance();
-	//}}AFX_VIRTUAL
+    // ClassWizard generated virtual function overrides
+    //{{AFX_VIRTUAL(CLoadingThread)
+    public:
+    virtual BOOL InitInstance();
+    virtual int ExitInstance();
+    //}}AFX_VIRTUAL
 
 // Implementation
 protected:
-	virtual ~CLoadingThread();
+    virtual ~CLoadingThread();
 
-	// Generated message map functions
-	//{{AFX_MSG(CLoadingThread)
-		// NOTE - the ClassWizard will add and remove member functions here.
-	//}}AFX_MSG
+    // Generated message map functions
+    //{{AFX_MSG(CLoadingThread)
+        // NOTE - the ClassWizard will add and remove member functions here.
+    //}}AFX_MSG
 
-	DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////

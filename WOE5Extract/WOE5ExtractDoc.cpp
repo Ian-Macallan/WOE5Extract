@@ -22,10 +22,10 @@ static char THIS_FILE[] = __FILE__;
 IMPLEMENT_DYNCREATE(CWOE5ExtractDoc, CDocument)
 
 BEGIN_MESSAGE_MAP(CWOE5ExtractDoc, CDocument)
-	//{{AFX_MSG_MAP(CWOE5ExtractDoc)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
-	//}}AFX_MSG_MAP
+    //{{AFX_MSG_MAP(CWOE5ExtractDoc)
+        // NOTE - the ClassWizard will add and remove mapping macros here.
+        //    DO NOT EDIT what you see in these blocks of generated code!
+    //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 //
@@ -35,7 +35,7 @@ END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////////////////////////////
 CWOE5ExtractDoc::CWOE5ExtractDoc()
 {
-	// TODO: add one-time construction code here
+    // TODO: add one-time construction code here
 
 }
 
@@ -45,13 +45,13 @@ CWOE5ExtractDoc::~CWOE5ExtractDoc()
 
 BOOL CWOE5ExtractDoc::OnNewDocument()
 {
-	if (!CDocument::OnNewDocument())
-		return FALSE;
+    if (!CDocument::OnNewDocument())
+        return FALSE;
 
-	// TODO: add reinitialization code here
-	// (SDI documents will reuse this document)
+    // TODO: add reinitialization code here
+    // (SDI documents will reuse this document)
 
-	return TRUE;
+    return TRUE;
 }
 
 
@@ -61,14 +61,14 @@ BOOL CWOE5ExtractDoc::OnNewDocument()
 
 void CWOE5ExtractDoc::Serialize(CArchive& ar)
 {
-	if (ar.IsStoring())
-	{
-		// TODO: add storing code here
-	}
-	else
-	{
-		// TODO: add loading code here
-	}
+    if (ar.IsStoring())
+    {
+        // TODO: add storing code here
+    }
+    else
+    {
+        // TODO: add loading code here
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -77,39 +77,39 @@ void CWOE5ExtractDoc::Serialize(CArchive& ar)
 #ifdef _DEBUG
 void CWOE5ExtractDoc::AssertValid() const
 {
-	CDocument::AssertValid();
+    CDocument::AssertValid();
 }
 
 void CWOE5ExtractDoc::Dump(CDumpContext& dc) const
 {
-	CDocument::Dump(dc);
+    CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
 /////////////////////////////////////////////////////////////////////////////
 // CWOE5ExtractDoc commands
 
-BOOL CWOE5ExtractDoc::OnOpenDocument(LPCTSTR lpszPathName) 
+BOOL CWOE5ExtractDoc::OnOpenDocument(LPCTSTR lpszPathName)
 {
-	if (!CDocument::OnOpenDocument(lpszPathName))
-		return FALSE;
+    if (!CDocument::OnOpenDocument(lpszPathName))
+        return FALSE;
 
-	if ( lpszPathName != NULL )
-	{
-		theApp.WriteProfileString ( "Settings", "Default Directory", FindDirectory ( lpszPathName ) );
-		int iRes1 = _chdrive ( *lpszPathName - 'A' + 1 );
-		int iRes2 = _chdir ( FindDirectory ( lpszPathName ) );
-	}
-	
-	// TODO: Add your specialized creation code here
-	UpdateAllViews ( NULL );
+    if ( lpszPathName != NULL )
+    {
+        theApp.WriteProfileString ( "Settings", "Default Directory", FindDirectory ( lpszPathName ) );
+        int iRes1 = _chdrive ( *lpszPathName - 'A' + 1 );
+        int iRes2 = _chdir ( FindDirectory ( lpszPathName ) );
+    }
+    
+    // TODO: Add your specialized creation code here
+    UpdateAllViews ( NULL );
 
-	return TRUE;
+    return TRUE;
 }
 
-BOOL CWOE5ExtractDoc::OnSaveDocument(LPCTSTR lpszPathName) 
+BOOL CWOE5ExtractDoc::OnSaveDocument(LPCTSTR lpszPathName)
 {
-	// TODO: Add your specialized code here and/or call the base class
-	
-	return CDocument::OnSaveDocument(lpszPathName);
+    // TODO: Add your specialized code here and/or call the base class
+    
+    return CDocument::OnSaveDocument(lpszPathName);
 }

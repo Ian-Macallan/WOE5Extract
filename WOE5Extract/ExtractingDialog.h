@@ -15,32 +15,32 @@ class CExtractingDialog : public CDialog
 {
 // Construction
 public:
-	CExtractingDialog(CWnd* pParent = NULL);   // standard constructor
+    CExtractingDialog(CWnd* pParent = NULL);   // standard constructor
 
 // Dialog Data
-	//{{AFX_DATA(CExtractingDialog)
-	enum { IDD = IDD_EXTRACTING };
-		// NOTE: the ClassWizard will add data members here
-	//}}AFX_DATA
+    //{{AFX_DATA(CExtractingDialog)
+    enum { IDD = IDD_EXTRACTING };
+        // NOTE: the ClassWizard will add data members here
+    //}}AFX_DATA
 
 
 // Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CExtractingDialog)
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	//}}AFX_VIRTUAL
+    // ClassWizard generated virtual function overrides
+    //{{AFX_VIRTUAL(CExtractingDialog)
+    protected:
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    //}}AFX_VIRTUAL
 
 // Implementation
 protected:
 
-	// Generated message map functions
-	//{{AFX_MSG(CExtractingDialog)
-	virtual BOOL OnInitDialog();
-	afx_msg void OnTimer(UINT nIDEvent);
-	afx_msg void OnDestroy();
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
+    // Generated message map functions
+    //{{AFX_MSG(CExtractingDialog)
+    virtual BOOL OnInitDialog();
+    afx_msg void OnTimer(UINT nIDEvent);
+    afx_msg void OnDestroy();
+    //}}AFX_MSG
+    DECLARE_MESSAGE_MAP()
 };
 
 //{{AFX_INSERT_LOCATION}}

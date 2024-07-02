@@ -41,11 +41,11 @@ CExtractingThread::~CExtractingThread()
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CExtractingThread::InitInstance()
 {
-	// TODO:  perform and per-thread initialization here
-	m_pMainWnd = &theApp.m_ExtractingDialog;
-	
-	theApp.m_ExtractingDialog.DoModal ( );
-	return TRUE;
+    // TODO:  perform and per-thread initialization here
+    m_pMainWnd = &theApp.m_ExtractingDialog;
+    
+    theApp.m_ExtractingDialog.DoModal ( );
+    return TRUE;
 }
 
 //
@@ -54,8 +54,8 @@ BOOL CExtractingThread::InitInstance()
 ///////////////////////////////////////////////////////////////////////////////
 int CExtractingThread::ExitInstance()
 {
-	// TODO:  perform any per-thread cleanup here
-	return CWinThread::ExitInstance();
+    // TODO:  perform any per-thread cleanup here
+    return CWinThread::ExitInstance();
 }
 
 //
@@ -63,9 +63,9 @@ int CExtractingThread::ExitInstance()
 //
 ///////////////////////////////////////////////////////////////////////////////
 BEGIN_MESSAGE_MAP(CExtractingThread, CWinThread)
-	//{{AFX_MSG_MAP(CExtractingThread)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-	//}}AFX_MSG_MAP
+    //{{AFX_MSG_MAP(CExtractingThread)
+        // NOTE - the ClassWizard will add and remove mapping macros here.
+    //}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 //
