@@ -5,7 +5,7 @@
 //
 //	(c) 2003 - 2024 Macallan - mailto:ian.macallan@gmail.com
 //
-//	Generated : 02/07/2024 11:01:18
+//	Generated : 02/07/2024 11:12:03
 //
 //===========================================================================================
 //
@@ -57,22 +57,22 @@
 #endif
 
 #ifdef UNICODE
-#define PROGRAM_DATE    L"Tue Jul 02 11:01"
-#define PROGRAM_DATE_F  L"Tue Jul 02 11:01 2024"
+#define PROGRAM_DATE    L"Tue Jul 02 11:12"
+#define PROGRAM_DATE_F  L"Tue Jul 02 11:12 2024"
 #define PROGRAM_YEAR    L"2024"
-#define PROGRAM_TIME    L"2024/07/02 11:01:18"
+#define PROGRAM_TIME    L"2024/07/02 11:12:03"
 #else
-#define PROGRAM_DATE    "Tue Jul 02 11:01"
-#define PROGRAM_DATE_F  "Tue Jul 02 11:01 2024"
+#define PROGRAM_DATE    "Tue Jul 02 11:12"
+#define PROGRAM_DATE_F  "Tue Jul 02 11:12 2024"
 #define PROGRAM_YEAR    "2024"
-#define PROGRAM_TIME    "2024/07/02 11:01:18"
+#define PROGRAM_TIME    "2024/07/02 11:12:03"
 #endif
 
 #ifdef UNICODE
-#define PROGRAM_VERSION L"1.3.01.003"
-#define PROGRAM_INSTALL L"1.3.01003"
-#define PROGRAM_VER_NUM 10301003
-#define PROGRAM_BUILD   L"164"
+#define PROGRAM_VERSION L"2.0.00.001"
+#define PROGRAM_INSTALL L"2.0.00001"
+#define PROGRAM_VER_NUM 20000001
+#define PROGRAM_BUILD   L"167"
 #define PROGRAM_TITLE   L"WOE5Extract"
 #ifdef _WIN64
 #define PROGRAM_TITLE_P L"WOE5Extract (x64 Unicode)"
@@ -80,10 +80,10 @@
 #define PROGRAM_TITLE_P L"WOE5Extract (x86 Unicode)"
 #endif
 #else
-#define PROGRAM_VERSION "1.3.01.003"
-#define PROGRAM_INSTALL "1.3.01003"
-#define PROGRAM_VER_NUM 10301003
-#define PROGRAM_BUILD   "164"
+#define PROGRAM_VERSION "2.0.00.001"
+#define PROGRAM_INSTALL "2.0.00001"
+#define PROGRAM_VER_NUM 20000001
+#define PROGRAM_BUILD   "167"
 #define PROGRAM_TITLE   "WOE5Extract"
 #ifdef _WIN64
 #define PROGRAM_TITLE_P "WOE5Extract (x64 MBCS)"
