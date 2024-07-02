@@ -78,7 +78,6 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)$(TargetName)$(TargetExt) </Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copy Executable</Message>

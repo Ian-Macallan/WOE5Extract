@@ -53,7 +53,7 @@ static void DisplayLastError ( )
 
 	if ( hLogFile )
 	{
-		fprintf ( hLogFile, "Last Error: %s\n", lpMsgBuf );
+		fprintf ( hLogFile, "Last Error: %s\n", (char *) lpMsgBuf );
 	}
 
 	LocalFree( lpMsgBuf );

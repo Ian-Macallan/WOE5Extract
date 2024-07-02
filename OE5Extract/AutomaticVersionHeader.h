@@ -5,7 +5,7 @@
 //
 //	(c) 2003 - 2024 Macallan - mailto:ian.macallan@gmail.com
 //
-//	Generated : 02/07/2024 11:20:36
+//	Generated : 02/07/2024 11:23:33
 //
 //===========================================================================================
 //
@@ -57,22 +57,22 @@
 #endif
 
 #ifdef UNICODE
-#define PROGRAM_DATE    L"Tue Jul 02 11:20"
-#define PROGRAM_DATE_F  L"Tue Jul 02 11:20 2024"
+#define PROGRAM_DATE    L"Tue Jul 02 11:23"
+#define PROGRAM_DATE_F  L"Tue Jul 02 11:23 2024"
 #define PROGRAM_YEAR    L"2024"
-#define PROGRAM_TIME    L"2024/07/02 11:20:36"
+#define PROGRAM_TIME    L"2024/07/02 11:23:33"
 #else
-#define PROGRAM_DATE    "Tue Jul 02 11:20"
-#define PROGRAM_DATE_F  "Tue Jul 02 11:20 2024"
+#define PROGRAM_DATE    "Tue Jul 02 11:23"
+#define PROGRAM_DATE_F  "Tue Jul 02 11:23 2024"
 #define PROGRAM_YEAR    "2024"
-#define PROGRAM_TIME    "2024/07/02 11:20:36"
+#define PROGRAM_TIME    "2024/07/02 11:23:33"
 #endif
 
 #ifdef UNICODE
-#define PROGRAM_VERSION L"2.0.00.002"
-#define PROGRAM_INSTALL L"2.0.00002"
-#define PROGRAM_VER_NUM 20000002
-#define PROGRAM_BUILD   L"47"
+#define PROGRAM_VERSION L"2.0.00.003"
+#define PROGRAM_INSTALL L"2.0.00003"
+#define PROGRAM_VER_NUM 20000003
+#define PROGRAM_BUILD   L"48"
 #define PROGRAM_TITLE   L"Outlook Extract"
 #ifdef _WIN64
 #define PROGRAM_TITLE_P L"Outlook Extract (x64 Unicode)"
@@ -80,10 +80,10 @@
 #define PROGRAM_TITLE_P L"Outlook Extract (x86 Unicode)"
 #endif
 #else
-#define PROGRAM_VERSION "2.0.00.002"
-#define PROGRAM_INSTALL "2.0.00002"
-#define PROGRAM_VER_NUM 20000002
-#define PROGRAM_BUILD   "47"
+#define PROGRAM_VERSION "2.0.00.003"
+#define PROGRAM_INSTALL "2.0.00003"
+#define PROGRAM_VER_NUM 20000003
+#define PROGRAM_BUILD   "48"
 #define PROGRAM_TITLE   "Outlook Extract"
 #ifdef _WIN64
 #define PROGRAM_TITLE_P "Outlook Extract (x64 MBCS)"

@@ -70,7 +70,6 @@
     </Link>
     <PostBuildEvent>
       <Message>Copy Executable</Message>
-      <Command>copy $(OutDir)$(TargetName)$(TargetExt) </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
