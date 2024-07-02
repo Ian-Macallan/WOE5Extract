@@ -156,7 +156,10 @@ void CloseAttFile ( )
 		CloseHandle ( hAttFile );
 		hAttFile = INVALID_HANDLE_VALUE;
 
-		ModifyFileTime ( szAttFilename, GetDate () );
+        if ( strlen(szAttFilename) > 0 )
+        {
+		    ModifyFileTime ( szAttFilename, GetDate () );
+        }
 	}
 
 }

@@ -286,8 +286,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,0,00,005
- PRODUCTVERSION 2,0,00,005
+ FILEVERSION 2,0,00,009
+ PRODUCTVERSION 2,0,00,009
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x29L
@@ -305,15 +305,15 @@ BEGIN
             VALUE "Comments", "mailto:ian.macallan@gmail.com\0"
             VALUE "CompanyName", "Macallan (c)\0"
             VALUE "FileDescription", "WOE5Extract - (MSVC)\0"
-            VALUE "FileVersion", "2.0.00.005\0"
+            VALUE "FileVersion", "2.0.00.009\0"
             VALUE "InternalName", "https://www.macallan.org/\0"
-            VALUE "LegalCopyright", "Copyright (C) Tue Jul 02 11:37, 2024\0"
+            VALUE "LegalCopyright", "Copyright (C) Tue Jul 02 14:13, 2024\0"
             VALUE "LegalTrademarks", "Author: Ian Macallan\0"
             VALUE "OriginalFilename", ORIGINAL_FILENAME
-            VALUE "PrivateBuild", "171\0"
+            VALUE "PrivateBuild", "175\0"
             VALUE "ProductName", PRODUCT_NAME
-            VALUE "ProductVersion", "2.0.00.005\0"
-            VALUE "SpecialBuild", "171\0"
+            VALUE "ProductVersion", "2.0.00.009\0"
+            VALUE "SpecialBuild", "175\0"
         END
     END
     BLOCK "VarFileInfo"

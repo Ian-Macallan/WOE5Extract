@@ -5,7 +5,7 @@
 //
 //	(c) 2003 - 2024 Macallan - mailto:ian.macallan@gmail.com
 //
-//	Generated : 02/07/2024 11:37:44
+//	Generated : 02/07/2024 14:13:02
 //
 //===========================================================================================
 //
@@ -24,15 +24,15 @@
 #define PROGRAM_RSS     L"index.php?title=Special:Recentchanges&feed=rss"
 #define PROGRAM_NEWS    L"news://home.macallan.org/macallan.mail.solution"
 #define PROGRAM_SITE    L"www.macallan.org"
-#define PROGRAM_NAME    L"OutlookExtract"
+#define PROGRAM_NAME    L"OE5Extract"
 #ifdef _WIN64
-#define PROGRAM_NAME_P  L"OutlookExtract (x64 Unicode)"
+#define PROGRAM_NAME_P  L"OE5Extract (x64 Unicode)"
 #else
-#define PROGRAM_NAME_P  L"OutlookExtract (x86 Unicode)"
+#define PROGRAM_NAME_P  L"OE5Extract (x86 Unicode)"
 #endif
 #define PROGRAM_SECT    L"OE5Extract"
-#define PROGRAM_REGKEY  L"Macallan\\OutlookExtract"
-#define PROGRAM_SOFTKEY L"SOFTWARE\\Macallan\\OutlookExtract"
+#define PROGRAM_REGKEY  L"Macallan\\OE5Extract"
+#define PROGRAM_SOFTKEY L"SOFTWARE\\Macallan\\OE5Extract"
 #define PROGRAM_CHARS   L"Unicode"
 #else
 #define PROGRAM_MAIL    "mailto:ian.macallan@gmail.com"
@@ -44,51 +44,51 @@
 #define PROGRAM_RSS     "index.php?title=Special:Recentchanges&feed=rss"
 #define PROGRAM_NEWS    "news://home.macallan.org/macallan.mail.solution"
 #define PROGRAM_SITE    "www.macallan.org"
-#define PROGRAM_NAME    "OutlookExtract"
+#define PROGRAM_NAME    "OE5Extract"
 #ifdef _WIN64
-#define PROGRAM_NAME_P  "OutlookExtract (x64 MBCS)"
+#define PROGRAM_NAME_P  "OE5Extract (x64 MBCS)"
 #else
-#define PROGRAM_NAME_P  "OutlookExtract (x86 MBCS)"
+#define PROGRAM_NAME_P  "OE5Extract (x86 MBCS)"
 #endif
 #define PROGRAM_SECT    "OE5Extract"
-#define PROGRAM_REGKEY  "Macallan\\OutlookExtract"
-#define PROGRAM_SOFTKEY "SOFTWARE\\Macallan\\OutlookExtract"
+#define PROGRAM_REGKEY  "Macallan\\OE5Extract"
+#define PROGRAM_SOFTKEY "SOFTWARE\\Macallan\\OE5Extract"
 #define PROGRAM_CHARS   "MBCS"
 #endif
 
 #ifdef UNICODE
-#define PROGRAM_DATE    L"Tue Jul 02 11:37"
-#define PROGRAM_DATE_F  L"Tue Jul 02 11:37 2024"
+#define PROGRAM_DATE    L"Tue Jul 02 14:13"
+#define PROGRAM_DATE_F  L"Tue Jul 02 14:13 2024"
 #define PROGRAM_YEAR    L"2024"
-#define PROGRAM_TIME    L"2024/07/02 11:37:44"
+#define PROGRAM_TIME    L"2024/07/02 14:13:02"
 #else
-#define PROGRAM_DATE    "Tue Jul 02 11:37"
-#define PROGRAM_DATE_F  "Tue Jul 02 11:37 2024"
+#define PROGRAM_DATE    "Tue Jul 02 14:13"
+#define PROGRAM_DATE_F  "Tue Jul 02 14:13 2024"
 #define PROGRAM_YEAR    "2024"
-#define PROGRAM_TIME    "2024/07/02 11:37:44"
+#define PROGRAM_TIME    "2024/07/02 14:13:02"
 #endif
 
 #ifdef UNICODE
-#define PROGRAM_VERSION L"2.0.00.005"
-#define PROGRAM_INSTALL L"2.0.00005"
-#define PROGRAM_VER_NUM 20000005
-#define PROGRAM_BUILD   L"50"
-#define PROGRAM_TITLE   L"Outlook Extract"
+#define PROGRAM_VERSION L"2.0.00.009"
+#define PROGRAM_INSTALL L"2.0.00009"
+#define PROGRAM_VER_NUM 20000009
+#define PROGRAM_BUILD   L"54"
+#define PROGRAM_TITLE   L"OE5Extract"
 #ifdef _WIN64
-#define PROGRAM_TITLE_P L"Outlook Extract (x64 Unicode)"
+#define PROGRAM_TITLE_P L"OE5Extract (x64 Unicode)"
 #else
-#define PROGRAM_TITLE_P L"Outlook Extract (x86 Unicode)"
+#define PROGRAM_TITLE_P L"OE5Extract (x86 Unicode)"
 #endif
 #else
-#define PROGRAM_VERSION "2.0.00.005"
-#define PROGRAM_INSTALL "2.0.00005"
-#define PROGRAM_VER_NUM 20000005
-#define PROGRAM_BUILD   "50"
-#define PROGRAM_TITLE   "Outlook Extract"
+#define PROGRAM_VERSION "2.0.00.009"
+#define PROGRAM_INSTALL "2.0.00009"
+#define PROGRAM_VER_NUM 20000009
+#define PROGRAM_BUILD   "54"
+#define PROGRAM_TITLE   "OE5Extract"
 #ifdef _WIN64
-#define PROGRAM_TITLE_P "Outlook Extract (x64 MBCS)"
+#define PROGRAM_TITLE_P "OE5Extract (x64 MBCS)"
 #else
-#define PROGRAM_TITLE_P "Outlook Extract (x86 MBCS)"
+#define PROGRAM_TITLE_P "OE5Extract (x86 MBCS)"
 #endif
 #endif
 

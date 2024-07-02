@@ -134,7 +134,10 @@ void CloseMsgFile ( )
 		CloseHandle ( hMsgFile );
 		hMsgFile = INVALID_HANDLE_VALUE;
 
-		ModifyFileTime ( szMsgFilename, GetDate ( ) );
+        if  ( strlen(szMsgFilename) > 0 )
+        {
+		    ModifyFileTime ( szMsgFilename, GetDate ( ) );
+        }
 	}
 
 	if ( hMsgFile2 != NULL )
@@ -142,7 +145,10 @@ void CloseMsgFile ( )
 		fclose ( hMsgFile2 );
 		hMsgFile2 = NULL;
 
-		ModifyFileTime ( szMsgFilename, GetDate ( ) );
+        if  ( strlen(szMsgFilename) > 0 )
+        {
+    		ModifyFileTime ( szMsgFilename, GetDate ( ) );
+        }
 	}
 
 }

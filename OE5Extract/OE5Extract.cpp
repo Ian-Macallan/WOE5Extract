@@ -669,7 +669,7 @@ int main ( int nArgs, char *pArgs [] )
 	//		Result for opérations.
 	//
 	//		Display Copyright.
-	DisplayText ( "OutlookExtract - Extract attachements from Outlook Express mails and news\n" );
+	DisplayText ( "%s - Extract attachements from Outlook Express mails and news\n", PROGRAM_NAME );
 	DisplayText ( "(c) 2001-%s - %s - %s\n", PROGRAM_YEAR, PROGRAM_VERSION, PROGRAM_MAIL );
 	DisplayText ( "\n" );
 
