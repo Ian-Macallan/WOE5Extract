@@ -1,4 +1,4 @@
-2.0.0.11
+2.0.0.13
 WOE5Extract
-WOE5Extract (x86) : Tue Jul 02 19:32 2.0.0.11
-WOE5Extract (x64) : Tue Jul 02 19:32 2.0.0.11
+WOE5Extract (x86) : Sat May 24 16:32 2.0.0.13
+WOE5Extract (x64) : Sat May 24 16:32 2.0.0.13

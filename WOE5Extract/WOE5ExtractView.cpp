@@ -63,12 +63,12 @@ BEGIN_MESSAGE_MAP(CWOE5ExtractView, CListView)
     ON_NOTIFY_REFLECT(LVN_ITEMCHANGED, OnItemchanged)
     ON_COMMAND(ID_EXTRACT_EMAIL, OnExtractEmail)
     ON_UPDATE_COMMAND_UI(ID_EXTRACT_EMAIL, OnUpdateExtractEmail)
-    //}}AFX_MSG_MAP
-    // Standard printing commands
     ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
     ON_COMMAND(ID_FILE_PRINT_DIRECT, CListView::OnFilePrint)
     ON_COMMAND(ID_FILE_PRINT_PREVIEW, CListView::OnFilePrintPreview)
     ON_NOTIFY_EX( TTN_NEEDTEXT, 0, OnToolTipNotify )
+    //}}AFX_MSG_MAP
+    // Standard printing commands
 END_MESSAGE_MAP()
 
 //
@@ -115,9 +115,11 @@ BOOL CWOE5ExtractView::PreCreateWindow(CREATESTRUCT& cs)
     return CListView::PreCreateWindow(cs);
 }
 
-/////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 // CWOE5ExtractView drawing
-
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnDraw(CDC* pDC)
 {
     CWOE5ExtractDoc* pDoc = GetDocument();
@@ -125,6 +127,10 @@ void CWOE5ExtractView::OnDraw(CDC* pDC)
     // TODO: add draw code for native data here
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnInitialUpdate()
 {
     CListView::OnInitialUpdate();
@@ -154,39 +160,59 @@ void CWOE5ExtractView::OnInitialUpdate()
 
 }
 
-/////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 // CWOE5ExtractView printing
-
+//
+///////////////////////////////////////////////////////////////////////////////
 BOOL CWOE5ExtractView::OnPreparePrinting(CPrintInfo* pInfo)
 {
     // default preparation
     return DoPreparePrinting(pInfo);
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
     // TODO: add extra initialization before printing
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
     // TODO: add cleanup after printing
 }
 
-/////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 // CWOE5ExtractView diagnostics
-
+//
+///////////////////////////////////////////////////////////////////////////////
 #ifdef _DEBUG
 void CWOE5ExtractView::AssertValid() const
 {
     CListView::AssertValid();
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::Dump(CDumpContext& dc) const
 {
     CListView::Dump(dc);
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 CWOE5ExtractDoc* CWOE5ExtractView::GetDocument() // non-debug version is inline
 {
     ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CWOE5ExtractDoc)));
@@ -194,9 +220,11 @@ CWOE5ExtractDoc* CWOE5ExtractView::GetDocument() // non-debug version is inline
 }
 #endif //_DEBUG
 
-/////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 // CWOE5ExtractView message handlers
-
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult)
 {
     // TODO: Add your control notification handler code here
@@ -213,6 +241,10 @@ void CWOE5ExtractView::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult)
     *pResult = 0;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnClick(NMHDR* pNMHDR, LRESULT* pResult)
 {
     // TODO: Add your control notification handler code here
@@ -227,6 +259,10 @@ void CWOE5ExtractView::OnClick(NMHDR* pNMHDR, LRESULT* pResult)
     *pResult = 0;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnColumnclick(NMHDR* pNMHDR, LRESULT* pResult)
 {
     NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
@@ -244,13 +280,20 @@ void CWOE5ExtractView::OnColumnclick(NMHDR* pNMHDR, LRESULT* pResult)
     *pResult = 0;
 }
 
-
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 {
     // TODO: Add your specialized code here and/or call the base class
     DisplayValues ( );
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::DisplayHeader()
 {
     // Insert a column. This override is the most convenient.
@@ -259,6 +302,13 @@ void CWOE5ExtractView::DisplayHeader()
         CListCtrl& theCtrl = GetListCtrl();
 
         bHeaderDone = true;
+
+        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_FULLROWSELECT );
+        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_HEADERDRAGDROP );
+        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_GRIDLINES );
+        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_TRACKSELECT );
+        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_ONECLICKACTIVATE );
+        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_UNDERLINEHOT );
 
         theCtrl.InsertColumn(COL_ATTACHEMENT, " ", LVCFMT_LEFT, 48);
         theCtrl.InsertColumn(COL_MESSAGE, "Message", LVCFMT_LEFT, 64);
@@ -270,18 +320,15 @@ void CWOE5ExtractView::DisplayHeader()
         theCtrl.SetImageList ( &m_imgAttachement16, LVSIL_SMALL );
         theCtrl.SetImageList ( &m_imgAttachement32, LVSIL_NORMAL );
 
-        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_FULLROWSELECT );
-        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_HEADERDRAGDROP );
-        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_GRIDLINES );
-        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_TRACKSELECT );
-        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_ONECLICKACTIVATE );
-        theCtrl.SetExtendedStyle ( theCtrl.GetExtendedStyle () | LVS_EX_UNDERLINEHOT );
-
         RestoreColumnsPosition ( );
     }
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::DisplayValues()
 {
     DisplayHeader ( );
@@ -325,23 +372,23 @@ void CWOE5ExtractView::DisplayValues()
     }
 }
 
-
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::AddListItem(structInformation *pStruct)
 {
 
-    pInfos [ iCountList ] =
-        ( structInformation * ) malloc ( sizeof ( struct structInformation ) );
-    *pInfos [ iCountList ] = *pStruct;
+    pInfos [ iCountList ]   = ( structInformation * ) malloc ( sizeof ( struct structInformation ) );
+    *pInfos [ iCountList ]  = *pStruct;
 
-    char    *pSortDate = pInfos [ iCountList ]->szSortDate;
-    char    *pDate = pInfos [ iCountList ]->szDate;
+    char    *pSortDate      = pInfos [ iCountList ]->szSortDate;
+    char    *pDate          = pInfos [ iCountList ]->szDate;
 
     try
     {
         class   CDateTime   clDate ( pDate );
-
-        strcpy_s ( pSortDate, sizeof ( pInfos [ iCountList ]->szSortDate ),
-                    clDate.GetDateTime () );
+        strcpy_s ( pSortDate, sizeof ( pInfos [ iCountList ]->szSortDate ), clDate.GetDateTime () );
     }
     catch ( ... )
     {
@@ -351,6 +398,10 @@ void CWOE5ExtractView::AddListItem(structInformation *pStruct)
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnGetdispinfo(NMHDR* pNMHDR, LRESULT* pResult)
 {
     LV_DISPINFO* pDispInfo = (LV_DISPINFO*)pNMHDR;
@@ -397,40 +448,32 @@ void CWOE5ExtractView::OnGetdispinfo(NMHDR* pNMHDR, LRESULT* pResult)
             {
                 case COL_ATTACHEMENT:
                 {
-                    sprintf_s ( pDispInfo->item.pszText,
-                                pDispInfo->item.cchTextMax,
-                                "%d", pStruct->iAttachementCount );
+                    sprintf_s ( pDispInfo->item.pszText, pDispInfo->item.cchTextMax, "%d", pStruct->iAttachementCount );
                     break;
                 }
                 case COL_MESSAGE:
                 {
-                    sprintf_s ( pDispInfo->item.pszText,
-                                pDispInfo->item.cchTextMax,
-                                "%08lx", pStruct->lPosition );
+                    sprintf_s ( pDispInfo->item.pszText, pDispInfo->item.cchTextMax, "%08lx", pStruct->lPosition );
                     break;
                 }
                 case COL_DATE:
                 {
-                    strcpy_s (  pDispInfo->item.pszText, pDispInfo->item.cchTextMax,
-                                pStruct->szDate );
+                    strcpy_s (  pDispInfo->item.pszText, pDispInfo->item.cchTextMax, pStruct->szDate );
                     break;
                 }
                 case COL_AUTHOR:
                 {
-                    strcpy_s (  pDispInfo->item.pszText, pDispInfo->item.cchTextMax,
-                                pStruct->szAuthor );
+                    strcpy_s (  pDispInfo->item.pszText, pDispInfo->item.cchTextMax, pStruct->szAuthor );
                     break;
                 }
                 case COL_OBJECT:
                 {
-                    strcpy_s (  pDispInfo->item.pszText, pDispInfo->item.cchTextMax,
-                                pStruct->szSubject );
+                    strcpy_s (  pDispInfo->item.pszText, pDispInfo->item.cchTextMax, pStruct->szSubject );
                     break;
                 }
                 case COL_SIZE:
                 {
-                    sprintf_s ( pDispInfo->item.pszText, pDispInfo->item.cchTextMax,
-                                "%ld", pStruct->lSize );
+                    sprintf_s ( pDispInfo->item.pszText, pDispInfo->item.cchTextMax, "%ld", pStruct->lSize );
                     break;
                 }
                 default:
@@ -447,6 +490,10 @@ void CWOE5ExtractView::OnGetdispinfo(NMHDR* pNMHDR, LRESULT* pResult)
     *pResult = 0;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::FreeAllItems()
 {
     iCountList = 0;
@@ -462,6 +509,10 @@ void CWOE5ExtractView::FreeAllItems()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::ExtractMsgFile(int iPos)
 {
     char        szPathname [ LEN_PATHNAME ];
@@ -503,14 +554,14 @@ void CWOE5ExtractView::ExtractMsgFile(int iPos)
         //      Execute Shell
         HINSTANCE           hInst;
 
-        hInst =
-            ShellExecute ( NULL, "open",
-                            strPathname, "", "", SW_SHOWDEFAULT );
-    
-
+        hInst = ShellExecute ( NULL, "open", strPathname, "", "", SW_SHOWDEFAULT );
     }
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnContextMenu(CWnd* pWnd, CPoint point)
 {
     // TODO: Add your message handler code here
@@ -547,9 +598,7 @@ void CWOE5ExtractView::OnContextMenu(CWnd* pWnd, CPoint point)
         pContextMenu->EnableMenuItem ( ID_EXTRACT_SEL_ATT, iState );
         pContextMenu->EnableMenuItem ( ID_EXTRACT_SEL_MSG, iState );
 
-        pContextMenu->TrackPopupMenu (
-            TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON,
-            point.x, point.y, this );
+        pContextMenu->TrackPopupMenu ( TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON, point.x, point.y, this );
 
         return;
     }
@@ -557,6 +606,10 @@ void CWOE5ExtractView::OnContextMenu(CWnd* pWnd, CPoint point)
     
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnExtractSelAll()
 {
     // TODO: Add your command handler code here
@@ -594,6 +647,10 @@ void CWOE5ExtractView::OnExtractSelAll()
     
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnExtractSelAtt()
 {
     // TODO: Add your command handler code here
@@ -629,6 +686,10 @@ void CWOE5ExtractView::OnExtractSelAtt()
     }
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnExtractSelMsg()
 {
     // TODO: Add your command handler code here
@@ -665,6 +726,10 @@ void CWOE5ExtractView::OnExtractSelMsg()
     }
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnExtractAll()
 {
     // TODO: Add your command handler code here
@@ -700,6 +765,10 @@ void CWOE5ExtractView::OnExtractAll()
     }
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnExtractAttachement()
 {
     // TODO: Add your command handler code here
@@ -735,6 +804,10 @@ void CWOE5ExtractView::OnExtractAttachement()
     }
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnExtractMessage()
 {
     // TODO: Add your command handler code here
@@ -770,6 +843,10 @@ void CWOE5ExtractView::OnExtractMessage()
     }
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SaveColumnsPosition()
 {
     CListCtrl& theCtrl = GetListCtrl();
@@ -805,6 +882,10 @@ void CWOE5ExtractView::SaveColumnsPosition()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::RestoreColumnsPosition()
 {
     SetHeaderBitmap ( -1, true);
@@ -849,6 +930,10 @@ void CWOE5ExtractView::RestoreColumnsPosition()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SortByAuthor ( )
 {
     for ( int iX = 0; iX < iCountList; iX++ )
@@ -881,6 +966,10 @@ void CWOE5ExtractView::SortByAuthor ( )
     bSortByAuthorAsc = Negate ( bSortByAuthorAsc );
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SortByObject ( )
 {
     for ( int iX = 0; iX < iCountList; iX++ )
@@ -913,6 +1002,10 @@ void CWOE5ExtractView::SortByObject ( )
     bSortByObjectAsc = Negate ( bSortByObjectAsc );
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SortByDate ( )
 {
     for ( int iX = 0; iX < iCountList; iX++ )
@@ -945,6 +1038,10 @@ void CWOE5ExtractView::SortByDate ( )
     bSortByDateAsc = Negate ( bSortByDateAsc );
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SortBySize ( )
 {
     for ( int iX = 0; iX < iCountList; iX++ )
@@ -977,6 +1074,10 @@ void CWOE5ExtractView::SortBySize ( )
     bSortBySizeAsc = Negate ( bSortBySizeAsc );
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SortByAttach ( )
 {
     for ( int iX = 0; iX < iCountList; iX++ )
@@ -1009,6 +1110,10 @@ void CWOE5ExtractView::SortByAttach ( )
     bSortByAttachAsc = Negate ( bSortByAttachAsc );
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SortByMessage ( )
 {
     for ( int iX = 0; iX < iCountList; iX++ )
@@ -1041,6 +1146,10 @@ void CWOE5ExtractView::SortByMessage ( )
     bSortByMessageAsc = Negate ( bSortByMessageAsc );
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SortInfosItems(int iColumn)
 {
     switch ( iColumn )
@@ -1089,7 +1198,10 @@ void CWOE5ExtractView::SortInfosItems(int iColumn)
     }
 }
 
-
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 bool CWOE5ExtractView::Negate(bool bValue)
 {
     if ( bValue )
@@ -1100,6 +1212,10 @@ bool CWOE5ExtractView::Negate(bool bValue)
     return true;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SetHeaderBitmap(int iColumn, bool bAscending)
 {
     HDITEM      tagHeaderInfo;
@@ -1127,6 +1243,10 @@ void CWOE5ExtractView::SetHeaderBitmap(int iColumn, bool bAscending)
 
         tagHeaderInfo.mask      = HDI_TEXT | HDI_IMAGE | HDI_FORMAT;
         tagHeaderInfo.fmt       = HDF_IMAGE | HDF_STRING;
+        if ( iX == COL_SIZE )
+        {
+            tagHeaderInfo.fmt   |= HDF_RIGHT;
+        }
         tagHeaderInfo.pszText   = szText;
         if ( iX == iColumn )
         {
@@ -1148,6 +1268,10 @@ void CWOE5ExtractView::SetHeaderBitmap(int iColumn, bool bAscending)
     }
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::ResetSortOrder()
 {
     bSortByMessageAsc   = true;
@@ -1158,6 +1282,10 @@ void CWOE5ExtractView::ResetSortOrder()
     bSortByDateAsc      = true;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::UnSelectAll()
 {
     int         iX;
@@ -1171,6 +1299,10 @@ void CWOE5ExtractView::UnSelectAll()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 int CWOE5ExtractView::GetFirstSelectedItem()
 {
     CListCtrl& theCtrl = GetListCtrl();
@@ -1189,6 +1321,10 @@ int CWOE5ExtractView::GetFirstSelectedItem()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SelectAll()
 {
     int         iX;
@@ -1202,19 +1338,30 @@ void CWOE5ExtractView::SelectAll()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnSelectAll()
 {
     // TODO: Add your command handler code here
     SelectAll();
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUnselectAll()
 {
     // TODO: Add your command handler code here
     UnSelectAll();  
 }
 
-
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SetTheSelection()
 {
     int         iX;
@@ -1230,6 +1377,10 @@ void CWOE5ExtractView::SetTheSelection()
     }
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdateSelectAll(CCmdUI* pCmdUI)
 {
     // TODO: Add your command update UI handler code here
@@ -1238,6 +1389,10 @@ void CWOE5ExtractView::OnUpdateSelectAll(CCmdUI* pCmdUI)
     pCmdUI->Enable ( theCtrl.GetItemCount ( ) > 0 );    
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdateUnselectAll(CCmdUI* pCmdUI)
 {
     // TODO: Add your command update UI handler code here
@@ -1245,24 +1400,40 @@ void CWOE5ExtractView::OnUpdateUnselectAll(CCmdUI* pCmdUI)
     
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdateExtractSelAll(CCmdUI* pCmdUI)
 {
     // TODO: Add your command update UI handler code here
     pCmdUI->Enable ( GetFirstSelectedItem () != -1 );   
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdateExtractSelAtt(CCmdUI* pCmdUI)
 {
     // TODO: Add your command update UI handler code here
     pCmdUI->Enable ( GetFirstSelectedItem () != -1 );   
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdateExtractSelMsg(CCmdUI* pCmdUI)
 {
     // TODO: Add your command update UI handler code here
     pCmdUI->Enable ( GetFirstSelectedItem () != -1 );   
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdateExtractAll(CCmdUI* pCmdUI)
 {
     // TODO: Add your command update UI handler code here
@@ -1272,6 +1443,10 @@ void CWOE5ExtractView::OnUpdateExtractAll(CCmdUI* pCmdUI)
     
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdateExtractAttachement(CCmdUI* pCmdUI)
 {
     // TODO: Add your command update UI handler code here
@@ -1281,6 +1456,10 @@ void CWOE5ExtractView::OnUpdateExtractAttachement(CCmdUI* pCmdUI)
     
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdateExtractMessage(CCmdUI* pCmdUI)
 {
     // TODO: Add your command update UI handler code here
@@ -1290,6 +1469,10 @@ void CWOE5ExtractView::OnUpdateExtractMessage(CCmdUI* pCmdUI)
     
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 BOOL CWOE5ExtractView::OnToolTipNotify(UINT id, NMHDR *pNMH, LRESULT *pResult)
 {
     TOOLTIPTEXT *pText = (TOOLTIPTEXT *)pNMH;
@@ -1316,6 +1499,10 @@ BOOL CWOE5ExtractView::OnToolTipNotify(UINT id, NMHDR *pNMH, LRESULT *pResult)
     return FALSE;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 BOOL CWOE5ExtractView::PreTranslateMessage(MSG* pMsg)
 {
     // TODO: Add your specialized code here and/or call the base class
@@ -1324,6 +1511,10 @@ BOOL CWOE5ExtractView::PreTranslateMessage(MSG* pMsg)
     return CListView::PreTranslateMessage(pMsg);
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnOdstatechanged(NMHDR* pNMHDR, LRESULT* pResult)
 {
     NMLVODSTATECHANGE* pStateChanged = (NMLVODSTATECHANGE*)pNMHDR;
@@ -1335,6 +1526,10 @@ void CWOE5ExtractView::OnOdstatechanged(NMHDR* pNMHDR, LRESULT* pResult)
     *pResult = 0;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnItemchanged(NMHDR* pNMHDR, LRESULT* pResult)
 {
     NM_LISTVIEW* pNMListView = (NM_LISTVIEW*)pNMHDR;
@@ -1346,6 +1541,10 @@ void CWOE5ExtractView::OnItemchanged(NMHDR* pNMHDR, LRESULT* pResult)
     *pResult = 0;
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnExtractEmail()
 {
     // TODO: Add your command handler code here
@@ -1367,6 +1566,10 @@ void CWOE5ExtractView::OnExtractEmail()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnUpdateExtractEmail(CCmdUI* pCmdUI)
 {
     // TODO: Add your command update UI handler code here
@@ -1376,6 +1579,10 @@ void CWOE5ExtractView::OnUpdateExtractEmail(CCmdUI* pCmdUI)
     pCmdUI->Enable ( theCtrl.GetItemCount ( ) > 0 );    
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::CreateMailAddressFile(CString strFile)
 {
     FILE *hFile = NULL;
@@ -1387,15 +1594,17 @@ void CWOE5ExtractView::CreateMailAddressFile(CString strFile)
         fprintf ( hFile, "Name;E-Mail\r\n" );
         for ( int iX = 0; iX < iCountList; iX++ )
         {
-            fprintf ( hFile, "%s;%s\r\n",
-                pInfos [ iX ]->szAuthor, pInfos [ iX ]->szEmail );
+            fprintf ( hFile, "%s;%s\r\n", pInfos [ iX ]->szAuthor, pInfos [ iX ]->szEmail );
         }
 
         fclose ( hFile );
     }
 }
 
-
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::SaveSummaryFile()
 {
     if ( theApp.GetProfileInt ( "Settings", "Create Index Files", FALSE ) == FALSE )
@@ -1437,6 +1646,10 @@ void CWOE5ExtractView::SaveSummaryFile()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 bool CWOE5ExtractView::RetrieveSummaryFile()
 {
     structInformation       strTemp;
@@ -1547,6 +1760,10 @@ bool CWOE5ExtractView::RetrieveSummaryFile()
 
 }
 
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::PrepareDirectory()
 {
     CWOE5ExtractDoc *pDoc = GetDocument ();
@@ -1563,10 +1780,8 @@ void CWOE5ExtractView::PrepareDirectory()
 
     if ( strPathname != "" )
     {
-        CString strDirectory =
-            theApp.GetProfileString ( "Settings", "Working Directory", "" );
-        CString strDiskDrive =
-            theApp.GetProfileString ( "Settings", "Working Disk Drive", "" );
+        CString strDirectory = theApp.GetProfileString ( "Settings", "Working Directory", "" );
+        CString strDiskDrive = theApp.GetProfileString ( "Settings", "Working Disk Drive", "" );
 
         //      First processing
         if ( strDirectory == "" )
@@ -1586,5 +1801,4 @@ void CWOE5ExtractView::PrepareDirectory()
         ProcessFileStep3 ( szPathname, NULL, this );
 
     }
-
 }
