@@ -6,22 +6,22 @@
 #ifdef _WIN64
 #ifdef UNICODE
 #define ORIGINAL_FILENAME   L"WOE5Extract (x64 Unicode) (MSVC)\0"
-#define PRODUCT_NAME        L"WOE5Extract - Version 2.0.00.016\r\n(Build 182) - (x64 Unicode) (MSVC)\0"
+#define PRODUCT_NAME        L"WOE5Extract - Version 2.0.00.017\r\n(Build 183) - (x64 Unicode) (MSVC)\0"
 #else
 #define ORIGINAL_FILENAME   "WOE5Extract (x64 MBCS) (MSVC)\0"
-#define PRODUCT_NAME        "WOE5Extract - Version 2.0.00.016\r\n(Build 182) - (x64 MBCS) (MSVC)\0"
+#define PRODUCT_NAME        "WOE5Extract - Version 2.0.00.017\r\n(Build 183) - (x64 MBCS) (MSVC)\0"
 #endif
 #elif _WIN32
 #ifdef UNICODE
 #define ORIGINAL_FILENAME   L"WOE5Extract (x86 Unicode) (MSVC)\0"
-#define PRODUCT_NAME        L"WOE5Extract - Version 2.0.00.016\r\n(Build 182) - (x86 Unicode) (MSVC)\0"
+#define PRODUCT_NAME        L"WOE5Extract - Version 2.0.00.017\r\n(Build 183) - (x86 Unicode) (MSVC)\0"
 #else
 #define ORIGINAL_FILENAME   "WOE5Extract (x86 MBCS) (MSVC)\0"
-#define PRODUCT_NAME        "WOE5Extract - Version 2.0.00.016\r\n(Build 182) - (x86 MBCS) (MSVC)\0"
+#define PRODUCT_NAME        "WOE5Extract - Version 2.0.00.017\r\n(Build 183) - (x86 MBCS) (MSVC)\0"
 #endif
 #else
 #define ORIGINAL_FILENAME   "WOE5Extract (MSVC)\0"
-#define PRODUCT_NAME        "WOE5Extract - Version 2.0.00.016\r\n(Build 182) - (MSVC)\0"
+#define PRODUCT_NAME        "WOE5Extract - Version 2.0.00.017\r\n(Build 183) - (MSVC)\0"
 #endif
 
 #endif
