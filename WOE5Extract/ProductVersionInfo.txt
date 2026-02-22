@@ -1,4 +1,4 @@
-1.4.0.6
+1.4.0.7
 Outlook Express Extraction
-OutlookExpressExtraction (x86) : Tue Jul 02 10:00 1.4.0.6
-OutlookExpressExtraction (x64) : Tue Jul 02 10:00 1.4.0.6
+OutlookExpressExtraction (x86) : Sun Feb 22 10:42 1.4.0.7
+OutlookExpressExtraction (x64) : Sun Feb 22 10:42 1.4.0.7
