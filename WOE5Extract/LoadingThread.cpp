@@ -42,9 +42,9 @@ CLoadingThread::~CLoadingThread()
 BOOL CLoadingThread::InitInstance()
 {
     // TODO:  perform and per-thread initialization here
-    m_pMainWnd = &theApp.m_LoadingDialog;
+    m_pMainWnd = theApp.m_LoadingDialog;
     
-    theApp.m_LoadingDialog.DoModal ( );
+    theApp.m_LoadingDialog->DoModal ( );
 
     return TRUE;
 }

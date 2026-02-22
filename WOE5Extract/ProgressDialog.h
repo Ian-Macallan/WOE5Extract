@@ -7,11 +7,12 @@
 // ProgressDialog.h : header file
 //
 #include "resource.h"
+#include "MCXDialogBase.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CProgressDialog dialog
 
-class CProgressDialog : public CDialog
+class CProgressDialog : public CMCXDialogBase
 {
 // Construction
 public:

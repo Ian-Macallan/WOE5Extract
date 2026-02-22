@@ -24,13 +24,13 @@ static char THIS_FILE[] = __FILE__;
 // CMainFrame
 //
 ///////////////////////////////////////////////////////////////////////////////
-IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
+IMPLEMENT_DYNCREATE(CMainFrame, CMCXFrameWndBase)
 
 //
 ///////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
+BEGIN_MESSAGE_MAP(CMainFrame, CMCXFrameWndBase)
     //{{AFX_MSG_MAP(CMainFrame)
     ON_WM_CREATE()
     ON_UPDATE_COMMAND_UI(ID_FILE_SAVE, OnUpdateFileSave)
@@ -89,6 +89,7 @@ CMainFrame::CMainFrame()
                 sizeof ( szDirectoryOfIdentity ), strDefaultDirectory );    
         _chdir ( szDirectoryOfIdentity );
     }
+
 }
 
 //
@@ -105,7 +106,7 @@ CMainFrame::~CMainFrame()
 ///////////////////////////////////////////////////////////////////////////////
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-    if (CFrameWnd::OnCreate(lpCreateStruct) == -1)
+    if (CMCXFrameWndBase::OnCreate(lpCreateStruct) == -1)
         return -1;
     
     if (!m_wndToolBar.CreateEx(this) ||
@@ -137,6 +138,11 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         return -1;      // fail to create
     }
 
+    //
+#if 0
+    HandleStatusBar( &m_wndStatusBar );
+#endif
+
     // TODO: Remove this if you don't want tool tips
     m_wndToolBar.SetBarStyle(m_wndToolBar.GetBarStyle() |
         CBRS_TOOLTIPS | CBRS_FLYBY);
@@ -161,6 +167,10 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
     theApp.SetMsgFilenameFormat ( );
 
+    theApp.m_ExtractingDialog   = new CExtractingDialog();
+    theApp.m_LoadingDialog      = new CLoadingDialog();
+    theApp.m_ProgressDialog     = new CProgressDialog();
+
     return 0;
 }
 
@@ -170,7 +180,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
-    if( !CFrameWnd::PreCreateWindow(cs) )
+    if( !CMCXFrameWndBase::PreCreateWindow(cs) )
         return FALSE;
     // TODO: Modify the Window class or styles here by modifying
     //  the CREATESTRUCT cs
@@ -186,7 +196,7 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 #ifdef _DEBUG
 void CMainFrame::AssertValid() const
 {
-    CFrameWnd::AssertValid();
+    CMCXFrameWndBase::AssertValid();
 }
 
 //
@@ -195,7 +205,7 @@ void CMainFrame::AssertValid() const
 ///////////////////////////////////////////////////////////////////////////////
 void CMainFrame::Dump(CDumpContext& dc) const
 {
-    CFrameWnd::Dump(dc);
+    CMCXFrameWndBase::Dump(dc);
 }
 
 #endif //_DEBUG
@@ -250,22 +260,22 @@ void CMainFrame::OnUpdateFilePrintPreview(CCmdUI* pCmdUI)
 ///////////////////////////////////////////////////////////////////////////////
 void CMainFrame::OnDestroy()
 {
-    CFrameWnd::OnDestroy();
+    CMCXFrameWndBase::OnDestroy();
     
     // TODO: Add your message handler code here
     if ( theApp.m_LoadingThread != NULL )
     {
-        theApp.m_LoadingDialog.EndDialog ( 0 );
+        theApp.m_LoadingDialog->EndDialog ( 0 );
     }
 
     if ( theApp.m_ExtractingThread != NULL )
     {
-        theApp.m_ExtractingDialog.EndDialog ( 0 );
+        theApp.m_ExtractingDialog->EndDialog ( 0 );
     }
 
     if ( theApp.m_ProgressThread != NULL )
     {
-        theApp.m_ProgressDialog.EndDialog ( 0 );
+        theApp.m_ProgressDialog->EndDialog ( 0 );
     }
     
 }
@@ -399,7 +409,7 @@ void CMainFrame::OnClose()
         pView->SaveColumnsPosition ( );
     }
 
-    CFrameWnd::OnClose();
+    CMCXFrameWndBase::OnClose();
 
 }
 

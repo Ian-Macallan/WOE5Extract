@@ -28,9 +28,9 @@ CProgressThread::~CProgressThread()
 BOOL CProgressThread::InitInstance()
 {
     // TODO:  perform and per-thread initialization here
-    m_pMainWnd = &theApp.m_ProgressDialog;
+    m_pMainWnd = theApp.m_ProgressDialog;
     
-    theApp.m_ProgressDialog.DoModal ( );
+    theApp.m_ProgressDialog->DoModal ( );
 
     return TRUE;
 }

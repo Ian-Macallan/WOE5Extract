@@ -6,11 +6,12 @@
 #endif // _MSC_VER > 1000
 // LoadingDialog.h : header file
 //
+#include "MCXDialogBase.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CLoadingDialog dialog
 
-class CLoadingDialog : public CDialog
+class CLoadingDialog : public CMCXDialogBase
 {
 // Construction
 public:

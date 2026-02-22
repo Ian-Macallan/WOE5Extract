@@ -16,6 +16,8 @@
 #include "ExtractingDialog.h"   // Added by ClassView
 #include "LoadingDialog.h"  // Added by ClassView
 #include "ProgressDialog.h" // Added by ClassView
+#include "MCXWinAppBase.h"
+
 
 #define LOADING_THREAD_TIMER    1
 #define EXTRACTING_THREAD_TIMER 2
@@ -26,20 +28,20 @@
 // See WOE5Extract.cpp for the implementation of this class
 //
 
-class CWOE5ExtractApp : public CWinApp
+class CWOE5ExtractApp : public CMCXWinAppBase
 {
 public:
     void SetMsgFilenameFormat ( );
     CView * m_View;
 
     CWinThread * m_ExtractingThread;
-    CExtractingDialog m_ExtractingDialog;
+    CExtractingDialog * m_ExtractingDialog;
 
     CWinThread * m_LoadingThread;
-    CLoadingDialog m_LoadingDialog;
+    CLoadingDialog * m_LoadingDialog;
 
     CWinThread * m_ProgressThread;
-    CProgressDialog m_ProgressDialog;
+    CProgressDialog * m_ProgressDialog;
 
     CWOE5ExtractApp();
 

@@ -42,9 +42,9 @@ CExtractingThread::~CExtractingThread()
 BOOL CExtractingThread::InitInstance()
 {
     // TODO:  perform and per-thread initialization here
-    m_pMainWnd = &theApp.m_ExtractingDialog;
+    m_pMainWnd = theApp.m_ExtractingDialog;
     
-    theApp.m_ExtractingDialog.DoModal ( );
+    theApp.m_ExtractingDialog->DoModal ( );
     return TRUE;
 }
 

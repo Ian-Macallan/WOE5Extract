@@ -33,9 +33,11 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\Properties\Self.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\Properties\Self.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -229,6 +231,36 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="MCXButtonBase.cpp" />
+    <ClCompile Include="MCXCCheckListBoxBase.cpp" />
+    <ClCompile Include="MCXCComboBoxBase.cpp" />
+    <ClCompile Include="MCXCHeaderCtrlBase.cpp" />
+    <ClCompile Include="MCXCListBoxBase.cpp" />
+    <ClCompile Include="MCXColors.cpp" />
+    <ClCompile Include="MCXCToolTipCtrlBase.cpp" />
+    <ClCompile Include="MCXCWndBase.cpp" />
+    <ClCompile Include="MCXDialogBase.cpp" />
+    <ClCompile Include="MCXDialogExBase.cpp" />
+    <ClCompile Include="MCXEditBase.cpp" />
+    <ClCompile Include="MCXFormViewBase.cpp" />
+    <ClCompile Include="MCXFrameWndBase.cpp" />
+    <ClCompile Include="MCXIcons.cpp" />
+    <ClCompile Include="MCXListCtrlBase.cpp" />
+    <ClCompile Include="MCXListViewBase.cpp" />
+    <ClCompile Include="MCXMDIChildWndBase.cpp" />
+    <ClCompile Include="MCXMDIFrameWndBase.cpp" />
+    <ClCompile Include="MCXMenuBase.cpp" />
+    <ClCompile Include="MCXNCColor.cpp" />
+    <ClCompile Include="MCXPropertyPageBase.cpp" />
+    <ClCompile Include="MCXPropertySheetBase.cpp" />
+    <ClCompile Include="MCXScrollBarBase.cpp" />
+    <ClCompile Include="MCXSpinButtonCtrlBase.cpp" />
+    <ClCompile Include="MCXStaticBase.cpp" />
+    <ClCompile Include="MCXStatusBarBase.cpp" />
+    <ClCompile Include="MCXToolBarBase.cpp" />
+    <ClCompile Include="MCXTreeViewBase.cpp" />
+    <ClCompile Include="MCXViewBase.cpp" />
+    <ClCompile Include="MCXWinAppBase.cpp" />
     <ClCompile Include="MsgFmtComboBox.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -358,6 +390,37 @@
     <ClInclude Include="LoadingThread.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="..\OE5Extract\MimeRoutines.h" />
+    <ClInclude Include="MCXButtonBase.h" />
+    <ClInclude Include="MCXCCheckListBoxBase.h" />
+    <ClInclude Include="MCXCComboBoxBase.h" />
+    <ClInclude Include="MCXCHeaderCtrlBase.h" />
+    <ClInclude Include="MCXCListBoxBase.h" />
+    <ClInclude Include="MCXColors.h" />
+    <ClInclude Include="MCXCToolTipCtrlBase.h" />
+    <ClInclude Include="MCXCWndBase.h" />
+    <ClInclude Include="MCXDialogBase.h" />
+    <ClInclude Include="MCXDialogExBase.h" />
+    <ClInclude Include="MCXEditBase.h" />
+    <ClInclude Include="MCXFormViewBase.h" />
+    <ClInclude Include="MCXFrameWndBase.h" />
+    <ClInclude Include="MCXGDI.h" />
+    <ClInclude Include="MCXIcons.h" />
+    <ClInclude Include="MCXListCtrlBase.h" />
+    <ClInclude Include="MCXListViewBase.h" />
+    <ClInclude Include="MCXMDIChildWndBase.h" />
+    <ClInclude Include="MCXMDIFrameWndBase.h" />
+    <ClInclude Include="MCXMenuBase.h" />
+    <ClInclude Include="MCXNCColor.h" />
+    <ClInclude Include="MCXPropertyPageBase.h" />
+    <ClInclude Include="MCXPropertySheetBase.h" />
+    <ClInclude Include="MCXScrollBarBase.h" />
+    <ClInclude Include="MCXSpinButtonCtrlBase.h" />
+    <ClInclude Include="MCXStaticBase.h" />
+    <ClInclude Include="MCXStatusBarBase.h" />
+    <ClInclude Include="MCXToolBarBase.h" />
+    <ClInclude Include="MCXTreeViewBase.h" />
+    <ClInclude Include="MCXViewBase.h" />
+    <ClInclude Include="MCXWinAppBase.h" />
     <ClInclude Include="MsgFmtComboBox.h" />
     <ClInclude Include="..\OE5Extract\OEAddressDefinitions.h" />
     <ClInclude Include="..\OE5Extract\OEAddressRoutines.h" />

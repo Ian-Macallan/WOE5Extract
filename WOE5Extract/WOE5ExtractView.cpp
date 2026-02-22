@@ -30,13 +30,13 @@ static char THIS_FILE[] = __FILE__;
 // CWOE5ExtractView
 //
 ///////////////////////////////////////////////////////////////////////////////
-IMPLEMENT_DYNCREATE(CWOE5ExtractView, CListView)
+IMPLEMENT_DYNCREATE(CWOE5ExtractView, CMCXListViewBase)
 
 //
 ///////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CWOE5ExtractView, CListView)
+BEGIN_MESSAGE_MAP(CWOE5ExtractView, CMCXListViewBase)
     //{{AFX_MSG_MAP(CWOE5ExtractView)
     ON_NOTIFY_REFLECT(NM_DBLCLK, OnDblclk)
     ON_NOTIFY_REFLECT(LVN_COLUMNCLICK, OnColumnclick)
@@ -63,9 +63,9 @@ BEGIN_MESSAGE_MAP(CWOE5ExtractView, CListView)
     ON_NOTIFY_REFLECT(LVN_ITEMCHANGED, OnItemchanged)
     ON_COMMAND(ID_EXTRACT_EMAIL, OnExtractEmail)
     ON_UPDATE_COMMAND_UI(ID_EXTRACT_EMAIL, OnUpdateExtractEmail)
-    ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
-    ON_COMMAND(ID_FILE_PRINT_DIRECT, CListView::OnFilePrint)
-    ON_COMMAND(ID_FILE_PRINT_PREVIEW, CListView::OnFilePrintPreview)
+    ON_COMMAND(ID_FILE_PRINT, CMCXListViewBase::OnFilePrint)
+    ON_COMMAND(ID_FILE_PRINT_DIRECT, CMCXListViewBase::OnFilePrint)
+    ON_COMMAND(ID_FILE_PRINT_PREVIEW, CMCXListViewBase::OnFilePrintPreview)
     ON_NOTIFY_EX( TTN_NEEDTEXT, 0, OnToolTipNotify )
     //}}AFX_MSG_MAP
     // Standard printing commands
@@ -112,7 +112,7 @@ BOOL CWOE5ExtractView::PreCreateWindow(CREATESTRUCT& cs)
     // TODO: Modify the Window class or styles here by modifying
     //  the CREATESTRUCT cs
     cs.style = cs.style | LVS_REPORT | LVS_AUTOARRANGE | LVS_SHOWSELALWAYS | LVS_OWNERDATA;
-    return CListView::PreCreateWindow(cs);
+    return CMCXListViewBase::PreCreateWindow(cs);
 }
 
 //
@@ -133,7 +133,7 @@ void CWOE5ExtractView::OnDraw(CDC* pDC)
 ///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::OnInitialUpdate()
 {
-    CListView::OnInitialUpdate();
+    CMCXListViewBase::OnInitialUpdate();
 
 
     // TODO: You may populate your ListView with items by directly accessing
@@ -197,7 +197,7 @@ void CWOE5ExtractView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 #ifdef _DEBUG
 void CWOE5ExtractView::AssertValid() const
 {
-    CListView::AssertValid();
+    CMCXListViewBase::AssertValid();
 }
 
 //
@@ -206,7 +206,7 @@ void CWOE5ExtractView::AssertValid() const
 ///////////////////////////////////////////////////////////////////////////////
 void CWOE5ExtractView::Dump(CDumpContext& dc) const
 {
-    CListView::Dump(dc);
+    CMCXListViewBase::Dump(dc);
 }
 
 //
@@ -1508,7 +1508,7 @@ BOOL CWOE5ExtractView::PreTranslateMessage(MSG* pMsg)
     // TODO: Add your specialized code here and/or call the base class
     m_ToolTip.RelayEvent ( pMsg );
 
-    return CListView::PreTranslateMessage(pMsg);
+    return CMCXListViewBase::PreTranslateMessage(pMsg);
 }
 
 //

@@ -24,7 +24,7 @@ static char THIS_FILE[] = __FILE__;
 // CLoadingDialog dialog
 //
 ///////////////////////////////////////////////////////////////////////////////
-CLoadingDialog::CLoadingDialog(CWnd* pParent /*=NULL*/) : CDialog(CLoadingDialog::IDD, pParent)
+CLoadingDialog::CLoadingDialog(CWnd* pParent /*=NULL*/) : CMCXDialogBase(CLoadingDialog::IDD, pParent)
 {
     //{{AFX_DATA_INIT(CLoadingDialog)
         // NOTE: the ClassWizard will add member initialization here
@@ -37,7 +37,7 @@ CLoadingDialog::CLoadingDialog(CWnd* pParent /*=NULL*/) : CDialog(CLoadingDialog
 ///////////////////////////////////////////////////////////////////////////////
 void CLoadingDialog::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CMCXDialogBase::DoDataExchange(pDX);
     //{{AFX_DATA_MAP(CLoadingDialog)
         // NOTE: the ClassWizard will add DDX and DDV calls here
     //}}AFX_DATA_MAP
@@ -47,7 +47,7 @@ void CLoadingDialog::DoDataExchange(CDataExchange* pDX)
 ///////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CLoadingDialog, CDialog)
+BEGIN_MESSAGE_MAP(CLoadingDialog, CMCXDialogBase)
     //{{AFX_MSG_MAP(CLoadingDialog)
     ON_WM_DESTROY()
     ON_WM_TIMER()
@@ -81,7 +81,7 @@ void CLoadingDialog::OnDestroy()
     //  theApp.m_pMainWnd->SetWindowPos ( (CWnd * ) &wndTop, 0,0,0,0, SWP_NOMOVE | SWP_NOSIZE );
     //  theApp.m_pMainWnd->SetFocus ( );
 
-    CDialog::OnDestroy();
+    CMCXDialogBase::OnDestroy();
     
     // TODO: Add your message handler code here
     theApp.m_LoadingThread = NULL;
@@ -94,7 +94,7 @@ void CLoadingDialog::OnDestroy()
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CLoadingDialog::OnInitDialog()
 {
-    CDialog::OnInitDialog();
+    CMCXDialogBase::OnInitDialog();
     
     // TODO: Add extra initialization here
     SetBoolKeep ( false );
@@ -122,7 +122,7 @@ void CLoadingDialog::OnTimer(UINT nIDEvent)
     CWOE5ExtractView *pView = ( CWOE5ExtractView * ) ( theApp.m_View );
     if ( pView == NULL )
     {
-        theApp.m_ProgressDialog.EndDialog ( 0 );
+        theApp.m_ProgressDialog->EndDialog ( 0 );
         EndDialog ( 0 );
         return;
     }
@@ -130,7 +130,7 @@ void CLoadingDialog::OnTimer(UINT nIDEvent)
     CWOE5ExtractDoc *pDoc = pView->GetDocument ();
     if ( pDoc == NULL )
     {
-        theApp.m_ProgressDialog.EndDialog ( 0 );
+        theApp.m_ProgressDialog->EndDialog ( 0 );
         EndDialog ( 0 );
         return;
     }
@@ -178,9 +178,9 @@ void CLoadingDialog::OnTimer(UINT nIDEvent)
 
     }
 
-    CDialog::OnTimer(nIDEvent);
+    CMCXDialogBase::OnTimer(nIDEvent);
 
-    theApp.m_ProgressDialog.EndDialog ( 0 );
+    theApp.m_ProgressDialog->EndDialog ( 0 );
     EndDialog ( 0 );
 }
 

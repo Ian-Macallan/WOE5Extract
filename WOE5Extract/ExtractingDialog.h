@@ -7,11 +7,12 @@
 // ExtractingDialog.h : header file
 //
 #include "resource.h"
+#include "MCXDialogBase.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CExtractingDialog dialog
 
-class CExtractingDialog : public CDialog
+class CExtractingDialog : public CMCXDialogBase
 {
 // Construction
 public:

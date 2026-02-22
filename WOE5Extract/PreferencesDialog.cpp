@@ -22,7 +22,7 @@ static char THIS_FILE[] = __FILE__;
 
 
 CPreferencesDialog::CPreferencesDialog(CWnd* pParent /*=NULL*/)
-    : CDialog(CPreferencesDialog::IDD, pParent)
+    : CMCXDialogBase(CPreferencesDialog::IDD, pParent)
 {
     //{{AFX_DATA_INIT(CPreferencesDialog)
     //}}AFX_DATA_INIT
@@ -31,7 +31,7 @@ CPreferencesDialog::CPreferencesDialog(CWnd* pParent /*=NULL*/)
 
 void CPreferencesDialog::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CMCXDialogBase::DoDataExchange(pDX);
     //{{AFX_DATA_MAP(CPreferencesDialog)
     DDX_Control(pDX, IDC_INDEX_FILES, m_CreateIndexFiles);
     DDX_Control(pDX, IDC_MRU_COUNT_SPIN, m_MRU_Count_Spin);
@@ -76,7 +76,7 @@ void CPreferencesDialog::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CPreferencesDialog, CDialog)
+BEGIN_MESSAGE_MAP(CPreferencesDialog, CMCXDialogBase)
     //{{AFX_MSG_MAP(CPreferencesDialog)
     ON_BN_CLICKED(IDC_DIR_BUTTON, OnDirButton)
     ON_BN_CLICKED(IDC_DISK_BUTTON, OnDiskButton)
@@ -124,7 +124,7 @@ int CALLBACK BrowseCallbackProc ( HWND hwnd, UINT uMsg, LPARAM lp, LPARAM pData)
 
 BOOL CPreferencesDialog::OnInitDialog()
 {
-    CDialog::OnInitDialog();
+    CMCXDialogBase::OnInitDialog();
     
     // TODO: Add extra initialization here
     CString strDiskDrive =
@@ -392,14 +392,14 @@ void CPreferencesDialog::OnOK()
         theApp.WriteProfileInt ( "Settings", "Most Recently Used Files Count", _AFX_MRU_COUNT );
     }
 
-    CDialog::OnOK();
+    CMCXDialogBase::OnOK();
 }
 
 void CPreferencesDialog::OnCancel()
 {
     // TODO: Add extra cleanup here
     
-    CDialog::OnCancel();
+    CMCXDialogBase::OnCancel();
 }
 
 void CPreferencesDialog::OnDirButton()
@@ -507,5 +507,5 @@ BOOL CPreferencesDialog::PreTranslateMessage(MSG* pMsg)
     // TODO: Add your specialized code here and/or call the base class
     m_ToolTip.RelayEvent ( pMsg );
     
-    return CDialog::PreTranslateMessage(pMsg);
+    return CMCXDialogBase::PreTranslateMessage(pMsg);
 }

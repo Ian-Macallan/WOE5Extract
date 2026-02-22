@@ -19,6 +19,9 @@
 #include "AutomaticVersionHeader.h"
 #include "afxwin.h"
 
+#include "MCXDialogBase.h"
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -30,17 +33,17 @@ static char THIS_FILE[] = __FILE__;
 // CWOE5ExtractApp
 //
 ///////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CWOE5ExtractApp, CWinApp)
+BEGIN_MESSAGE_MAP(CWOE5ExtractApp, CMCXWinAppBase)
     //{{AFX_MSG_MAP(CWOE5ExtractApp)
     ON_COMMAND(ID_APP_ABOUT, OnAppAbout)
         // NOTE - the ClassWizard will add and remove mapping macros here.
         //    DO NOT EDIT what you see in these blocks of generated code!
     //}}AFX_MSG_MAP
     // Standard file based document commands
-    ON_COMMAND(ID_FILE_NEW, CWinApp::OnFileNew)
-    ON_COMMAND(ID_FILE_OPEN, CWinApp::OnFileOpen)
+    ON_COMMAND(ID_FILE_NEW, CMCXWinAppBase::OnFileNew)
+    ON_COMMAND(ID_FILE_OPEN, CMCXWinAppBase::OnFileOpen)
     // Standard print setup command
-    ON_COMMAND(ID_FILE_PRINT_SETUP, CWinApp::OnFilePrintSetup)
+    ON_COMMAND(ID_FILE_PRINT_SETUP, CMCXWinAppBase::OnFilePrintSetup)
 END_MESSAGE_MAP()
 
 //
@@ -88,6 +91,8 @@ BOOL CWOE5ExtractApp::InitInstance()
     // TODO: You should modify this string to be something appropriate
     // such as the name of your company or organization.
     SetRegistryKey(_T(PROGRAM_REGKEY));
+
+    CMCXWinAppBase::InitInstance();
 
     //
     //  Necessary To open files directly
@@ -163,7 +168,7 @@ BOOL CWOE5ExtractApp::InitInstance()
 // CAboutDlg dialog used for App About
 //
 /////////////////////////////////////////////////////////////////////////////
-class CAboutDlg : public CDialog
+class CAboutDlg : public CMCXDialogBase
 {
 public:
     CAboutDlg();
@@ -194,7 +199,7 @@ public:
     virtual BOOL OnInitDialog();
 };
 
-CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
+CAboutDlg::CAboutDlg() : CMCXDialogBase(CAboutDlg::IDD)
 {
     //{{AFX_DATA_INIT(CAboutDlg)
     //}}AFX_DATA_INIT
@@ -202,7 +207,7 @@ CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
 
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CMCXDialogBase::DoDataExchange(pDX);
     //{{AFX_DATA_MAP(CAboutDlg)
     DDX_Control(pDX, IDC_HTTP, m_Http);
     DDX_Control(pDX, IDC_MAILTO, m_MailTo);
@@ -215,7 +220,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
+BEGIN_MESSAGE_MAP(CAboutDlg, CMCXDialogBase)
     //{{AFX_MSG_MAP(CAboutDlg)
     ON_BN_CLICKED(IDC_HTTP, OnHttp)
     ON_BN_CLICKED(IDC_MAILTO, OnMailto)
@@ -311,7 +316,7 @@ void CWOE5ExtractApp::SetMsgFilenameFormat()
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CAboutDlg::OnInitDialog()
 {
-    CDialog::OnInitDialog();
+    CMCXDialogBase::OnInitDialog();
 
     // TODO:  Ajoutez ici une initialisation supplémentaire
     m_Version_Name.SetWindowText ( PROGRAM_NAME_P " "  PROGRAM_VERSION );

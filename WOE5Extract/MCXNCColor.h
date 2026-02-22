@@ -1,0 +1,88 @@
+#pragma once
+
+#include <Windows.h>
+#include "MCXMenuBase.h"
+
+#define ICON_NOT_SET    0xFFFF
+
+//
+/////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////
+class CMCXNCColor
+{
+    public:
+        CMCXNCColor(void);
+        virtual ~CMCXNCColor(void);
+
+    protected :
+        //  Different Rect for handle mouse action
+        CRect                   m_IconRect;
+        CRect                   m_CloseRect;
+        CRect                   m_MaximizeRect;
+        CRect                   m_MinimizeRect;
+
+        //
+        CMCXMenuBase            *m_pContextMenu;
+
+        UINT                    m_iHover;
+
+        //
+        BOOL                    m_bLeftPressed;
+        CRect                   m_windowRECT;
+        CPoint                  m_LeftPressedPoint;
+
+    public :
+        static CRect GetFrameFullRect ( const CRect &windowRECT );
+        static CRect GetCaptionFullRect ( const CRect &windowRECT );
+        static CRect GetCaptionInsideRect ( const CRect &windowRECT );
+        static CRect GetMenuBarRect ( HWND hWnd, const CRect &windowRECT );
+        static CRect GetToolBarRect ( CToolBar *pToolBar, const CRect &windowRECT );
+        static CRect GetClientFullRect ( const CRect &windowRECT );
+        static int GetIconWidth ( );
+        static int GetIconHeight ( );
+        static CRect GetIconFullRECT ( const CRect &windowRECT, int left );
+
+        void DrawResizedIcon ( CDC *pDC, HICON hIcon, const RECT *pRect );
+        BOOL ScreenPointOverRect ( CWnd *pWnd, CPoint pt, CRect cRect );
+
+        //  To draw Background only set icon to zero
+        void DrawIconFrame ( CDC *pDC, const CRect rect, bool bFillRect = true, CBrush *pbr = NULL );
+        void DrawIcon ( CDC *pDC, UINT icon, const CRect rect, bool bFillRect = true, CBrush *pbr = NULL );
+        void DrawIcon ( CDC *pDC, HICON hIcon, const CRect rect, bool bFillRect = true, CBrush *pbr = NULL );
+        void DrawAllIcons (  CWnd *pWnd, UINT iconOnly = 0, int darkIndicator = 2 );
+
+        //
+        BOOL PopupSystemMenu ( CWnd *pWnd, UINT nHitTest, CPoint point, int darkIndicator = 2  );
+        BOOL HandleSquareCorners ( CWnd *pWnd, BOOL bWithStyle = TRUE );
+        BOOL SetThemeChanged ( CWnd *pWnd );
+
+        //
+        CDC *GetDeviceContext ( CWnd *pWnd );
+
+        //  Return TRUE if treated, FALSE if default must be done
+        BOOL PaintCaption( CWnd *pWnd, BOOL bActive = FALSE, int darkIndicator = 2 );
+        BOOL PaintWindow( CWnd *pWnd, BOOL bFill = FALSE, CToolBar *pToolBar = NULL, BOOL bActive = FALSE, int darkIndicator = 2 );
+        BOOL Activate( CWnd *pWnd, BOOL bActive = FALSE, int darkIndicator = 2 );
+
+        //  Return TRUE if treated, FALSE if default must be done
+        BOOL OnNcLButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point, int darkIndicator = 2 );
+        BOOL OnNcLButtonUp(CWnd *pWnd, UINT nHitTest, CPoint point, int darkIndicator = 2 );
+        BOOL OnNcRButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point, int darkIndicator = 2 );
+
+        BOOL OnNcMouseMove(CWnd *pWnd, UINT nHitTest, CPoint point, int darkIndicator = 2 );
+
+        BOOL OnNcMouseHover(CWnd *pWnd, UINT nFlags, CPoint point, int darkIndicator = 2 );
+        BOOL OnNcMouseLeave(CWnd *pWnd, int darkIndicator = 2 );
+
+        BOOL OnMouseMove(CWnd *pWnd, UINT nFlags, CPoint point, int darkIndicator = 2 );
+        BOOL OnLButtonUp(CWnd *pWnd, UINT nFlags, CPoint point, int darkIndicator = 2 );
+
+        CMenu *GetSystemMenu(CWnd *pWnd, BOOL bRevert );
+        BOOL  InsertSystemMenu ( CWnd *pWnd, BOOL bRevert, UINT nPosition, UINT nFlags, UINT_PTR nIDNewItem = 0, LPCTSTR lpszNewItem = NULL );
+        BOOL AppendSystemMenu ( CWnd *pWnd, BOOL bRevert, UINT nFlags, UINT_PTR nIDNewItem = 0, LPCTSTR lpszNewItem = NULL );
+        UINT CheckSystemMenuItem ( CWnd *pWnd, BOOL bRevert, UINT nIDCheckItem, UINT nCheck );
+        UINT GetSystemMenuState ( CWnd *pWnd, BOOL bRevert, UINT nID, UINT nFlags );
+
+};
+

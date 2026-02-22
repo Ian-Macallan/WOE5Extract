@@ -29,7 +29,7 @@ static char THIS_FILE[] = __FILE__;
 //
 ///////////////////////////////////////////////////////////////////////////////
 CExtractingDialog::CExtractingDialog(CWnd* pParent /*=NULL*/)
-    : CDialog(CExtractingDialog::IDD, pParent)
+    : CMCXDialogBase(CExtractingDialog::IDD, pParent)
 {
     //{{AFX_DATA_INIT(CExtractingDialog)
         // NOTE: the ClassWizard will add member initialization here
@@ -42,7 +42,7 @@ CExtractingDialog::CExtractingDialog(CWnd* pParent /*=NULL*/)
 ///////////////////////////////////////////////////////////////////////////////
 void CExtractingDialog::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CMCXDialogBase::DoDataExchange(pDX);
     //{{AFX_DATA_MAP(CExtractingDialog)
         // NOTE: the ClassWizard will add DDX and DDV calls here
     //}}AFX_DATA_MAP
@@ -52,7 +52,7 @@ void CExtractingDialog::DoDataExchange(CDataExchange* pDX)
 ///////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CExtractingDialog, CDialog)
+BEGIN_MESSAGE_MAP(CExtractingDialog, CMCXDialogBase)
     //{{AFX_MSG_MAP(CExtractingDialog)
     ON_WM_TIMER()
     ON_WM_DESTROY()
@@ -66,7 +66,7 @@ END_MESSAGE_MAP()
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CExtractingDialog::OnInitDialog()
 {
-    CDialog::OnInitDialog();
+    CMCXDialogBase::OnInitDialog();
     
     // TODO: Add extra initialization here
     
@@ -93,7 +93,7 @@ void CExtractingDialog::OnTimer(UINT nIDEvent)
     CWOE5ExtractView *pView = ( CWOE5ExtractView * ) ( theApp.m_View );
     if ( pView == NULL )
     {
-        theApp.m_ProgressDialog.EndDialog ( 0 );
+        theApp.m_ProgressDialog->EndDialog ( 0 );
         EndDialog ( 0 );
         return;
     }
@@ -101,7 +101,7 @@ void CExtractingDialog::OnTimer(UINT nIDEvent)
     CWOE5ExtractDoc *pDoc = pView->GetDocument ();
     if ( pDoc == NULL )
     {
-        theApp.m_ProgressDialog.EndDialog ( 0 );
+        theApp.m_ProgressDialog->EndDialog ( 0 );
         EndDialog ( 0 );
         return;
     }
@@ -119,9 +119,9 @@ void CExtractingDialog::OnTimer(UINT nIDEvent)
         ProcessFileStep2 ( szPathname, NULL, NULL );
     }
 
-    CDialog::OnTimer(nIDEvent);
+    CMCXDialogBase::OnTimer(nIDEvent);
 
-    theApp.m_ProgressDialog.EndDialog ( 0 );
+    theApp.m_ProgressDialog->EndDialog ( 0 );
 
     EndDialog ( 0 );
 }
@@ -135,7 +135,7 @@ void CExtractingDialog::OnDestroy()
     theApp.m_pMainWnd->BringWindowToTop( );
 //  theApp.m_pMainWnd->SetFocus ( );
 
-    CDialog::OnDestroy();
+    CMCXDialogBase::OnDestroy();
     
     // TODO: Add your message handler code here
     theApp.m_ExtractingThread = NULL;   

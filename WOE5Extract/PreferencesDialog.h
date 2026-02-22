@@ -9,15 +9,16 @@
 #include <Windows.h>
 #include <afx.h>
 #include <afxcmn.h>
+#include "resource.h"
 
 #include "MsgFmtComboBox.h"
 #include "AttFmtComboBox.h"
-#include "resource.h"
+#include "MCXDialogBase.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CPreferencesDialog dialog
 
-class CPreferencesDialog : public CDialog
+class CPreferencesDialog : public CMCXDialogBase
 {
 // Construction
 public:

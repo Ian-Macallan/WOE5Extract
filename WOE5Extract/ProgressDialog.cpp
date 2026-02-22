@@ -21,7 +21,7 @@ static char THIS_FILE[] = __FILE__;
 //
 ///////////////////////////////////////////////////////////////////////////////
 CProgressDialog::CProgressDialog(CWnd* pParent /*=NULL*/)
-    : CDialog(CProgressDialog::IDD, pParent)
+    : CMCXDialogBase(CProgressDialog::IDD, pParent)
 {
     //{{AFX_DATA_INIT(CProgressDialog)
         // NOTE: the ClassWizard will add member initialization here
@@ -35,7 +35,7 @@ CProgressDialog::CProgressDialog(CWnd* pParent /*=NULL*/)
 ///////////////////////////////////////////////////////////////////////////////
 void CProgressDialog::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CMCXDialogBase::DoDataExchange(pDX);
     //{{AFX_DATA_MAP(CProgressDialog)
     DDX_Control(pDX, IDC_CANCEL, m_Cancel);
     DDX_Control(pDX, IDC_STEP, m_Step);
@@ -47,7 +47,7 @@ void CProgressDialog::DoDataExchange(CDataExchange* pDX)
 ///////////////////////////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////////////////////////
-BEGIN_MESSAGE_MAP(CProgressDialog, CDialog)
+BEGIN_MESSAGE_MAP(CProgressDialog, CMCXDialogBase)
     //{{AFX_MSG_MAP(CProgressDialog)
     ON_WM_DESTROY()
     ON_WM_TIMER()
@@ -66,7 +66,7 @@ void CProgressDialog::OnDestroy()
     // theApp.m_pMainWnd->SetWindowPos ( (CWnd * ) &wndTop, 0,0,0,0, SWP_NOMOVE | SWP_NOSIZE );
     // theApp.m_pMainWnd->SetFocus ( );
 
-    CDialog::OnDestroy();
+    CMCXDialogBase::OnDestroy();
     
     // TODO: Add your message handler code here
     KillTimer ( PROGRESS_THREAD_TIMER );
@@ -81,7 +81,7 @@ void CProgressDialog::OnDestroy()
 ///////////////////////////////////////////////////////////////////////////////
 BOOL CProgressDialog::OnInitDialog()
 {
-    CDialog::OnInitDialog();
+    CMCXDialogBase::OnInitDialog();
     
     bFirstTime = true;
 
@@ -110,7 +110,7 @@ void CProgressDialog::OnTimer(UINT nIDEvent)
     m_Progress.SetRange32 ( 0, GetFileLength ( ) );
     m_Progress.SetPos ( GetFilePosition ( ) );
 
-    CDialog::OnTimer(nIDEvent);
+    CMCXDialogBase::OnTimer(nIDEvent);
 
     if ( bFirstTime )
     {
