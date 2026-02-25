@@ -40,7 +40,7 @@ class CMCXListViewBase : public CListView
         //
         void SetContextMenu ( CMCXMenuBase *pMenu );
 
-    // Données de boîte de dialogue
+    // Dialog Box Data
     public :    
         CFont                   *m_pBoldFont;
         CFont                   *m_pItalicFont;

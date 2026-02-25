@@ -20,8 +20,7 @@ static char THIS_FILE[] = __FILE__;
 // CProgressDialog dialog
 //
 ///////////////////////////////////////////////////////////////////////////////
-CProgressDialog::CProgressDialog(CWnd* pParent /*=NULL*/)
-    : CMCXDialogBase(CProgressDialog::IDD, pParent)
+CProgressDialog::CProgressDialog(CWnd* pParent /*=NULL*/) : CMCXDialogBase(CProgressDialog::IDD, pParent)
 {
     //{{AFX_DATA_INIT(CProgressDialog)
         // NOTE: the ClassWizard will add member initialization here

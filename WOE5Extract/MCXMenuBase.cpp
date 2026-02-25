@@ -163,6 +163,7 @@ CMCXMenuBase *CMCXMenuBase::SetApplicationMenu(CWnd* pWnd, CMenu *pAppMenu, int 
         //
         BOOL bAttached = Attach ( pAppMenu->m_hMenu );
         SetOwnDraw ( m_hMenu, CMCXColors::m_iDarkTheme != 0, level );
+        pAppMenu->Detach();
     }
 
     return this;

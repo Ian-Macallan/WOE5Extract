@@ -124,9 +124,9 @@ void CMCXCListBoxBase::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct )
             crOldColor      = pDC->SetTextColor ( CMCXColors::GetFGNormalCR(CMCXColors::m_iDarkTheme != 0)  );
         }
 
-        CString paneString;
-        GetText ( lpDrawItemStruct->itemID, paneString );
-        pDC->DrawText ( paneString, &lpDrawItemStruct->rcItem, DT_SINGLELINE|DT_VCENTER /* |DT_CENTER */ );
+        CString textString;
+        GetText ( lpDrawItemStruct->itemID, textString );
+        pDC->DrawText ( textString, &lpDrawItemStruct->rcItem, DT_SINGLELINE|DT_VCENTER /* |DT_CENTER */ );
 
         pDC->SetBkColor( crOldBKColor);
         pDC->SetTextColor( crOldColor);

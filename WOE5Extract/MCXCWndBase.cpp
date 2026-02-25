@@ -1,4 +1,4 @@
-// MCXDiablogBase.cpp : fichier d'implémentation
+// MCXDiablogBase.cpp
 //
 
 #include "stdafx.h"
@@ -12,7 +12,7 @@
 #include "MCXColors.h"
 
 
-// Boîte de dialogue CMCXCWndBase
+// Dialog Box CMCXCWndBase
 
 IMPLEMENT_DYNCREATE(CMCXCWndBase, CWnd)
 
@@ -117,7 +117,7 @@ END_MESSAGE_MAP()
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Gestionnaires de messages de CMCXCWndBase
+// Message handling of CMCXCWndBase
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -132,7 +132,7 @@ BOOL CMCXCWndBase::PreCreateWindow(CREATESTRUCT& cs)
 
     //
     return TRUE;  // return TRUE unless you set the focus to a control
-    // EXCEPTION : les pages de propriétés OCX devraient retourner FALSE
+    // EXCEPTION : Pages with OCX should return FALSE
 }
 
 //
@@ -368,8 +368,8 @@ void CMCXCWndBase::OnNcMouseMove(UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXCWndBase::OnNcMouseHover(UINT nFlags, CPoint point)
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    /// Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseHover ( this, nFlags, point );
     if ( bTreated )
@@ -386,8 +386,8 @@ void CMCXCWndBase::OnNcMouseHover(UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXCWndBase::OnNcMouseLeave()
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    /// Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseLeave (this);
     if ( bTreated )
@@ -406,7 +406,7 @@ void CMCXCWndBase::OnShowWindow(BOOL bShow, UINT nStatus)
 {
     CWnd::OnShowWindow(bShow, nStatus);
 
-    // TODO: ajoutez ici le code de votre gestionnaire de messages
+    // TODO add your code here
         //  Activate Context Menu
     if ( m_bFirstTime )
     {

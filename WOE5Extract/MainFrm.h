@@ -10,6 +10,7 @@
 #endif // _MSC_VER > 1000
 
 #include "MCXFrameWndBase.h"
+#include "MCXMenuBase.h"
 
 class CMainFrame : public CMCXFrameWndBase
 {
@@ -49,13 +50,11 @@ class CMainFrame : public CMCXFrameWndBase
         CReBar          m_wndReBar;
         CDialogBar      m_wndDlgBar;
 
-        CMenu           m_Menu;
-
     // Generated message map functions
-    protected:
+    public:
         char szDirectoryOfIdentity [ 255 ];
         CString strDefaultDirectory;
-        //{{AFX_MSG(CMainFrame)
+        
         afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
         afx_msg void OnUpdateFileSave(CCmdUI* pCmdUI);
         afx_msg void OnUpdateFileSaveAs(CCmdUI* pCmdUI);
@@ -66,11 +65,13 @@ class CMainFrame : public CMCXFrameWndBase
         afx_msg void OnPreferences();
         afx_msg void OnUpdateFileOpen(CCmdUI* pCmdUI);
         afx_msg void OnUpdateFileNew(CCmdUI* pCmdUI);
-        //}}AFX_MSG
+
+        //
         DECLARE_MESSAGE_MAP()
     public:
         afx_msg void OnLanguageEnglish();
         afx_msg void OnLanguageFrench();
+        afx_msg void OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct);
 };
 
 /////////////////////////////////////////////////////////////////////////////

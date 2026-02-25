@@ -2,11 +2,12 @@
 //
 
 #include "stdafx.h"
+#include <direct.h>
+
 #include "WOE5Extract.h"
 #include "WOE5ExtractDoc.h"
 #include "WOE5ExtractView.h"
 #include "PreferencesDialog.h"
-#include <direct.h>
 
 #include "MainFrm.h"
 
@@ -31,7 +32,6 @@ IMPLEMENT_DYNCREATE(CMainFrame, CMCXFrameWndBase)
 //
 ///////////////////////////////////////////////////////////////////////////////
 BEGIN_MESSAGE_MAP(CMainFrame, CMCXFrameWndBase)
-    //{{AFX_MSG_MAP(CMainFrame)
     ON_WM_CREATE()
     ON_UPDATE_COMMAND_UI(ID_FILE_SAVE, OnUpdateFileSave)
     ON_UPDATE_COMMAND_UI(ID_FILE_SAVE_AS, OnUpdateFileSaveAs)
@@ -42,9 +42,9 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMCXFrameWndBase)
     ON_COMMAND(ID_PREFERENCES, OnPreferences)
     ON_UPDATE_COMMAND_UI(ID_FILE_OPEN, OnUpdateFileOpen)
     ON_UPDATE_COMMAND_UI(ID_FILE_NEW, OnUpdateFileNew)
-    //}}AFX_MSG_MAP
     ON_COMMAND(ID_LANGUAGE_ENGLISH, &CMainFrame::OnLanguageEnglish)
     ON_COMMAND(ID_LANGUAGE_FRENCH, &CMainFrame::OnLanguageFrench)
+    ON_WM_DRAWITEM()
 END_MESSAGE_MAP()
 
 //
@@ -98,6 +98,11 @@ CMainFrame::CMainFrame()
 ///////////////////////////////////////////////////////////////////////////////
 CMainFrame::~CMainFrame()
 {
+#define DELETE_OBJECT(o) if ( o != NULL ) { delete o; o = NULL; }
+
+    DELETE_OBJECT ( theApp.m_ExtractingDialog )
+    DELETE_OBJECT ( theApp.m_LoadingDialog )
+    DELETE_OBJECT ( theApp.m_ProgressDialog )
 }
 
 //
@@ -139,7 +144,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
     }
 
     //
-#if 0
+    //  OnDrawItem is never called
+#if 1
     HandleStatusBar( &m_wndStatusBar );
 #endif
 
@@ -476,17 +482,16 @@ void CMainFrame::OnLanguageEnglish()
     LANGID oldLang =  SetThreadUILanguage( wLanguageID );
 
     //
-    if ( m_Menu.m_hMenu != NULL )
-    {
-        m_Menu.DestroyMenu ( );
-    }
-    m_Menu.LoadMenu ( IDR_MAINFRAME );
+    CMenu *pAppMenu = new CMenu();
+    pAppMenu->LoadMenu ( IDR_MAINFRAME );
+    m_AppMenu.SetApplicationMenu ( this, pAppMenu );
+    SetMenu ( &m_AppMenu );
 
-   // Add the new menu
-   SetMenu(&m_Menu);
+    pAppMenu->Detach();
+    delete pAppMenu;
 
    // Assign default menu
-   m_hMenuDefault = m_Menu.GetSafeHmenu();  // or m_NewMenu.m_hMenu;
+   m_hMenuDefault = m_AppMenu.GetSafeHmenu();  // or m_NewMenu.m_hMenu;
 
 }
 
@@ -518,16 +523,31 @@ void CMainFrame::OnLanguageFrench()
     LANGID oldLang =  SetThreadUILanguage( wLanguageID );
 
     //
-    if ( m_Menu.m_hMenu != NULL )
-    {
-        m_Menu.DestroyMenu ( );
-    }
-    m_Menu.LoadMenu ( IDR_MAINFRAME );
+    //
+    CMenu *pAppMenu = new CMenu();
+    pAppMenu->LoadMenu ( IDR_MAINFRAME );
+    m_AppMenu.SetApplicationMenu ( this, pAppMenu );
+    SetMenu ( &m_AppMenu );
 
-    // Add the new menu
-   SetMenu(&m_Menu);
+    pAppMenu->Detach();
+    delete pAppMenu;
 
    // Assign default menu
-   m_hMenuDefault = m_Menu.GetSafeHmenu();  // or m_NewMenu.m_hMenu;
+   m_hMenuDefault = m_AppMenu.GetSafeHmenu();  // or m_NewMenu.m_hMenu;
 
+}
+
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////////
+void CMainFrame::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
+{
+    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    if ( nIDCtl == AFX_IDW_STATUS_BAR )
+    {
+        m_wndStatusBar.DrawItem ( lpDrawItemStruct );
+        return;
+    }
+    CMCXFrameWndBase::OnDrawItem(nIDCtl, lpDrawItemStruct);
 }

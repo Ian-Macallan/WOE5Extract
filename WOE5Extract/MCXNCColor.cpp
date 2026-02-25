@@ -10,12 +10,15 @@
 #include "MCXGDI.h"
 
 #include "MCXCWndBase.h"
+#include "MCXViewBase.h"
 #include "MCXDialogBase.h"
 #include "MCXDialogExBase.h"
 #include "MCXFrameWndBase.h"
 #include "MCXMDIFrameWndBase.h"
+#include "MCXMDIChildWndBase.h"
 
 #include "MCXPropertySheetBase.h"
+#include "MCXPropertyPageBase.h"
 
 #include "MCXWinAppBase.h"
 #include "MCXIcons.h"
@@ -438,6 +441,36 @@ void CMCXNCColor::DrawIcon ( CDC *pDC, HICON hIcon, const CRect crect, bool bFil
 CDC *CMCXNCColor::GetDeviceContext ( CWnd *pWnd )
 {
     return  pWnd->GetWindowDC();
+}
+
+//
+/////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////
+BOOL CMCXNCColor::InvalidateCaption ( CWnd *pWnd, int darkIndicator )
+{
+	if ( CMCXWinAppBase::OSVersionLowerThan ( 6, 1 ) )
+	{
+		return FALSE;
+	}
+
+    if ( CMCXColors::m_iDarkTheme != 2 && CMCXColors::m_iDarkTheme != darkIndicator )
+    {
+        return FALSE;
+    }
+
+    //
+    CRect windowRECT;
+    pWnd->GetWindowRect(&windowRECT);
+
+    //  The The Caption Rect
+    CRect captionFullRECT   = GetCaptionFullRect ( windowRECT );
+
+    //
+    pWnd->InvalidateRect ( captionFullRECT, TRUE );
+
+    //
+    return TRUE;
 }
 
 //
@@ -1045,6 +1078,16 @@ BOOL CMCXNCColor::SetThemeChanged ( CWnd *pWnd )
 
             //
             {
+                CMCXPropertyPageBase *pPage = dynamic_cast<CMCXPropertyPageBase *>(pWnd);
+                if ( pPage != NULL )
+                {
+                    pPage->SetContextMenu ( NULL );
+                    return FALSE;
+                }
+            }
+
+            //
+            {
                 CMCXDialogExBase *pDialogEx = dynamic_cast<CMCXDialogExBase *>(pWnd);
                 if ( pDialogEx != NULL )
                 {
@@ -1082,6 +1125,38 @@ BOOL CMCXNCColor::SetThemeChanged ( CWnd *pWnd )
                     return FALSE;
                 }
             }
+
+            //
+            {
+                CMCXMDIChildWndBase *pMdiChild = dynamic_cast<CMCXMDIChildWndBase *>(pWnd);
+                if ( pMdiChild != NULL )
+                {
+                    pMdiChild->SetContextMenu ( NULL );
+                    return FALSE;
+                }
+            }
+
+            //
+            {
+                CMCXViewBase *pView = dynamic_cast<CMCXViewBase *>(pWnd);
+                if ( pView != NULL )
+                {
+                    pView->SetContextMenu ( NULL );
+                    return FALSE;
+                }
+            }
+
+            //
+            {
+                CMCXCWndBase *pWndBase = dynamic_cast<CMCXCWndBase *>(pWnd);
+                if ( pWndBase != NULL )
+                {
+                    pWndBase->SetContextMenu ( NULL );
+                    return FALSE;
+                }
+            }
+
+
         }
     }
 
@@ -1137,6 +1212,28 @@ BOOL CMCXNCColor::PopupSystemMenu ( CWnd *pWnd, UINT nHitTest, CPoint point, int
                 menu.Attach ( pMenu->m_hMenu );
                 m_pContextMenu = menu.GetSubMenu ( 0 );
                 pSheet->SetContextMenu ( m_pContextMenu );
+                //  Use System Menu as Popup Menu
+                LPARAM lParam = m_pContextMenu->TrackPopupMenu ( 
+                    TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON /* | TPM_NONOTIFY */ | TPM_RETURNCMD, 
+                    point.x, point.y, pWnd );
+                if ( lParam ) 
+                {
+                    PostMessage(pWnd->GetSafeHwnd(), WM_SYSCOMMAND, lParam, 0);
+                }
+                menu.Detach ( );
+                return TRUE;
+            }
+        }
+
+        //
+        {
+            CMCXPropertyPageBase *pPage = dynamic_cast<CMCXPropertyPageBase *>(pWnd);
+            if ( pPage != NULL )
+            {
+                CMCXMenuBase        menu;
+                menu.Attach ( pMenu->m_hMenu );
+                m_pContextMenu = menu.GetSubMenu ( 0 );
+                pPage->SetContextMenu ( m_pContextMenu );
                 //  Use System Menu as Popup Menu
                 LPARAM lParam = m_pContextMenu->TrackPopupMenu ( 
                     TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON /* | TPM_NONOTIFY */ | TPM_RETURNCMD, 
@@ -1234,6 +1331,70 @@ BOOL CMCXNCColor::PopupSystemMenu ( CWnd *pWnd, UINT nHitTest, CPoint point, int
                 return TRUE;
             }
         }
+
+        {
+            CMCXMDIChildWndBase *pMdiChild = dynamic_cast<CMCXMDIChildWndBase *>(pWnd);
+            if ( pMdiChild != NULL )
+            {
+                CMCXMenuBase        menu;
+                menu.Attach ( pMenu->m_hMenu );
+                m_pContextMenu = menu.GetSubMenu ( 0 );
+                pMdiChild->SetContextMenu ( m_pContextMenu );
+                //  Use System Menu as Popup Menu
+                LPARAM lParam = m_pContextMenu->TrackPopupMenu ( 
+                    TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON /* | TPM_NONOTIFY */ | TPM_RETURNCMD, 
+                    point.x, point.y, pWnd );
+                if ( lParam ) 
+                {
+                    PostMessage(pWnd->GetSafeHwnd(), WM_SYSCOMMAND, lParam, 0);
+                }
+                menu.Detach ( );
+                return TRUE;
+            }
+        }
+
+        {
+            CMCXCWndBase *pWndBase = dynamic_cast<CMCXCWndBase *>(pWnd);
+            if ( pWndBase != NULL )
+            {
+                CMCXMenuBase        menu;
+                menu.Attach ( pMenu->m_hMenu );
+                m_pContextMenu = menu.GetSubMenu ( 0 );
+                pWndBase->SetContextMenu ( m_pContextMenu );
+                //  Use System Menu as Popup Menu
+                LPARAM lParam = m_pContextMenu->TrackPopupMenu ( 
+                    TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON /* | TPM_NONOTIFY */ | TPM_RETURNCMD, 
+                    point.x, point.y, pWnd );
+                if ( lParam ) 
+                {
+                    PostMessage(pWnd->GetSafeHwnd(), WM_SYSCOMMAND, lParam, 0);
+                }
+                menu.Detach ( );
+                return TRUE;
+            }
+        }
+
+        {
+            CMCXViewBase *pView = dynamic_cast<CMCXViewBase *>(pWnd);
+            if ( pView != NULL )
+            {
+                CMCXMenuBase        menu;
+                menu.Attach ( pMenu->m_hMenu );
+                m_pContextMenu = menu.GetSubMenu ( 0 );
+                pView->SetContextMenu ( m_pContextMenu );
+                //  Use System Menu as Popup Menu
+                LPARAM lParam = m_pContextMenu->TrackPopupMenu ( 
+                    TPM_LEFTALIGN | TPM_LEFTBUTTON | TPM_RIGHTBUTTON /* | TPM_NONOTIFY */ | TPM_RETURNCMD, 
+                    point.x, point.y, pWnd );
+                if ( lParam ) 
+                {
+                    PostMessage(pWnd->GetSafeHwnd(), WM_SYSCOMMAND, lParam, 0);
+                }
+                menu.Detach ( );
+                return TRUE;
+            }
+        }
+
     }
 
     return FALSE;
@@ -1256,9 +1417,79 @@ BOOL CMCXNCColor::OnNcRButtonDown( CWnd *pWnd, UINT nHitTest, CPoint point, int 
         return bTreated;
     }
 
+#if 0
+    //  Default Behaviour : popup system menu in the caption
+    return FALSE;
+#endif
+
+    //
+    //  This make the menu appear when caption RButton Down
     {
         CMCXPropertySheetBase *pSheet = dynamic_cast<CMCXPropertySheetBase *>(pWnd);
         if ( pSheet != NULL )
+        {
+            BOOL bTreated = PopupSystemMenu ( pWnd, nHitTest, point, darkIndicator );
+            return bTreated;
+        }
+    }
+
+    {
+        CMCXPropertyPageBase *pPage = dynamic_cast<CMCXPropertyPageBase *>(pWnd);
+        if ( pPage != NULL )
+        {
+            BOOL bTreated = PopupSystemMenu ( pWnd, nHitTest, point, darkIndicator );
+            return bTreated;
+        }
+    }
+
+    {
+        CMCXDialogExBase *pDialog = dynamic_cast<CMCXDialogExBase *>(pWnd);
+        if ( pDialog != NULL )
+        {
+            BOOL bTreated = PopupSystemMenu ( pWnd, nHitTest, point, darkIndicator );
+            return bTreated;
+        }
+    }
+
+    {
+        CMCXDialogBase *pDialog = dynamic_cast<CMCXDialogBase *>(pWnd);
+        if ( pDialog != NULL )
+        {
+            BOOL bTreated = PopupSystemMenu ( pWnd, nHitTest, point, darkIndicator );
+            return bTreated;
+        }
+    }
+
+    {
+        CMCXFrameWndBase *pFrame = dynamic_cast<CMCXFrameWndBase *>(pWnd);
+        if ( pFrame != NULL )
+        {
+            BOOL bTreated = PopupSystemMenu ( pWnd, nHitTest, point, darkIndicator );
+            return bTreated;
+        }
+    }
+
+    {
+        CMCXFrameWndBase *pFrame = dynamic_cast<CMCXFrameWndBase *>(pWnd);
+        if ( pFrame != NULL )
+        {
+            BOOL bTreated = PopupSystemMenu ( pWnd, nHitTest, point, darkIndicator );
+            return bTreated;
+        }
+    }
+
+    {
+        CMCXMDIFrameWndBase *pFrame = dynamic_cast<CMCXMDIFrameWndBase *>(pWnd);
+        if ( pFrame != NULL )
+        {
+            BOOL bTreated = PopupSystemMenu ( pWnd, nHitTest, point, darkIndicator );
+            return bTreated;
+        }
+    }
+
+    {
+        CMCXMDIChildWndBase *pChild = dynamic_cast<CMCXMDIChildWndBase *>(pWnd);
+        if ( pChild != NULL )
         {
             BOOL bTreated = PopupSystemMenu ( pWnd, nHitTest, point, darkIndicator );
             return bTreated;

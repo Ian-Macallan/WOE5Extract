@@ -1,4 +1,4 @@
-// MCXDiablogBase.cpp : fichier d'implémentation
+// MCXDiablogBase.cpp
 //
 
 #include "stdafx.h"
@@ -134,7 +134,7 @@ BOOL CMCXFormViewBase::PreCreateWindow(CREATESTRUCT& cs)
 
     //
     return TRUE;  // return TRUE unless you set the focus to a control
-    // EXCEPTION : les pages de propriétés OCX devraient retourner FALSE
+    // EXCEPTION : OCX Pages
 }
 
 //
@@ -369,8 +369,8 @@ void CMCXFormViewBase::OnNcMouseMove(UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXFormViewBase::OnNcMouseHover(UINT nFlags, CPoint point)
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // Requires WIN 2000 or later
+    // WIN32_WINNT et WINVER >= 0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseHover ( this, nFlags, point );
     if ( bTreated )
@@ -387,8 +387,8 @@ void CMCXFormViewBase::OnNcMouseHover(UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXFormViewBase::OnNcMouseLeave()
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // Requires WIN 2000 or later
+    // WIN32_WINNT et WINVER >= 0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseLeave (this);
     if ( bTreated )
@@ -407,7 +407,7 @@ void CMCXFormViewBase::OnInitialUpdate()
 {
     CFormView::OnInitialUpdate();
 
-    // TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+    // TODO: Add Code Here
     //
     if ( m_bFirstTime )
     {

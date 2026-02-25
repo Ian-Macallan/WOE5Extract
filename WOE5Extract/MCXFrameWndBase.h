@@ -18,7 +18,7 @@
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Boîte de dialogue CMCXFrameWndBase
+// Dialog Box CMCXFrameWndBase
 //
 /////////////////////////////////////////////////////////////////////////////
 class CMCXFrameWndBase : public CFrameWnd
@@ -26,7 +26,7 @@ class CMCXFrameWndBase : public CFrameWnd
         DECLARE_DYNCREATE(CMCXFrameWndBase)
 
     public:
-        CMCXFrameWndBase();   // constructeur standard
+        CMCXFrameWndBase();   // Standard Constructor
         virtual ~CMCXFrameWndBase();
 
         CToolTipCtrl    *GetToolTipCtrl();
@@ -39,11 +39,11 @@ class CMCXFrameWndBase : public CFrameWnd
         void SetContextMenu ( CMCXMenuBase *pMenu );
         void HandleStatusBar ( CMCXStatusBarBase *pStatusBar );
 
-    protected:  // membres incorporés de la barre de contrôle
+    public :  // Tool bar
 	    CMCXToolBarBase         m_wndToolBar;
 	    CMCXStatusBarBase       m_wndStatusBar;
 
-        // Données de boîte de dialogue
+        // Dialog Box data
     public :    
         CFont                   *m_pBoldFont;
         CFont                   *m_pItalicFont;
@@ -70,7 +70,7 @@ class CMCXFrameWndBase : public CFrameWnd
         BOOL                    m_bValid;
 
     protected:
-        virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
+        virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV  Handling
 
         DECLARE_MESSAGE_MAP()
 

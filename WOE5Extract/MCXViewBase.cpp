@@ -1,4 +1,4 @@
-// MCXDiablogBase.cpp : fichier d'implémentation
+// MCXDiablogBase.cpp
 //
 
 #include "stdafx.h"
@@ -14,7 +14,7 @@
 #include "MCXWinAppBase.h"
 
 
-// Boîte de dialogue CMCXViewBase
+// Dialog Box CMCXViewBase
 
 IMPLEMENT_DYNAMIC(CMCXViewBase, CView)
 
@@ -119,7 +119,7 @@ END_MESSAGE_MAP()
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Gestionnaires de messages de CMCXViewBase
+// Message handling of CMCXViewBase
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -134,7 +134,7 @@ BOOL CMCXViewBase::PreCreateWindow(CREATESTRUCT& cs)
 
     //
     return TRUE;  // return TRUE unless you set the focus to a control
-    // EXCEPTION : les pages de propriétés OCX devraient retourner FALSE
+    // EXCEPTION : Pages with OCX should return FALSE
 }
 
 //
@@ -369,8 +369,8 @@ void CMCXViewBase::OnNcMouseMove(UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXViewBase::OnNcMouseHover(UINT nFlags, CPoint point)
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseHover ( this, nFlags, point );
     if ( bTreated )
@@ -387,8 +387,8 @@ void CMCXViewBase::OnNcMouseHover(UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXViewBase::OnNcMouseLeave()
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseLeave (this);
     if ( bTreated )
@@ -407,7 +407,7 @@ void CMCXViewBase::OnInitialUpdate()
 {
     CView::OnInitialUpdate();
 
-    // TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+    // TODO Add specialized code here
     //
     if ( m_bFirstTime )
     {
@@ -451,6 +451,6 @@ void CMCXViewBase::OnShowWindow(BOOL bShow, UINT nStatus)
 {
     CView::OnShowWindow(bShow, nStatus);
 
-    // TODO: ajoutez ici le code de votre gestionnaire de messages
+    // TODO add your code here
     GetSystemMenu(FALSE);
 }

@@ -1,4 +1,4 @@
-// MCXPropertyPageBase.cpp : fichier d'implémentation
+// MCXPropertyPageBase.cpp
 //
 
 #include "stdafx.h"
@@ -15,7 +15,7 @@
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Boîte de dialogue CMCXPropertyPageBase
+// Dialog Box CMCXPropertyPageBase
 //
 /////////////////////////////////////////////////////////////////////////////
 IMPLEMENT_DYNAMIC(CMCXPropertyPageBase, CPropertyPage)
@@ -79,7 +79,7 @@ END_MESSAGE_MAP()
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Gestionnaires de messages de CMCXPropertyPageBase
+// Message handling of CMCXPropertyPageBase
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -138,6 +138,14 @@ void CMCXPropertyPageBase::SetThemeChanged(bool bDarkTheme )
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
+void CMCXPropertyPageBase::SetContextMenu ( CMCXMenuBase *pMenu )
+{
+    m_pContextMenu = pMenu;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////
 BOOL CMCXPropertyPageBase::OnInitDialog()
 {
     CPropertyPage::OnInitDialog();
@@ -165,7 +173,7 @@ BOOL CMCXPropertyPageBase::OnInitDialog()
 
     //
     return TRUE;  // return TRUE unless you set the focus to a control
-    // EXCEPTION : les pages de propriétés OCX devraient retourner FALSE
+    // EXCEPTION : Pages with OCX should return FALSE
 }
 
 //

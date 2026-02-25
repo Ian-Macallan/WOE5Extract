@@ -15,19 +15,7 @@
 
 //
 /////////////////////////////////////////////////////////////////////////////
-//
-/////////////////////////////////////////////////////////////////////////////
-typedef struct  structLocation
-{
-    char    szPathname [ MAX_PATH ];
-    int     indicator;
-} STRUCTLOCATION;
-
-#define LEN_LOCATION    256
-
-//
-/////////////////////////////////////////////////////////////////////////////
-// Boîte de dialogue CMCXPropertyPageBase
+// Dialog Box CMCXPropertyPageBase
 //
 /////////////////////////////////////////////////////////////////////////////
 class CMCXPropertyPageBase : public CPropertyPage
@@ -38,7 +26,7 @@ class CMCXPropertyPageBase : public CPropertyPage
         CMCXPropertyPageBase(UINT code);
         virtual ~CMCXPropertyPageBase();
 
-    // Données de boîte de dialogue
+    // Dialog Box data
     protected :
         CMCXCToolTipCtrlBase    m_ToolTip;
         BOOL                    m_bToolTip;
@@ -57,11 +45,13 @@ class CMCXPropertyPageBase : public CPropertyPage
 
         virtual BOOL NotifyChanges ( ) { return FALSE; };
 
+        void SetContextMenu ( CMCXMenuBase *pMenu );
+
         //
         virtual void SetThemeChanged ( bool bDarkTheme );
 
     protected:
-        virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
+        virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV  Handling
 
         DECLARE_MESSAGE_MAP()
     public:

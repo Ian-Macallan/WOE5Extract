@@ -1,4 +1,4 @@
-// MCXDiablogBase.cpp : fichier d'implémentation
+// MCXDiablogBase.cpp
 //
 
 #include "stdafx.h"
@@ -15,7 +15,7 @@
 
 
 
-// Boîte de dialogue CMCXDialogBase
+// Dialog Box CMCXDialogBase
 
 IMPLEMENT_DYNAMIC(CMCXDialogBase, CDialog)
 
@@ -117,7 +117,7 @@ END_MESSAGE_MAP()
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Gestionnaires de messages de CMCXDialogBase
+// Message handling of CMCXDialogBase
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -159,7 +159,7 @@ BOOL CMCXDialogBase::OnInitDialog()
     m_bValid    = TRUE;
     //
     return TRUE;  // return TRUE unless you set the focus to a control
-    // EXCEPTION : les pages de propriétés OCX devraient retourner FALSE
+    // EXCEPTION : Pages with OCX should return FALSE
 }
 
 //
@@ -408,8 +408,8 @@ void CMCXDialogBase::OnNcMouseMove(UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXDialogBase::OnNcMouseHover(UINT nFlags, CPoint point)
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    /// Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseHover ( this, nFlags, point );
     if ( bTreated )
@@ -426,8 +426,8 @@ void CMCXDialogBase::OnNcMouseHover(UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXDialogBase::OnNcMouseLeave()
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    /// Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseLeave (this);
     if ( bTreated )

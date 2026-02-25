@@ -118,6 +118,7 @@ void CMCXStatusBarBase::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct )
             crOldColor      = pDC->SetTextColor ( CMCXColors::GetFGNormalCR(CMCXColors::m_iDarkTheme != 0)  );
         }
 
+        //
         CString paneString = GetPaneText ( lpDrawItemStruct->itemID );
         pDC->DrawText ( paneString, &lpDrawItemStruct->rcItem, DT_SINGLELINE|DT_VCENTER /* |DT_CENTER */ );
 
@@ -137,7 +138,7 @@ void CMCXStatusBarBase::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct )
 /////////////////////////////////////////////////////////////////////////////
 void CMCXStatusBarBase::OnDrawItem(int nIDCtl, LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
-    // TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+    // TODO add your code here
 
     //
     CDC *pDC = CDC::FromHandle(lpDrawItemStruct->hDC);

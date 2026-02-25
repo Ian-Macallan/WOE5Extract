@@ -22,10 +22,10 @@ HICON hIcon_windowed_ico    = NULL;
 /////////////////////////////////////////////////////////////////////////////
 HICON CreateIconFromIcoMemory(const BYTE* buffer, DWORD size, int cx, int cy)
 {
-    if (!buffer || size < 6) // un .ico fait au moins 6 octets
+    if (!buffer || size < 6) // at least 6 bytes
         return nullptr;
 
-    // Le début du fichier .ico contient un répertoire d’icônes
+    // start of file  .ico contains icons directory
     const BYTE* pDir = buffer;
 
     // TRUE = icône (FALSE = curseur)
@@ -40,7 +40,7 @@ HICON CreateIconFromIcoMemory(const BYTE* buffer, DWORD size, int cx, int cy)
     if (offset == 0)
         return nullptr;
 
-    // Les bits RT_ICON commencent à buffer + offset
+    // RT_ICON starts at buffer + offset
     const BYTE* pIconBits   = buffer + offset;
     DWORD iconBitsSize      = size - offset;
 

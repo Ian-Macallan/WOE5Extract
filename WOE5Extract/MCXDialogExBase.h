@@ -18,7 +18,7 @@
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Boîte de dialogue CMCXDialogBase
+// Dialog Box CMCXDialogBase
 //
 /////////////////////////////////////////////////////////////////////////////
 class CMCXDialogExBase : public CDialogEx
@@ -26,7 +26,7 @@ class CMCXDialogExBase : public CDialogEx
         DECLARE_DYNAMIC(CMCXDialogExBase)
 
     public:
-        CMCXDialogExBase(UINT nIDTemplate, CWnd* pParent = NULL);   // constructeur standard
+        CMCXDialogExBase(UINT nIDTemplate, CWnd* pParent = NULL);   // Standard Constructor
         virtual ~CMCXDialogExBase();
 
         CToolTipCtrl    *GetToolTipCtrl();
@@ -38,7 +38,7 @@ class CMCXDialogExBase : public CDialogEx
         //
         void SetContextMenu ( CMCXMenuBase *pMenu );
 
-    // Données de boîte de dialogue
+    // Dialog Box data
     public :    
         CFont                   *m_pBoldFont;
         CFont                   *m_pItalicFont;
@@ -63,7 +63,7 @@ class CMCXDialogExBase : public CDialogEx
         BOOL                    m_bValid;
 
     protected:
-        virtual void DoDataExchange(CDataExchange* pDX);    // Prise en charge de DDX/DDV
+        virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV  Handling
 
         DECLARE_MESSAGE_MAP()
 

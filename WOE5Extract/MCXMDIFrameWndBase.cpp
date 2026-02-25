@@ -1,4 +1,4 @@
-// MCXDiablogBase.cpp : fichier d'implémentation
+// MCXDiablogBase.cpp
 //
 
 #include "stdafx.h"
@@ -12,7 +12,7 @@
 #include "MCXColors.h"
 
 
-// Boîte de dialogue CMCXMDIFrameWndBase
+// Dialog Box CMCXMDIFrameWndBase
 
 IMPLEMENT_DYNCREATE(CMCXMDIFrameWndBase, CMDIFrameWnd)
 
@@ -117,7 +117,7 @@ END_MESSAGE_MAP()
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Gestionnaires de messages de CMCXMDIFrameWndBase
+// Message handling of CMCXMDIFrameWndBase
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -132,7 +132,7 @@ BOOL CMCXMDIFrameWndBase::PreCreateWindow(CREATESTRUCT& cs)
 
     //
     return TRUE;  // return TRUE unless you set the focus to a control
-    // EXCEPTION : les pages de propriétés OCX devraient retourner FALSE
+    // EXCEPTION : Pages with OCX should return FALSE
 }
 
 //
@@ -411,8 +411,8 @@ void CMCXMDIFrameWndBase::OnNcMouseMove(UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXMDIFrameWndBase::OnNcMouseHover(UINT nFlags, CPoint point)
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseHover ( this, nFlags, point );
     if ( bTreated )
@@ -429,8 +429,8 @@ void CMCXMDIFrameWndBase::OnNcMouseHover(UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXMDIFrameWndBase::OnNcMouseLeave()
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseLeave (this);
     if ( bTreated )
@@ -449,7 +449,7 @@ void CMCXMDIFrameWndBase::OnShowWindow(BOOL bShow, UINT nStatus)
 {
     CMDIFrameWnd::OnShowWindow(bShow, nStatus);
 
-    // TODO: ajoutez ici le code de votre gestionnaire de messages
+    // TODO add your code here
     if ( m_bFirstTime )
     {
         m_bFirstTime        = false;
@@ -522,7 +522,7 @@ void CMCXMDIFrameWndBase::HandleStatusBar ( CMCXStatusBarBase *pStatusBar )
         }
         pStatusBar->ModifyStyle ( NULL, added );
 
-	    //		Set size of the ID_INDICATOR_ERROR
+	    //		Set SBPS_OWNERDRAW
 	    UINT				nID;
 	    UINT				nStyle;
 	    int					cxWidth;
@@ -544,7 +544,7 @@ void CMCXMDIFrameWndBase::HandleStatusBar ( CMCXStatusBarBase *pStatusBar )
 /////////////////////////////////////////////////////////////////////////////
 BOOL CMCXMDIFrameWndBase::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 {
-    // TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+    // TODO Add specialized code here
 
     BOOL bCreateClient = CMDIFrameWnd::OnCreateClient(lpcs, pContext);
 
@@ -567,7 +567,18 @@ CMenu* CMCXMDIFrameWndBase::MDISetMenu( CMenu* pFrameMenu, CMenu* pWindowMenu)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXMDIFrameWndBase::OnUpdateFrameMenu(HMENU hMenuAlt)
 {
-    // TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+    // TODO Add specialized code here
 
     CMDIFrameWnd::OnUpdateFrameMenu(hMenuAlt);
+}
+
+//
+/////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////
+void CMCXMDIFrameWndBase::OnUpdateFrameTitle(BOOL bAddToTitle)
+{
+    // TODO Add specialized code here
+
+    CMDIFrameWnd::OnUpdateFrameTitle(bAddToTitle);
 }

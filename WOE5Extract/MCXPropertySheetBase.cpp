@@ -1,4 +1,4 @@
-// MCXPropertySheetBase.cpp : fichier d'implémentation
+// MCXPropertySheetBase.cpp
 //
 
 #include "stdafx.h"
@@ -15,7 +15,7 @@
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Boîte de dialogue CMCXPropertySheetBase
+// Dialog Box CMCXPropertySheetBase
 //
 /////////////////////////////////////////////////////////////////////////////
 IMPLEMENT_DYNAMIC(CMCXPropertySheetBase, CPropertySheet)
@@ -79,7 +79,7 @@ END_MESSAGE_MAP()
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Gestionnaires de messages de CMCXPropertySheetBase
+// Message handling of CMCXPropertySheetBase
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -207,7 +207,7 @@ BOOL CMCXPropertySheetBase::OnInitDialog()
 
     //
     return TRUE;  // return TRUE unless you set the focus to a control
-    // EXCEPTION : les pages de propriétés OCX devraient retourner FALSE
+    // EXCEPTION : Pages with OCX should return FALSE
 }
 
 //

@@ -1,4 +1,4 @@
-// MCXDiablogBase.cpp : fichier d'implémentation
+// MCXDiablogBase.cpp
 //
 
 #include "stdafx.h"
@@ -16,7 +16,7 @@
 
 
 
-// Boîte de dialogue CMCXMDIChildWndBase
+// Dialog Box CMCXMDIChildWndBase
 
 IMPLEMENT_DYNCREATE(CMCXMDIChildWndBase, CMDIChildWnd)
 
@@ -121,7 +121,7 @@ END_MESSAGE_MAP()
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Gestionnaires de messages de CMCXMDIChildWndBase
+// Message handling of CMCXMDIChildWndBase
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -136,7 +136,7 @@ BOOL CMCXMDIChildWndBase::PreCreateWindow(CREATESTRUCT& cs)
 
     //
     return TRUE;  // return TRUE unless you set the focus to a control
-    // EXCEPTION : les pages de propriétés OCX devraient retourner FALSE
+    // EXCEPTION : Pages with OCX should return FALSE
 }
 
 //
@@ -372,8 +372,8 @@ void CMCXMDIChildWndBase::OnNcMouseMove(UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXMDIChildWndBase::OnNcMouseHover(UINT nFlags, CPoint point)
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseHover ( this, nFlags, point );
     if ( bTreated )
@@ -390,8 +390,8 @@ void CMCXMDIChildWndBase::OnNcMouseHover(UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXMDIChildWndBase::OnNcMouseLeave()
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    // Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseLeave (this);
     if ( bTreated )
@@ -410,8 +410,8 @@ void CMCXMDIChildWndBase::OnShowWindow(BOOL bShow, UINT nStatus)
 {
     CMDIChildWnd::OnShowWindow(bShow, nStatus);
 
-    // TODO: ajoutez ici le code de votre gestionnaire de messages
-        //  Activate Context Menu
+    // TODO add your code here
+    //  Activate Context Menu
     if ( m_bFirstTime )
     {
         m_bFirstTime    = FALSE;
@@ -445,8 +445,7 @@ void CMCXMDIChildWndBase::OnShowWindow(BOOL bShow, UINT nStatus)
         SetMenu ( &m_AppMenu );
 #endif
 
-        m_NC.HandleSquareCorners ( this );
-
+        m_NC.HandleSquareCorners ( this, TRUE );
     }
 
 }

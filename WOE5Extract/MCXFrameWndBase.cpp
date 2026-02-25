@@ -1,4 +1,4 @@
-// MCXDiablogBase.cpp : fichier d'implémentation
+// MCXDiablogBase.cpp
 //
 
 #include "stdafx.h"
@@ -14,7 +14,7 @@
 
 
 
-// Boîte de dialogue CMCXFrameWndBase
+// Dialog Box CMCXFrameWndBase
 
 IMPLEMENT_DYNAMIC(CMCXFrameWndBase, CFrameWnd)
 
@@ -124,7 +124,7 @@ END_MESSAGE_MAP()
 
 //
 /////////////////////////////////////////////////////////////////////////////
-// Gestionnaires de messages de CMCXFrameWndBase
+// Message handling of CMCXFrameWndBase
 //
 /////////////////////////////////////////////////////////////////////////////
 
@@ -139,7 +139,7 @@ BOOL CMCXFrameWndBase::PreCreateWindow(CREATESTRUCT& cs)
  
     //
     return TRUE;  // return TRUE unless you set the focus to a control
-    // EXCEPTION : les pages de propriétés OCX devraient retourner FALSE
+    // EXCEPTION : Pages with OCX should return FALSE
 }
 
 //
@@ -405,8 +405,8 @@ void CMCXFrameWndBase::OnNcMouseMove(UINT nHitTest, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXFrameWndBase::OnNcMouseHover(UINT nFlags, CPoint point)
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    /// Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseHover ( this, nFlags, point );
     if ( bTreated )
@@ -423,8 +423,8 @@ void CMCXFrameWndBase::OnNcMouseHover(UINT nFlags, CPoint point)
 /////////////////////////////////////////////////////////////////////////////
 void CMCXFrameWndBase::OnNcMouseLeave()
 {
-    // Cette fonctionnalité requiert Windows 2000 ou une version ultérieure.
-    // Les symboles _WIN32_WINNT et WINVER doivent être >= 0x0500.
+    /// Requires Windows 2000 or later
+    // WIN32_WINNT  WINVER must be over  0x0500.
     //
     BOOL bTreated = m_NC.OnNcMouseLeave (this);
     if ( bTreated )
@@ -487,7 +487,7 @@ int CMCXFrameWndBase::OnCreate(LPCREATESTRUCT lpCreateStruct)
     if (CFrameWnd::OnCreate(lpCreateStruct) == -1)
         return -1;
 
-    // TODO:  Ajoutez ici votre code de création spécialisé
+    // TODO:  Add Code Here
     CMenu *pSysMenu = GetSystemMenu ( FALSE );
     if ( pSysMenu != NULL )
     {
@@ -531,14 +531,10 @@ void CMCXFrameWndBase::HandleStatusBar ( CMCXStatusBarBase *pStatusBar )
     }
     pStatusBar->ModifyStyle ( NULL, added );
 
-	//		Set size of the ID_INDICATOR_ERROR
-	RECT				rectFrame;
+	//		Set SBPS_OWNERDRAW
 	UINT				nID;
 	UINT				nStyle;
 	int					cxWidth;
-
-	//		Get the Frame Window Client size
-	GetClientRect ( &rectFrame );
 
     //  Change to enable DrawItem
     int paneCount = pStatusBar->GetCount();
@@ -557,7 +553,7 @@ void CMCXFrameWndBase::HandleStatusBar ( CMCXStatusBarBase *pStatusBar )
 /////////////////////////////////////////////////////////////////////////////
 void CMCXFrameWndBase::OnUpdateFrameMenu(HMENU hMenuAlt)
 {
-    // TODO: ajoutez ici votre code spécialisé et/ou l'appel de la classe de base
+    // TODO Add specialized code here
 
     CFrameWnd::OnUpdateFrameMenu(hMenuAlt);
 }

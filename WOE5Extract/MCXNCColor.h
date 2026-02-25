@@ -61,6 +61,7 @@ class CMCXNCColor
         CDC *GetDeviceContext ( CWnd *pWnd );
 
         //  Return TRUE if treated, FALSE if default must be done
+        BOOL InvalidateCaption( CWnd *pWnd, int darkIndicator = 2 );
         BOOL PaintCaption( CWnd *pWnd, BOOL bActive = FALSE, int darkIndicator = 2 );
         BOOL PaintWindow( CWnd *pWnd, BOOL bFill = FALSE, CToolBar *pToolBar = NULL, BOOL bActive = FALSE, int darkIndicator = 2 );
         BOOL Activate( CWnd *pWnd, BOOL bActive = FALSE, int darkIndicator = 2 );
