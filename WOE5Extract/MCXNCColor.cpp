@@ -41,15 +41,45 @@ CRect CMCXNCColor::GetFrameFullRect ( const CRect &windowRECT )
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-CRect CMCXNCColor::GetCaptionFullRect ( const CRect &windowRECT )
+CRect CMCXNCColor::GetCaptionWindowRect ( CWnd *pWnd )
 {
+        //
+    CRect windowRECT;
+    pWnd->GetWindowRect(&windowRECT);
+
     //  EG : 1
-    int yBorder         = GetSystemMetrics(SM_CYBORDER);
+    int yBorder         = GetSystemMetrics ( SM_CYBORDER );
 
     //  EG : 3
     int yFrame          = GetSystemMetrics ( SM_CYDLGFRAME );
 
-    int yCaption        = GetSystemMetrics(SM_CYCAPTION);
+    int yCaption        = GetSystemMetrics ( SM_CYCAPTION );
+
+    CRect captionFullRECT;
+
+    captionFullRECT.left    = windowRECT.left;
+    captionFullRECT.top     = windowRECT.top;
+    captionFullRECT.right   = captionFullRECT.left + windowRECT.Width();
+    captionFullRECT.bottom  = captionFullRECT.top + yCaption + 2 * yBorder + yFrame;
+
+    return captionFullRECT;
+
+
+}
+
+//
+/////////////////////////////////////////////////////////////////////////////
+//
+/////////////////////////////////////////////////////////////////////////////
+CRect CMCXNCColor::GetCaptionFullRect ( const CRect &windowRECT )
+{
+    //  EG : 1
+    int yBorder         = GetSystemMetrics ( SM_CYBORDER );
+
+    //  EG : 3
+    int yFrame          = GetSystemMetrics ( SM_CYDLGFRAME );
+
+    int yCaption        = GetSystemMetrics ( SM_CYCAPTION );
 
     CRect captionFullRECT;
 
@@ -68,14 +98,14 @@ CRect CMCXNCColor::GetCaptionFullRect ( const CRect &windowRECT )
 CRect CMCXNCColor::GetCaptionInsideRect ( const CRect &windowRECT )
 {
     //  EG : 1
-    int xBorder         = GetSystemMetrics(SM_CXBORDER);
-    int yBorder         = GetSystemMetrics(SM_CYBORDER);
+    int xBorder         = GetSystemMetrics ( SM_CXBORDER );
+    int yBorder         = GetSystemMetrics ( SM_CYBORDER );
 
     //  EG : 3
     int xFrame          = GetSystemMetrics ( SM_CXDLGFRAME );
     int yFrame          = GetSystemMetrics ( SM_CYDLGFRAME );
 
-    int yCaption        = GetSystemMetrics(SM_CYCAPTION);
+    int yCaption        = GetSystemMetrics ( SM_CYCAPTION );
 
     int xLeft           = xBorder + xFrame;
     int yTop            = yBorder + yFrame;
@@ -145,20 +175,20 @@ CRect CMCXNCColor::GetToolBarRect ( CToolBar *pToolBar, const CRect &windowRECT 
 CRect CMCXNCColor::GetClientFullRect ( const CRect &windowRECT )
 {
     //  EG : 1
-    int xBorder         = GetSystemMetrics(SM_CXBORDER);
-    int yBorder         = GetSystemMetrics(SM_CYBORDER);
+    int xBorder         = GetSystemMetrics ( SM_CXBORDER );
+    int yBorder         = GetSystemMetrics ( SM_CYBORDER );
 
     //  EG : 3
     int xFrame          = GetSystemMetrics ( SM_CXDLGFRAME );
     int yFrame          = GetSystemMetrics ( SM_CYDLGFRAME );
 
-    int xIcon           = GetSystemMetrics(SM_CXICON);
-    int yIcon           = GetSystemMetrics(SM_CYICON);
+    int xIcon           = GetSystemMetrics ( SM_CXICON );
+    int yIcon           = GetSystemMetrics ( SM_CYICON );
 
-    int xIconSmall      = GetSystemMetrics(SM_CXSMICON);
-    int yIconSmall      = GetSystemMetrics(SM_CYSMICON);
+    int xIconSmall      = GetSystemMetrics ( SM_CXSMICON );
+    int yIconSmall      = GetSystemMetrics ( SM_CYSMICON );
 
-    int yCaption        = GetSystemMetrics(SM_CYCAPTION);
+    int yCaption        = GetSystemMetrics ( SM_CYCAPTION );
 
     CRect clientFullRECT;
 
@@ -176,7 +206,7 @@ CRect CMCXNCColor::GetClientFullRect ( const CRect &windowRECT )
 /////////////////////////////////////////////////////////////////////////////
 int CMCXNCColor::GetIconWidth ( )
 {
-    int xIcon           = GetSystemMetrics(SM_CXICON);
+    int xIcon           = GetSystemMetrics ( SM_CXICON );
     return xIcon * 3 / 2 - 1;
 }
 
@@ -186,7 +216,7 @@ int CMCXNCColor::GetIconWidth ( )
 /////////////////////////////////////////////////////////////////////////////
 int CMCXNCColor::GetIconHeight ( )
 {
-    int yCaption        = GetSystemMetrics(SM_CYCAPTION);
+    int yCaption        = GetSystemMetrics ( SM_CYCAPTION );
     return yCaption - 1;
 }
 
@@ -196,7 +226,7 @@ int CMCXNCColor::GetIconHeight ( )
 /////////////////////////////////////////////////////////////////////////////
 CRect CMCXNCColor::GetIconFullRECT ( const CRect &windowRECT, int left )
 {
-    int yBorder         = GetSystemMetrics(SM_CYBORDER);
+    int yBorder         = GetSystemMetrics ( SM_CYBORDER );
     int yFrame          = GetSystemMetrics ( SM_CYDLGFRAME );
 
     CRect captionFullRECT   = GetCaptionFullRect ( windowRECT );
@@ -396,8 +426,8 @@ void CMCXNCColor::DrawIcon ( CDC *pDC, UINT icon, const CRect crect, bool bFillR
     //
     if ( icon != 0 )
     {
-        int xIconSmall  = GetSystemMetrics(SM_CXSMICON);
-        int yIconSmall  = GetSystemMetrics(SM_CYSMICON);
+        int xIconSmall  = GetSystemMetrics ( SM_CXSMICON );
+        int yIconSmall  = GetSystemMetrics ( SM_CYSMICON );
 
         int xMargin = ( crect.Width() - xIconSmall ) / 2;
         int yMargin = ( crect.Height() - yIconSmall ) / 2;
@@ -424,8 +454,8 @@ void CMCXNCColor::DrawIcon ( CDC *pDC, HICON hIcon, const CRect crect, bool bFil
     //
     if ( hIcon != NULL )
     {
-        int xIconSmall  = GetSystemMetrics(SM_CXSMICON);
-        int yIconSmall  = GetSystemMetrics(SM_CYSMICON);
+        int xIconSmall  = GetSystemMetrics ( SM_CXSMICON );
+        int yIconSmall  = GetSystemMetrics ( SM_CYSMICON );
 
         int xMargin = ( crect.Width() - xIconSmall ) / 2;
         int yMargin = ( crect.Height() - yIconSmall ) / 2;
@@ -447,36 +477,6 @@ CDC *CMCXNCColor::GetDeviceContext ( CWnd *pWnd )
 /////////////////////////////////////////////////////////////////////////////
 //
 /////////////////////////////////////////////////////////////////////////////
-BOOL CMCXNCColor::InvalidateCaption ( CWnd *pWnd, int darkIndicator )
-{
-	if ( CMCXWinAppBase::OSVersionLowerThan ( 6, 1 ) )
-	{
-		return FALSE;
-	}
-
-    if ( CMCXColors::m_iDarkTheme != 2 && CMCXColors::m_iDarkTheme != darkIndicator )
-    {
-        return FALSE;
-    }
-
-    //
-    CRect windowRECT;
-    pWnd->GetWindowRect(&windowRECT);
-
-    //  The The Caption Rect
-    CRect captionFullRECT   = GetCaptionFullRect ( windowRECT );
-
-    //
-    pWnd->InvalidateRect ( captionFullRECT, TRUE );
-
-    //
-    return TRUE;
-}
-
-//
-/////////////////////////////////////////////////////////////////////////////
-//
-/////////////////////////////////////////////////////////////////////////////
 BOOL CMCXNCColor::PaintCaption( CWnd *pWnd, BOOL bActive, int darkIndicator )
 {
 	if ( CMCXWinAppBase::OSVersionLowerThan ( 6, 1 ) )
@@ -490,20 +490,20 @@ BOOL CMCXNCColor::PaintCaption( CWnd *pWnd, BOOL bActive, int darkIndicator )
     }
 
     //  EG : 1
-    int xBorder         = GetSystemMetrics(SM_CXBORDER);
-    int yBorder         = GetSystemMetrics(SM_CYBORDER);
+    int xBorder         = GetSystemMetrics ( SM_CXBORDER );
+    int yBorder         = GetSystemMetrics ( SM_CYBORDER );
 
     //  EG : 3
     int xFrame          = GetSystemMetrics ( SM_CXDLGFRAME );
     int yFrame          = GetSystemMetrics ( SM_CYDLGFRAME );
 
-    // int xIcon           = GetSystemMetrics(SM_CXICON);
-    // int yIcon           = GetSystemMetrics(SM_CYICON);
+    // int xIcon           = GetSystemMetrics ( SM_CXICON );
+    // int yIcon           = GetSystemMetrics ( SM_CYICON );
 
-    // int xIconSmall      = GetSystemMetrics(SM_CXSMICON);
-    // int yIconSmall      = GetSystemMetrics(SM_CYSMICON);
+    // int xIconSmall      = GetSystemMetrics ( SM_CXSMICON );
+    // int yIconSmall      = GetSystemMetrics ( SM_CYSMICON );
 
-    // int yCaption        = GetSystemMetrics(SM_CYCAPTION);
+    // int yCaption        = GetSystemMetrics ( SM_CYCAPTION );
 
     int xLeft           = xBorder + xFrame;
     int yTop            = yBorder + yFrame;
@@ -874,7 +874,7 @@ BOOL CMCXNCColor::OnNcLButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point, int d
         }
 
         //  Icons At RIght
-        int xIcon   = GetSystemMetrics(SM_CXICON);
+        int xIcon   = GetSystemMetrics ( SM_CXICON );
 
         //
         CRect iconsRect;
@@ -968,7 +968,7 @@ BOOL CMCXNCColor::OnNcLButtonUp(CWnd *pWnd, UINT nHitTest, CPoint point, int dar
         }
 
         //  Icons At RIght
-        int xIcon   = GetSystemMetrics(SM_CXICON);
+        int xIcon   = GetSystemMetrics ( SM_CXICON );
 
         CRect iconsRect;
         iconsRect.top       = m_CloseRect.top;

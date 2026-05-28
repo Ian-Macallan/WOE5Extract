@@ -130,6 +130,9 @@ BOOL CMCXDialogExBase::OnInitDialog()
 {
     CDialogEx::OnInitDialog();
 
+#ifdef _DEBUG
+    EnumChildWindows(this->m_hWnd, CMCXWinAppBase::EnumChildProc, 0);
+#endif
     //
     m_pNormalFont       = CMCXWinAppBase::CreateNormalFont ( this );
     m_pBoldFont         = CMCXWinAppBase::CreateBoldFont ( this, m_pNormalFont );

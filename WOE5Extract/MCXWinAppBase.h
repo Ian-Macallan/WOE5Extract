@@ -62,5 +62,7 @@ class CMCXWinAppBase : public CWinApp
         static CFont *CreateFixedFont( CWnd *pWnd, CFont *pNormalFont );
         static CFont *CreateFixedBoldFont( CWnd *pWnd, CFont *pNormalFont );
 
+        static BOOL CALLBACK EnumChildProc(HWND hwnd, LPARAM lParam);
+
 };
 

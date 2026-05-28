@@ -579,6 +579,11 @@ void CMCXMDIFrameWndBase::OnUpdateFrameMenu(HMENU hMenuAlt)
 void CMCXMDIFrameWndBase::OnUpdateFrameTitle(BOOL bAddToTitle)
 {
     // TODO Add specialized code here
+    CRect rect = m_NC.GetCaptionWindowRect ( this );
 
+    CRect *pRect = NULL;
+    RedrawWindow( pRect, NULL, RDW_FRAME | RDW_INVALIDATE);
+    
+    //
     CMDIFrameWnd::OnUpdateFrameTitle(bAddToTitle);
 }

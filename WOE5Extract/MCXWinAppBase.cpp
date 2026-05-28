@@ -682,7 +682,6 @@ CFont *CMCXWinAppBase::CreateFixedFont(CWnd *pWnd, CFont *pNormalFont)
 
 }
 
-
 //
 ////////////////////////////////////////////////////////////////////////
 //
@@ -717,3 +716,49 @@ CFont *CMCXWinAppBase::CreateFixedBoldFont(CWnd *pWnd, CFont *pNormalFont)
     return pFixedBoldFont;
 }
 
+//
+////////////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////////////
+BOOL CALLBACK CMCXWinAppBase::EnumChildProc(HWND hwnd, LPARAM lParam)
+{
+    TCHAR szClassName[64]   =  _T("");
+    TCHAR szText[128]       =  _T("");
+    TCHAR szOwnerDraw[32]   =  _T("");
+
+    GetClassName(hwnd, szClassName, _wsizeof(szClassName));
+    GetWindowText(hwnd, szText, _wsizeof(szText));
+
+    int id          = GetDlgCtrlID(hwnd);
+    LONG oldStyle   = GetWindowLong(hwnd, GWL_STYLE);
+    LONG newStyle   = oldStyle;
+
+#ifdef _DEBUG
+    // BS_OWNERDRAW = 0x0B
+    //  For Buttom Only
+    if ( _tcscmp ( szClassName, _T("Button") ) == 0 )
+    {
+        if ( ( oldStyle & BS_OWNERDRAW ) != 0 )
+        {
+            _tcscpy_s ( szOwnerDraw, _wsizeof(szOwnerDraw), _T("BS_OWNERDRAW") );
+            newStyle    ^= BS_OWNERDRAW;
+        }
+
+        if ( false )
+        {
+            if ( CMCXColors::m_iDarkTheme == 0 )
+            {
+                SetWindowLong(hwnd, GWL_STYLE, newStyle );
+            }
+        }
+    }
+
+    //
+    static TCHAR szDebugString [ MAX_PATH ];
+    _stprintf_s ( szDebugString, _wsizeof(szDebugString), _T("EnumChildProc %d '%s' (%s) 0x%lx (%s)\n"), 
+        id, szText, szClassName, oldStyle, szOwnerDraw );
+    OutputDebugString ( szDebugString );
+#endif
+
+    return TRUE; // continue
+}

@@ -7,7 +7,7 @@
 
 //
 /////////////////////////////////////////////////////////////////////////////
-//
+//  BS_OWNERDRAW
 /////////////////////////////////////////////////////////////////////////////
 IMPLEMENT_DYNAMIC(CMCXButtonBase, CButton)
 
@@ -45,6 +45,7 @@ BEGIN_MESSAGE_MAP(CMCXButtonBase, CButton)
     ON_WM_ERASEBKGND()
     ON_WM_CTLCOLOR()
     ON_WM_RBUTTONUP()
+    ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 //
@@ -177,3 +178,4 @@ void CMCXButtonBase::OnRButtonUp(UINT nFlags, CPoint point)
     hdr.idFrom      = GetDlgCtrlID();
     this->GetParent()->SendMessage(WM_NOTIFY, (WPARAM)hdr.idFrom, (LPARAM)&hdr );
 }
+

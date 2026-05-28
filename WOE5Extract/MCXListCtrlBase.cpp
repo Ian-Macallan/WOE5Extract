@@ -108,6 +108,7 @@ void CMCXListCtrlBase::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
     }
 
     //
+    //  CWnd::UnsubclassWindow
     if( GetHeaderCtrl ( ) && GetHeaderCtrl()->m_hWnd != NULL && m_bHeaderControlSubclassed == false )
     {
         m_HeaderCtrl.SubclassWindow(GetHeaderCtrl()->m_hWnd);
